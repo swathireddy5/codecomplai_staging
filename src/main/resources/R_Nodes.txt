@@ -1,0 +1,6080 @@
+[
+   {
+      "id":"101.4",
+      "label":"101.4",
+      "shape":"dot",
+      "title":"Referenced codes."
+   },
+   {
+      "id":"102.4",
+      "label":"102.4",
+      "shape":"dot",
+      "title":"Referenced codes and standards."
+   },
+   {
+      "id":"106.2",
+      "label":"106.2",
+      "shape":"dot",
+      "title":"Issuance of certificate of occupancy."
+   },
+   {
+      "id":"107.2",
+      "label":"107.2",
+      "shape":"dot",
+      "title":"Construction documents."
+   },
+   {
+      "id":"110.3",
+      "label":"110.3",
+      "shape":"dot",
+      "title":"Required inspections."
+   },
+   {
+      "id":"111.1",
+      "label":"111.1",
+      "shape":"dot",
+      "title":"Use and occupancy."
+   },
+   {
+      "id":"112.3",
+      "label":"112.3",
+      "shape":"dot",
+      "title":"Authority to disconnect service utilities."
+   },
+   {
+      "id":"116.5",
+      "label":"116.5",
+      "shape":"dot",
+      "title":"Restoration."
+   },
+   {
+      "id":"1203.1",
+      "label":"1203.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"1203.3",
+      "label":"1203.3",
+      "shape":"dot",
+      "title":"Unvented attic and unvented enclosed rafter assemblies."
+   },
+   {
+      "id":"1205.1",
+      "label":"1205.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"1205.5",
+      "label":"1205.5",
+      "shape":"dot",
+      "title":"Emergency egress lighting."
+   },
+   {
+      "id":"1210.2",
+      "label":"1210.2",
+      "shape":"dot",
+      "title":"Finish materials."
+   },
+   {
+      "id":"1210.3",
+      "label":"1210.3",
+      "shape":"dot",
+      "title":"Privacy."
+   },
+   {
+      "id":"1105.1",
+      "label":"1105.1",
+      "shape":"dot",
+      "title":"Public entrances."
+   },
+   {
+      "id":"1106.1",
+      "label":"1106.1",
+      "shape":"dot",
+      "title":"Required."
+   },
+   {
+      "id":"1107.4",
+      "label":"1107.4",
+      "shape":"dot",
+      "title":"Accessible route."
+   },
+   {
+      "id":"1107.5",
+      "label":"1107.5",
+      "shape":"dot",
+      "title":"Group I."
+   },
+   {
+      "id":"1107.6",
+      "label":"1107.6",
+      "shape":"dot",
+      "title":"Group R."
+   },
+   {
+      "id":"1107.7",
+      "label":"1107.7",
+      "shape":"dot",
+      "title":"General exceptions."
+   },
+   {
+      "id":"1108.1",
+      "label":"1108.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"1108.2",
+      "label":"1108.2",
+      "shape":"dot",
+      "title":"Assembly area seating."
+   },
+   {
+      "id":"1603.1",
+      "label":"1603.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"1604.3",
+      "label":"1604.3",
+      "shape":"dot",
+      "title":"Serviceability."
+   },
+   {
+      "id":"1604.5",
+      "label":"1604.5",
+      "shape":"dot",
+      "title":"Risk category."
+   },
+   {
+      "id":"1604.8",
+      "label":"1604.8",
+      "shape":"dot",
+      "title":"Anchorage."
+   },
+   {
+      "id":"1605.1",
+      "label":"1605.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"1605.3",
+      "label":"1605.3",
+      "shape":"dot",
+      "title":"Load combinations using allowable stress design."
+   },
+   {
+      "id":"1607.1",
+      "label":"1607.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"1607.2",
+      "label":"1607.2",
+      "shape":"dot",
+      "title":"Loads not specified."
+   },
+   {
+      "id":"1607.3",
+      "label":"1607.3",
+      "shape":"dot",
+      "title":"Uniform live loads."
+   },
+   {
+      "id":"1607.4",
+      "label":"1607.4",
+      "shape":"dot",
+      "title":"Concentrated live loads."
+   },
+   {
+      "id":"1607.7",
+      "label":"1607.7",
+      "shape":"dot",
+      "title":"Heavy vehicle loads."
+   },
+   {
+      "id":"1607.9",
+      "label":"1607.9",
+      "shape":"dot",
+      "title":"Impact loads."
+   },
+   {
+      "id":"1607.10",
+      "label":"1607.10",
+      "shape":"dot",
+      "title":"Reduction in uniform live loads."
+   },
+   {
+      "id":"1607.11",
+      "label":"1607.11",
+      "shape":"dot",
+      "title":"Distribution of floor loads."
+   },
+   {
+      "id":"1607.12",
+      "label":"1607.12",
+      "shape":"dot",
+      "title":"Roof loads."
+   },
+   {
+      "id":"1608.2",
+      "label":"1608.2",
+      "shape":"dot",
+      "title":"Ground snow loads."
+   },
+   {
+      "id":"1609.3",
+      "label":"1609.3",
+      "shape":"dot",
+      "title":"Ultimate design wind speed."
+   },
+   {
+      "id":"1609.5",
+      "label":"1609.5",
+      "shape":"dot",
+      "title":"Roof systems."
+   },
+   {
+      "id":"1610.1",
+      "label":"1610.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"1611.1",
+      "label":"1611.1",
+      "shape":"dot",
+      "title":"Design rain loads."
+   },
+   {
+      "id":"1611.3",
+      "label":"1611.3",
+      "shape":"dot",
+      "title":"Controlled drainage."
+   },
+   {
+      "id":"1612.1",
+      "label":"1612.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"1612.5",
+      "label":"1612.5",
+      "shape":"dot",
+      "title":"Flood hazard documentation."
+   },
+   {
+      "id":"1613.4",
+      "label":"1613.4",
+      "shape":"dot",
+      "title":"Alternatives to ASCE 7."
+   },
+   {
+      "id":"1613.5",
+      "label":"1613.5",
+      "shape":"dot",
+      "title":"Amendments to ASCE 7."
+   },
+   {
+      "id":"1615.1",
+      "label":"1615.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"1615.4",
+      "label":"1615.4",
+      "shape":"dot",
+      "title":"Bearing wall structures."
+   },
+   {
+      "id":"2603.3",
+      "label":"2603.3",
+      "shape":"dot",
+      "title":"Surface-burning characteristics."
+   },
+   {
+      "id":"2603.4",
+      "label":"2603.4",
+      "shape":"dot",
+      "title":"Thermal barrier."
+   },
+   {
+      "id":"2603.5",
+      "label":"2603.5",
+      "shape":"dot",
+      "title":"Exterior walls of buildings of any height."
+   },
+   {
+      "id":"2603.6",
+      "label":"2603.6",
+      "shape":"dot",
+      "title":"Roofing."
+   },
+   {
+      "id":"2603.7",
+      "label":"2603.7",
+      "shape":"dot",
+      "title":"Foam plastic insulation used as interior finish or interior trim in plenums."
+   },
+   {
+      "id":"2603.8",
+      "label":"2603.8",
+      "shape":"dot",
+      "title":"Protection against termites."
+   },
+   {
+      "id":"2603.9",
+      "label":"2603.9",
+      "shape":"dot",
+      "title":"Special approval."
+   },
+   {
+      "id":"2603.12",
+      "label":"2603.12",
+      "shape":"dot",
+      "title":"Cladding attachment over foam sheathing to cold-formed steel framing."
+   },
+   {
+      "id":"2604.1",
+      "label":"2604.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"2604.2",
+      "label":"2604.2",
+      "shape":"dot",
+      "title":"Interior trim."
+   },
+   {
+      "id":"2606.10",
+      "label":"2606.10",
+      "shape":"dot",
+      "title":" Awnings, patio covers and similar structures."
+   },
+   {
+      "id":"2607.3",
+      "label":"2607.3",
+      "shape":"dot",
+      "title":"Height limitation."
+   },
+   {
+      "id":"2607.4",
+      "label":"2607.4",
+      "shape":"dot",
+      "title":"Area limitation and separation."
+   },
+   {
+      "id":"2607.5",
+      "label":"2607.5",
+      "shape":"dot",
+      "title":"Automatic sprinkler system."
+   },
+   {
+      "id":"2609.2",
+      "label":"2609.2",
+      "shape":"dot",
+      "title":"Separation."
+   },
+   {
+      "id":"2609.3",
+      "label":"2609.3",
+      "shape":"dot",
+      "title":"Location."
+   },
+   {
+      "id":"2609.4",
+      "label":"2609.4",
+      "shape":"dot",
+      "title":"Area limitations."
+   },
+   {
+      "id":"2610.1",
+      "label":"2610.1",
+      "shape":"dot",
+      "title":"Light-transmitting plastic glazing of skylight assemblies."
+   },
+   {
+      "id":"2610.6",
+      "label":"2610.6",
+      "shape":"dot",
+      "title":"Separation."
+   },
+   {
+      "id":"2611.1",
+      "label":"2611.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"2612.3",
+      "label":"2612.3",
+      "shape":"dot",
+      "title":"Flame spread index."
+   },
+   {
+      "id":"2613.5",
+      "label":"2613.5",
+      "shape":"dot",
+      "title":"Exterior use."
+   },
+   {
+      "id":"2614.1",
+      "label":"2614.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"1003.2",
+      "label":"1003.2",
+      "shape":"dot",
+      "title":"Ceiling height."
+   },
+   {
+      "id":"1003.3",
+      "label":"1003.3",
+      "shape":"dot",
+      "title":"Protruding objects."
+   },
+   {
+      "id":"1003.5",
+      "label":"1003.5",
+      "shape":"dot",
+      "title":"Elevation change."
+   },
+   {
+      "id":"1003.7",
+      "label":"1003.7",
+      "shape":"dot",
+      "title":"Elevators, escalators and moving walks."
+   },
+   {
+      "id":"1004.2",
+      "label":"1004.2",
+      "shape":"dot",
+      "title":"Increased occupant load."
+   },
+   {
+      "id":"1004.4",
+      "label":"1004.4",
+      "shape":"dot",
+      "title":"Fixed seating."
+   },
+   {
+      "id":"1005.3",
+      "label":"1005.3",
+      "shape":"dot",
+      "title":"Required capacity based on occupant load."
+   },
+   {
+      "id":"1006.1",
+      "label":"1006.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"1008.1",
+      "label":"1008.1",
+      "shape":"dot",
+      "title":"Means of egress illumination."
+   },
+   {
+      "id":"1009.1",
+      "label":"1009.1",
+      "shape":"dot",
+      "title":"Accessible means of egress required."
+   },
+   {
+      "id":"1009.2",
+      "label":"1009.2",
+      "shape":"dot",
+      "title":"Continuity and components."
+   },
+   {
+      "id":"1009.3",
+      "label":"1009.3",
+      "shape":"dot",
+      "title":"Stairways."
+   },
+   {
+      "id":"1009.4",
+      "label":"1009.4",
+      "shape":"dot",
+      "title":"Elevators."
+   },
+   {
+      "id":"1009.7",
+      "label":"1009.7",
+      "shape":"dot",
+      "title":"Exterior areas for assisted rescue."
+   },
+   {
+      "id":"1009.8",
+      "label":"1009.8",
+      "shape":"dot",
+      "title":"Two-way communication."
+   },
+   {
+      "id":"1009.9",
+      "label":"1009.9",
+      "shape":"dot",
+      "title":"Signage."
+   },
+   {
+      "id":"1010.1",
+      "label":"1010.1",
+      "shape":"dot",
+      "title":"Doors."
+   },
+   {
+      "id":"1011.1",
+      "label":"1011.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"1011.2",
+      "label":"1011.2",
+      "shape":"dot",
+      "title":"Width and capacity."
+   },
+   {
+      "id":"1011.3",
+      "label":"1011.3",
+      "shape":"dot",
+      "title":"Headroom."
+   },
+   {
+      "id":"1011.5",
+      "label":"1011.5",
+      "shape":"dot",
+      "title":"Stair treads and risers."
+   },
+   {
+      "id":"1011.6",
+      "label":"1011.6",
+      "shape":"dot",
+      "title":"Stairway landings."
+   },
+   {
+      "id":"1011.9",
+      "label":"1011.9",
+      "shape":"dot",
+      "title":"Curved stairways."
+   },
+   {
+      "id":"1011.10",
+      "label":"1011.10",
+      "shape":"dot",
+      "title":"Spiral stairways."
+   },
+   {
+      "id":"1011.12",
+      "label":"1011.12",
+      "shape":"dot",
+      "title":"Stairway to roof."
+   },
+   {
+      "id":"1011.16",
+      "label":"1011.16",
+      "shape":"dot",
+      "title":"Ladders."
+   },
+   {
+      "id":"1012.1",
+      "label":"1012.1",
+      "shape":"dot",
+      "title":"Scope."
+   },
+   {
+      "id":"1012.5",
+      "label":"1012.5",
+      "shape":"dot",
+      "title":"Minimum dimensions."
+   },
+   {
+      "id":"1012.6",
+      "label":"1012.6",
+      "shape":"dot",
+      "title":"Landings."
+   },
+   {
+      "id":"1012.10",
+      "label":"1012.10",
+      "shape":"dot",
+      "title":"Edge protection."
+   },
+   {
+      "id":"1013.2",
+      "label":"1013.2",
+      "shape":"dot",
+      "title":"Floor-level exit signs in Group R-1."
+   },
+   {
+      "id":"1013.3",
+      "label":"1013.3",
+      "shape":"dot",
+      "title":"Illumination."
+   },
+   {
+      "id":"1013.6",
+      "label":"1013.6",
+      "shape":"dot",
+      "title":"Externally illuminated exit signs."
+   },
+   {
+      "id":"1014.1",
+      "label":"1014.1",
+      "shape":"dot",
+      "title":"Where required."
+   },
+   {
+      "id":"1014.2",
+      "label":"1014.2",
+      "shape":"dot",
+      "title":"Height."
+   },
+   {
+      "id":"1014.3",
+      "label":"1014.3",
+      "shape":"dot",
+      "title":"Handrail graspability."
+   },
+   {
+      "id":"1014.4",
+      "label":"1014.4",
+      "shape":"dot",
+      "title":"Continuity."
+   },
+   {
+      "id":"1014.8",
+      "label":"1014.8",
+      "shape":"dot",
+      "title":"Projections."
+   },
+   {
+      "id":"1015.1",
+      "label":"1015.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"1015.2",
+      "label":"1015.2",
+      "shape":"dot",
+      "title":"Where required."
+   },
+   {
+      "id":"1015.3",
+      "label":"1015.3",
+      "shape":"dot",
+      "title":"Height."
+   },
+   {
+      "id":"1015.4",
+      "label":"1015.4",
+      "shape":"dot",
+      "title":"Opening limitations."
+   },
+   {
+      "id":"1015.8",
+      "label":"1015.8",
+      "shape":"dot",
+      "title":"Window openings."
+   },
+   {
+      "id":"1017.2",
+      "label":"1017.2",
+      "shape":"dot",
+      "title":"Limitations."
+   },
+   {
+      "id":"1018.1",
+      "label":"1018.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"1018.3",
+      "label":"1018.3",
+      "shape":"dot",
+      "title":"Aisles in Groups B and M."
+   },
+   {
+      "id":"1018.5",
+      "label":"1018.5",
+      "shape":"dot",
+      "title":"Aisles in other than assembly spaces and Groups B and M."
+   },
+   {
+      "id":"1020.1",
+      "label":"1020.1",
+      "shape":"dot",
+      "title":"Construction."
+   },
+   {
+      "id":"1020.2",
+      "label":"1020.2",
+      "shape":"dot",
+      "title":"Width and capacity."
+   },
+   {
+      "id":"1020.3",
+      "label":"1020.3",
+      "shape":"dot",
+      "title":"Obstruction."
+   },
+   {
+      "id":"1020.6",
+      "label":"1020.6",
+      "shape":"dot",
+      "title":"Corridor continuity."
+   },
+   {
+      "id":"1022.2",
+      "label":"1022.2",
+      "shape":"dot",
+      "title":"Exterior exit doors."
+   },
+   {
+      "id":"1023.1",
+      "label":"1023.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"1023.2",
+      "label":"1023.2",
+      "shape":"dot",
+      "title":"Construction."
+   },
+   {
+      "id":"1023.5",
+      "label":"1023.5",
+      "shape":"dot",
+      "title":"Penetrations."
+   },
+   {
+      "id":"1023.6",
+      "label":"1023.6",
+      "shape":"dot",
+      "title":"Ventilation."
+   },
+   {
+      "id":"1023.10",
+      "label":"1023.10",
+      "shape":"dot",
+      "title":"Elevator lobby identification signs."
+   },
+   {
+      "id":"1023.11",
+      "label":"1023.11",
+      "shape":"dot",
+      "title":"Smokeproof enclosures."
+   },
+   {
+      "id":"1024.2",
+      "label":"1024.2",
+      "shape":"dot",
+      "title":"Width."
+   },
+   {
+      "id":"1024.5",
+      "label":"1024.5",
+      "shape":"dot",
+      "title":"Openings."
+   },
+   {
+      "id":"1024.6",
+      "label":"1024.6",
+      "shape":"dot",
+      "title":"Penetrations."
+   },
+   {
+      "id":"1024.7",
+      "label":"1024.7",
+      "shape":"dot",
+      "title":"Ventilation."
+   },
+   {
+      "id":"1025.1",
+      "label":"1025.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"1025.2",
+      "label":"1025.2",
+      "shape":"dot",
+      "title":"Markings within exit components."
+   },
+   {
+      "id":"1027.6",
+      "label":"1027.6",
+      "shape":"dot",
+      "title":"Exterior exit stairway and ramp protection."
+   },
+   {
+      "id":"1028.4",
+      "label":"1028.4",
+      "shape":"dot",
+      "title":"Egress courts."
+   },
+   {
+      "id":"1029.6",
+      "label":"1029.6",
+      "shape":"dot",
+      "title":"Capacity of aisle for assembly."
+   },
+   {
+      "id":"1029.10",
+      "label":"1029.10",
+      "shape":"dot",
+      "title":"Transitions."
+   },
+   {
+      "id":"1029.12",
+      "label":"1029.12",
+      "shape":"dot",
+      "title":"Aisle accessways."
+   },
+   {
+      "id":"1029.13",
+      "label":"1029.13",
+      "shape":"dot",
+      "title":"Assembly aisle walking surfaces."
+   },
+   {
+      "id":"1029.16",
+      "label":"1029.16",
+      "shape":"dot",
+      "title":"Assembly guards."
+   },
+   {
+      "id":"3202.1",
+      "label":"3202.1",
+      "shape":"dot",
+      "title":"Encroachments below grade."
+   },
+   {
+      "id":"3202.2",
+      "label":"3202.2",
+      "shape":"dot",
+      "title":"Encroachments above grade and below 8 feet in height."
+   },
+   {
+      "id":"3202.3",
+      "label":"3202.3",
+      "shape":"dot",
+      "title":"Encroachments 8 feet or more above grade."
+   },
+   {
+      "id":"402.4",
+      "label":"402.4",
+      "shape":"dot",
+      "title":"Construction."
+   },
+   {
+      "id":"402.5",
+      "label":"402.5",
+      "shape":"dot",
+      "title":"Automatic sprinkler system."
+   },
+   {
+      "id":"402.6",
+      "label":"402.6",
+      "shape":"dot",
+      "title":"Interior finishes and features."
+   },
+   {
+      "id":"402.7",
+      "label":"402.7",
+      "shape":"dot",
+      "title":"Emergency systems."
+   },
+   {
+      "id":"402.8",
+      "label":"402.8",
+      "shape":"dot",
+      "title":"Means of egress."
+   },
+   {
+      "id":"403.1",
+      "label":"403.1",
+      "shape":"dot",
+      "title":"Applicability."
+   },
+   {
+      "id":"403.2",
+      "label":"403.2",
+      "shape":"dot",
+      "title":"Construction."
+   },
+   {
+      "id":"403.3",
+      "label":"403.3",
+      "shape":"dot",
+      "title":"Automatic sprinkler system."
+   },
+   {
+      "id":"403.4",
+      "label":"403.4",
+      "shape":"dot",
+      "title":"Emergency systems."
+   },
+   {
+      "id":"403.5",
+      "label":"403.5",
+      "shape":"dot",
+      "title":"Means of egress and evacuation."
+   },
+   {
+      "id":"403.6",
+      "label":"403.6",
+      "shape":"dot",
+      "title":"Elevators."
+   },
+   {
+      "id":"404.1",
+      "label":"404.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"404.7",
+      "label":"404.7",
+      "shape":"dot",
+      "title":"Standby power."
+   },
+   {
+      "id":"405.1",
+      "label":"405.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"405.3",
+      "label":"405.3",
+      "shape":"dot",
+      "title":"Automatic sprinkler system."
+   },
+   {
+      "id":"405.4",
+      "label":"405.4",
+      "shape":"dot",
+      "title":"Compartmentation."
+   },
+   {
+      "id":"405.5",
+      "label":"405.5",
+      "shape":"dot",
+      "title":"Smoke control system."
+   },
+   {
+      "id":"405.7",
+      "label":"405.7",
+      "shape":"dot",
+      "title":"Means of egress."
+   },
+   {
+      "id":"405.8",
+      "label":"405.8",
+      "shape":"dot",
+      "title":"Standby and emergency power."
+   },
+   {
+      "id":"406.1",
+      "label":"406.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"406.3",
+      "label":"406.3",
+      "shape":"dot",
+      "title":"Private garages and carports."
+   },
+   {
+      "id":"406.4",
+      "label":"406.4",
+      "shape":"dot",
+      "title":"Public parking garages."
+   },
+   {
+      "id":"406.5",
+      "label":"406.5",
+      "shape":"dot",
+      "title":"Open parking garages."
+   },
+   {
+      "id":"406.6",
+      "label":"406.6",
+      "shape":"dot",
+      "title":"Enclosed parking garages."
+   },
+   {
+      "id":"406.7",
+      "label":"406.7",
+      "shape":"dot",
+      "title":"Motor fuel-dispensing facilities."
+   },
+   {
+      "id":"406.8",
+      "label":"406.8",
+      "shape":"dot",
+      "title":"Repair garages."
+   },
+   {
+      "id":"407.1",
+      "label":"407.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"407.2",
+      "label":"407.2",
+      "shape":"dot",
+      "title":"Corridors continuity and separation."
+   },
+   {
+      "id":"407.4",
+      "label":"407.4",
+      "shape":"dot",
+      "title":"Means of egress."
+   },
+   {
+      "id":"407.8",
+      "label":"407.8",
+      "shape":"dot",
+      "title":"Automatic fire detection."
+   },
+   {
+      "id":"408.1",
+      "label":"408.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"408.4",
+      "label":"408.4",
+      "shape":"dot",
+      "title":"Locks."
+   },
+   {
+      "id":"408.5",
+      "label":"408.5",
+      "shape":"dot",
+      "title":"Protection of vertical openings."
+   },
+   {
+      "id":"408.6",
+      "label":"408.6",
+      "shape":"dot",
+      "title":"Smoke barrier."
+   },
+   {
+      "id":"408.8",
+      "label":"408.8",
+      "shape":"dot",
+      "title":"Subdivision of resident housing areas."
+   },
+   {
+      "id":"409.1",
+      "label":"409.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"410.1",
+      "label":"410.1",
+      "shape":"dot",
+      "title":"Applicability."
+   },
+   {
+      "id":"410.3",
+      "label":"410.3",
+      "shape":"dot",
+      "title":"Stages."
+   },
+   {
+      "id":"410.5",
+      "label":"410.5",
+      "shape":"dot",
+      "title":"Dressing and appurtenant rooms."
+   },
+   {
+      "id":"411.1",
+      "label":"411.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"411.7",
+      "label":"411.7",
+      "shape":"dot",
+      "title":"Exit marking."
+   },
+   {
+      "id":"411.8",
+      "label":"411.8",
+      "shape":"dot",
+      "title":"Interior finish."
+   },
+   {
+      "id":"412.1",
+      "label":"412.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"412.3",
+      "label":"412.3",
+      "shape":"dot",
+      "title":"Airport traffic control towers."
+   },
+   {
+      "id":"412.4",
+      "label":"412.4",
+      "shape":"dot",
+      "title":"Aircraft hangars."
+   },
+   {
+      "id":"412.5",
+      "label":"412.5",
+      "shape":"dot",
+      "title":"Residential aircraft hangars."
+   },
+   {
+      "id":"412.6",
+      "label":"412.6",
+      "shape":"dot",
+      "title":"Aircraft paint hangars."
+   },
+   {
+      "id":"412.7",
+      "label":"412.7",
+      "shape":"dot",
+      "title":"Aircraft manufacturing facilities."
+   },
+   {
+      "id":"412.8",
+      "label":"412.8",
+      "shape":"dot",
+      "title":"Heliports and helistops."
+   },
+   {
+      "id":"414.1",
+      "label":"414.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"414.2",
+      "label":"414.2",
+      "shape":"dot",
+      "title":"Control areas."
+   },
+   {
+      "id":"414.5",
+      "label":"414.5",
+      "shape":"dot",
+      "title":" Inside storage, dispensing and use."
+   },
+   {
+      "id":"415.1",
+      "label":"415.1",
+      "shape":"dot",
+      "title":"Scope."
+   },
+   {
+      "id":"415.3",
+      "label":"415.3",
+      "shape":"dot",
+      "title":"Automatic fire detection systems."
+   },
+   {
+      "id":"415.8",
+      "label":"415.8",
+      "shape":"dot",
+      "title":"Special provisions for Group H-2 and H-3 occupancies."
+   },
+   {
+      "id":"415.9",
+      "label":"415.9",
+      "shape":"dot",
+      "title":"Group H-2."
+   },
+   {
+      "id":"415.11",
+      "label":"415.11",
+      "shape":"dot",
+      "title":"Group H-5."
+   },
+   {
+      "id":"419.1",
+      "label":"419.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"419.6",
+      "label":"419.6",
+      "shape":"dot",
+      "title":"Structural."
+   },
+   {
+      "id":"420.1",
+      "label":"420.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"421.1",
+      "label":"421.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"421.4",
+      "label":"421.4",
+      "shape":"dot",
+      "title":"Design and construction."
+   },
+   {
+      "id":"421.6",
+      "label":"421.6",
+      "shape":"dot",
+      "title":"Gas detection system."
+   },
+   {
+      "id":"421.7",
+      "label":"421.7",
+      "shape":"dot",
+      "title":"Explosion control."
+   },
+   {
+      "id":"422.1",
+      "label":"422.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"422.4",
+      "label":"422.4",
+      "shape":"dot",
+      "title":"Automatic sprinkler systems."
+   },
+   {
+      "id":"424.1",
+      "label":"424.1",
+      "shape":"dot",
+      "title":"Children\u2019s play structures."
+   },
+   {
+      "id":"426.1",
+      "label":"426.1",
+      "shape":"dot",
+      "title":" Combustible dusts, grain processing and storage."
+   },
+   {
+      "id":"703.2",
+      "label":"703.2",
+      "shape":"dot",
+      "title":"Fire-resistance ratings."
+   },
+   {
+      "id":"703.4",
+      "label":"703.4",
+      "shape":"dot",
+      "title":"Automatic sprinklers."
+   },
+   {
+      "id":"703.5",
+      "label":"703.5",
+      "shape":"dot",
+      "title":"Noncombustibility tests."
+   },
+   {
+      "id":"703.6",
+      "label":"703.6",
+      "shape":"dot",
+      "title":"Fire-resistance-rated glazing."
+   },
+   {
+      "id":"704.1",
+      "label":"704.1",
+      "shape":"dot",
+      "title":"Requirements."
+   },
+   {
+      "id":"704.12",
+      "label":"704.12",
+      "shape":"dot",
+      "title":"Seismic isolation systems."
+   },
+   {
+      "id":"704.13",
+      "label":"704.13",
+      "shape":"dot",
+      "title":"Sprayed fire-resistant materials (SFRM)."
+   },
+   {
+      "id":"705.2",
+      "label":"705.2",
+      "shape":"dot",
+      "title":"Projections."
+   },
+   {
+      "id":"705.3",
+      "label":"705.3",
+      "shape":"dot",
+      "title":"Buildings on the same lot."
+   },
+   {
+      "id":"705.6",
+      "label":"705.6",
+      "shape":"dot",
+      "title":"Structural stability."
+   },
+   {
+      "id":"705.7",
+      "label":"705.7",
+      "shape":"dot",
+      "title":"Unexposed surface temperature."
+   },
+   {
+      "id":"705.8",
+      "label":"705.8",
+      "shape":"dot",
+      "title":"Openings."
+   },
+   {
+      "id":"705.11",
+      "label":"705.11",
+      "shape":"dot",
+      "title":"Parapets."
+   },
+   {
+      "id":"706.4",
+      "label":"706.4",
+      "shape":"dot",
+      "title":"Fire-resistance rating."
+   },
+   {
+      "id":"706.6",
+      "label":"706.6",
+      "shape":"dot",
+      "title":"Vertical continuity."
+   },
+   {
+      "id":"706.8",
+      "label":"706.8",
+      "shape":"dot",
+      "title":"Openings."
+   },
+   {
+      "id":"706.11",
+      "label":"706.11",
+      "shape":"dot",
+      "title":"Ducts and air transfer openings."
+   },
+   {
+      "id":"707.4",
+      "label":"707.4",
+      "shape":"dot",
+      "title":"Exterior walls."
+   },
+   {
+      "id":"707.5",
+      "label":"707.5",
+      "shape":"dot",
+      "title":"Continuity."
+   },
+   {
+      "id":"707.6",
+      "label":"707.6",
+      "shape":"dot",
+      "title":"Openings."
+   },
+   {
+      "id":"708.1",
+      "label":"708.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"708.4",
+      "label":"708.4",
+      "shape":"dot",
+      "title":"Continuity."
+   },
+   {
+      "id":"708.5",
+      "label":"708.5",
+      "shape":"dot",
+      "title":"Exterior walls."
+   },
+   {
+      "id":"709.4",
+      "label":"709.4",
+      "shape":"dot",
+      "title":"Continuity."
+   },
+   {
+      "id":"709.5",
+      "label":"709.5",
+      "shape":"dot",
+      "title":"Openings."
+   },
+   {
+      "id":"710.5",
+      "label":"710.5",
+      "shape":"dot",
+      "title":"Openings."
+   },
+   {
+      "id":"711.1",
+      "label":"711.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"711.2",
+      "label":"711.2",
+      "shape":"dot",
+      "title":"Horizontal assemblies."
+   },
+   {
+      "id":"711.3",
+      "label":"711.3",
+      "shape":"dot",
+      "title":"Nonfire-resistance-rated floor and roof assemblies."
+   },
+   {
+      "id":"712.1",
+      "label":"712.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"713.4",
+      "label":"713.4",
+      "shape":"dot",
+      "title":"Fire-resistance rating."
+   },
+   {
+      "id":"713.5",
+      "label":"713.5",
+      "shape":"dot",
+      "title":"Continuity."
+   },
+   {
+      "id":"713.6",
+      "label":"713.6",
+      "shape":"dot",
+      "title":"Exterior walls."
+   },
+   {
+      "id":"713.11",
+      "label":"713.11",
+      "shape":"dot",
+      "title":"Enclosure at the bottom."
+   },
+   {
+      "id":"713.13",
+      "label":"713.13",
+      "shape":"dot",
+      "title":"Waste and linen chutes and incinerator rooms."
+   },
+   {
+      "id":"714.3",
+      "label":"714.3",
+      "shape":"dot",
+      "title":"Fire-resistance-rated walls."
+   },
+   {
+      "id":"714.4",
+      "label":"714.4",
+      "shape":"dot",
+      "title":"Horizontal assemblies."
+   },
+   {
+      "id":"714.5",
+      "label":"714.5",
+      "shape":"dot",
+      "title":"Nonfire-resistance-rated assemblies."
+   },
+   {
+      "id":"715.1",
+      "label":"715.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"715.4",
+      "label":"715.4",
+      "shape":"dot",
+      "title":"Exterior curtain wall\/floor intersection."
+   },
+   {
+      "id":"715.5",
+      "label":"715.5",
+      "shape":"dot",
+      "title":"Spandrel wall."
+   },
+   {
+      "id":"716.2",
+      "label":"716.2",
+      "shape":"dot",
+      "title":"Fire-resistance-rated glazing."
+   },
+   {
+      "id":"716.3",
+      "label":"716.3",
+      "shape":"dot",
+      "title":"Marking fire-rated glazing assemblies."
+   },
+   {
+      "id":"716.4",
+      "label":"716.4",
+      "shape":"dot",
+      "title":"Alternative methods for determining fire protection ratings."
+   },
+   {
+      "id":"716.5",
+      "label":"716.5",
+      "shape":"dot",
+      "title":"Fire door and shutter assemblies."
+   },
+   {
+      "id":"716.6",
+      "label":"716.6",
+      "shape":"dot",
+      "title":"Fire-protection-rated glazing."
+   },
+   {
+      "id":"717.3",
+      "label":"717.3",
+      "shape":"dot",
+      "title":" Damper testing, ratings and actuation."
+   },
+   {
+      "id":"717.5",
+      "label":"717.5",
+      "shape":"dot",
+      "title":"Where required."
+   },
+   {
+      "id":"717.6",
+      "label":"717.6",
+      "shape":"dot",
+      "title":"Horizontal assemblies."
+   },
+   {
+      "id":"718.1",
+      "label":"718.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"718.2",
+      "label":"718.2",
+      "shape":"dot",
+      "title":"Fireblocking."
+   },
+   {
+      "id":"718.3",
+      "label":"718.3",
+      "shape":"dot",
+      "title":"Draftstopping in floors."
+   },
+   {
+      "id":"718.4",
+      "label":"718.4",
+      "shape":"dot",
+      "title":"Draftstopping in attics."
+   },
+   {
+      "id":"718.5",
+      "label":"718.5",
+      "shape":"dot",
+      "title":"Combustible materials in concealed spaces in Type I or II construction."
+   },
+   {
+      "id":"719.5",
+      "label":"719.5",
+      "shape":"dot",
+      "title":"Plaster alternatives for concrete."
+   },
+   {
+      "id":"720.2",
+      "label":"720.2",
+      "shape":"dot",
+      "title":"Concealed installation."
+   },
+   {
+      "id":"720.3",
+      "label":"720.3",
+      "shape":"dot",
+      "title":"Exposed installation."
+   },
+   {
+      "id":"720.4",
+      "label":"720.4",
+      "shape":"dot",
+      "title":"Loose-fill insulation."
+   },
+   {
+      "id":"720.5",
+      "label":"720.5",
+      "shape":"dot",
+      "title":"Roof insulation."
+   },
+   {
+      "id":"721.1",
+      "label":"721.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"3306.1",
+      "label":"3306.1",
+      "shape":"dot",
+      "title":"Protection required."
+   },
+   {
+      "id":"3312.1",
+      "label":"3312.1",
+      "shape":"dot",
+      "title":"Completion before occupancy."
+   },
+   {
+      "id":"2503.1",
+      "label":"2503.1",
+      "shape":"dot",
+      "title":"Inspection."
+   },
+   {
+      "id":"2505.1",
+      "label":"2505.1",
+      "shape":"dot",
+      "title":"Resistance to shear (wood framing)."
+   },
+   {
+      "id":"2505.2",
+      "label":"2505.2",
+      "shape":"dot",
+      "title":"Resistance to shear (steel framing)."
+   },
+   {
+      "id":"2506.2",
+      "label":"2506.2",
+      "shape":"dot",
+      "title":"Standards."
+   },
+   {
+      "id":"2507.2",
+      "label":"2507.2",
+      "shape":"dot",
+      "title":"Standards."
+   },
+   {
+      "id":"2508.1",
+      "label":"2508.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"2508.5",
+      "label":"2508.5",
+      "shape":"dot",
+      "title":"Horizontal gypsum board or gypsum panel product diaphragm ceilings."
+   },
+   {
+      "id":"2509.1",
+      "label":"2509.1",
+      "shape":"dot",
+      "title":"Wet areas."
+   },
+   {
+      "id":"2509.2",
+      "label":"2509.2",
+      "shape":"dot",
+      "title":"Base for tile."
+   },
+   {
+      "id":"2510.1",
+      "label":"2510.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"2510.6",
+      "label":"2510.6",
+      "shape":"dot",
+      "title":"Water-resistive barriers."
+   },
+   {
+      "id":"2511.2",
+      "label":"2511.2",
+      "shape":"dot",
+      "title":"Limitations."
+   },
+   {
+      "id":"2511.4",
+      "label":"2511.4",
+      "shape":"dot",
+      "title":"Interior masonry or concrete."
+   },
+   {
+      "id":"2511.5",
+      "label":"2511.5",
+      "shape":"dot",
+      "title":"Wet areas."
+   },
+   {
+      "id":"2512.1",
+      "label":"2512.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"2512.6",
+      "label":"2512.6",
+      "shape":"dot",
+      "title":"Curing and interval."
+   },
+   {
+      "id":"2512.7",
+      "label":"2512.7",
+      "shape":"dot",
+      "title":"Application to solid backings."
+   },
+   {
+      "id":"2513.6",
+      "label":"2513.6",
+      "shape":"dot",
+      "title":"Preparation of masonry and concrete."
+   },
+   {
+      "id":"3001.2",
+      "label":"3001.2",
+      "shape":"dot",
+      "title":"Referenced standards."
+   },
+   {
+      "id":"3002.8",
+      "label":"3002.8",
+      "shape":"dot",
+      "title":"Glass in elevator enclosures."
+   },
+   {
+      "id":"3003.1",
+      "label":"3003.1",
+      "shape":"dot",
+      "title":"Standby power."
+   },
+   {
+      "id":"3004.1",
+      "label":"3004.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"3006.1",
+      "label":"3006.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"3006.2",
+      "label":"3006.2",
+      "shape":"dot",
+      "title":"Hoistway opening protection required."
+   },
+   {
+      "id":"3006.3",
+      "label":"3006.3",
+      "shape":"dot",
+      "title":"Hoistway opening protection."
+   },
+   {
+      "id":"3006.4",
+      "label":"3006.4",
+      "shape":"dot",
+      "title":"Means of egress."
+   },
+   {
+      "id":"3007.1",
+      "label":"3007.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"3007.2",
+      "label":"3007.2",
+      "shape":"dot",
+      "title":"Automatic sprinkler system."
+   },
+   {
+      "id":"3007.4",
+      "label":"3007.4",
+      "shape":"dot",
+      "title":"Shunt trip."
+   },
+   {
+      "id":"3007.6",
+      "label":"3007.6",
+      "shape":"dot",
+      "title":"Fire service access elevator lobby."
+   },
+   {
+      "id":"3008.1",
+      "label":"3008.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"3008.2",
+      "label":"3008.2",
+      "shape":"dot",
+      "title":"Automatic sprinkler system."
+   },
+   {
+      "id":"3008.4",
+      "label":"3008.4",
+      "shape":"dot",
+      "title":"Shunt trip."
+   },
+   {
+      "id":"3008.6",
+      "label":"3008.6",
+      "shape":"dot",
+      "title":"Occupant evacuation elevator lobby."
+   },
+   {
+      "id":"3008.10",
+      "label":"3008.10",
+      "shape":"dot",
+      "title":"Hazardous material areas."
+   },
+   {
+      "id":"1902.1",
+      "label":"1902.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"1905.1",
+      "label":"1905.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"1908.4",
+      "label":"1908.4",
+      "shape":"dot",
+      "title":"Reinforcement."
+   },
+   {
+      "id":"1908.5",
+      "label":"1908.5",
+      "shape":"dot",
+      "title":"Preconstruction tests."
+   },
+   {
+      "id":"602.1",
+      "label":"602.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"602.3",
+      "label":"602.3",
+      "shape":"dot",
+      "title":"Type III."
+   },
+   {
+      "id":"602.4",
+      "label":"602.4",
+      "shape":"dot",
+      "title":"Type IV."
+   },
+   {
+      "id":"603.1",
+      "label":"603.1",
+      "shape":"dot",
+      "title":"Allowable materials."
+   },
+   {
+      "id":"801.5",
+      "label":"801.5",
+      "shape":"dot",
+      "title":"Applicability."
+   },
+   {
+      "id":"801.8",
+      "label":"801.8",
+      "shape":"dot",
+      "title":"Foam plastics."
+   },
+   {
+      "id":"803.1",
+      "label":"803.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"803.3",
+      "label":"803.3",
+      "shape":"dot",
+      "title":"Heavy timber exemption."
+   },
+   {
+      "id":"803.4",
+      "label":"803.4",
+      "shape":"dot",
+      "title":"Foam plastics."
+   },
+   {
+      "id":"803.5",
+      "label":"803.5",
+      "shape":"dot",
+      "title":"Textile wall coverings."
+   },
+   {
+      "id":"803.6",
+      "label":"803.6",
+      "shape":"dot",
+      "title":"Textile ceiling coverings."
+   },
+   {
+      "id":"803.7",
+      "label":"803.7",
+      "shape":"dot",
+      "title":"Expanded vinyl wall coverings."
+   },
+   {
+      "id":"803.8",
+      "label":"803.8",
+      "shape":"dot",
+      "title":"Expanded vinyl ceiling coverings."
+   },
+   {
+      "id":"803.9",
+      "label":"803.9",
+      "shape":"dot",
+      "title":"High-density polyethylene (HDPE) and polypropylene (PP)."
+   },
+   {
+      "id":"803.10",
+      "label":"803.10",
+      "shape":"dot",
+      "title":"Site-fabricated stretch systems."
+   },
+   {
+      "id":"803.11",
+      "label":"803.11",
+      "shape":"dot",
+      "title":"Interior finish requirements based on group."
+   },
+   {
+      "id":"901.7",
+      "label":"901.7",
+      "shape":"dot",
+      "title":"Fire areas."
+   },
+   {
+      "id":"903.2",
+      "label":"903.2",
+      "shape":"dot",
+      "title":"Where required."
+   },
+   {
+      "id":"904.12",
+      "label":"904.12",
+      "shape":"dot",
+      "title":"Commercial cooking systems."
+   },
+   {
+      "id":"904.13",
+      "label":"904.13",
+      "shape":"dot",
+      "title":"Domestic cooking systems in Group I-2 Condition 1."
+   },
+   {
+      "id":"905.1",
+      "label":"905.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"905.6",
+      "label":"905.6",
+      "shape":"dot",
+      "title":"Location of Class III standpipe hose connections."
+   },
+   {
+      "id":"905.9",
+      "label":"905.9",
+      "shape":"dot",
+      "title":"Valve supervision."
+   },
+   {
+      "id":"906.1",
+      "label":"906.1",
+      "shape":"dot",
+      "title":"Where required."
+   },
+   {
+      "id":"907.2",
+      "label":"907.2",
+      "shape":"dot",
+      "title":"Where required\u2014new buildings and structures."
+   },
+   {
+      "id":"907.3",
+      "label":"907.3",
+      "shape":"dot",
+      "title":"Fire safety functions."
+   },
+   {
+      "id":"907.8",
+      "label":"907.8",
+      "shape":"dot",
+      "title":" Inspection, testing and maintenance."
+   },
+   {
+      "id":"908.1",
+      "label":"908.1",
+      "shape":"dot",
+      "title":"Group H occupancies."
+   },
+   {
+      "id":"908.2",
+      "label":"908.2",
+      "shape":"dot",
+      "title":"Group H-5 occupancy."
+   },
+   {
+      "id":"908.5",
+      "label":"908.5",
+      "shape":"dot",
+      "title":"Repair garages."
+   },
+   {
+      "id":"909.9",
+      "label":"909.9",
+      "shape":"dot",
+      "title":"Design fire."
+   },
+   {
+      "id":"909.20",
+      "label":"909.20",
+      "shape":"dot",
+      "title":"Smokeproof enclosures."
+   },
+   {
+      "id":"912.1",
+      "label":"912.1",
+      "shape":"dot",
+      "title":"Installation."
+   },
+   {
+      "id":"915.1",
+      "label":"915.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"915.3",
+      "label":"915.3",
+      "shape":"dot",
+      "title":"Detection equipment."
+   },
+   {
+      "id":"2702.1",
+      "label":"2702.1",
+      "shape":"dot",
+      "title":"Installation."
+   },
+   {
+      "id":"2702.2",
+      "label":"2702.2",
+      "shape":"dot",
+      "title":"Where required."
+   },
+   {
+      "id":"307.1",
+      "label":"307.1",
+      "shape":"dot",
+      "title":"High-hazard Group H."
+   },
+   {
+      "id":"307.3",
+      "label":"307.3",
+      "shape":"dot",
+      "title":"High-hazard Group H-1."
+   },
+   {
+      "id":"307.4",
+      "label":"307.4",
+      "shape":"dot",
+      "title":"High-hazard Group H-2."
+   },
+   {
+      "id":"307.5",
+      "label":"307.5",
+      "shape":"dot",
+      "title":"High-hazard Group H-3."
+   },
+   {
+      "id":"307.7",
+      "label":"307.7",
+      "shape":"dot",
+      "title":"High-hazard Group H-5."
+   },
+   {
+      "id":"308.3",
+      "label":"308.3",
+      "shape":"dot",
+      "title":"Institutional Group I-1."
+   },
+   {
+      "id":"308.4",
+      "label":"308.4",
+      "shape":"dot",
+      "title":"Institutional Group I-2."
+   },
+   {
+      "id":"308.5",
+      "label":"308.5",
+      "shape":"dot",
+      "title":"Institutional Group I-3."
+   },
+   {
+      "id":"308.6",
+      "label":"308.6",
+      "shape":"dot",
+      "title":" Institutional Group I-4, day care facilities."
+   },
+   {
+      "id":"310.5",
+      "label":"310.5",
+      "shape":"dot",
+      "title":"Residential Group R-3."
+   },
+   {
+      "id":"310.6",
+      "label":"310.6",
+      "shape":"dot",
+      "title":"Residential Group R-4."
+   },
+   {
+      "id":"311.2",
+      "label":"311.2",
+      "shape":"dot",
+      "title":" Moderate-hazard storage, Group S-1."
+   },
+   {
+      "id":"312.1",
+      "label":"312.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"1403.2",
+      "label":"1403.2",
+      "shape":"dot",
+      "title":"Weather protection."
+   },
+   {
+      "id":"1403.6",
+      "label":"1403.6",
+      "shape":"dot",
+      "title":"Flood resistance."
+   },
+   {
+      "id":"1403.7",
+      "label":"1403.7",
+      "shape":"dot",
+      "title":"Flood resistance for coastal high-hazard areas and coastal A zones."
+   },
+   {
+      "id":"1404.2",
+      "label":"1404.2",
+      "shape":"dot",
+      "title":"Water-resistive barrier."
+   },
+   {
+      "id":"1404.12",
+      "label":"1404.12",
+      "shape":"dot",
+      "title":"Polypropylene siding."
+   },
+   {
+      "id":"1405.2",
+      "label":"1405.2",
+      "shape":"dot",
+      "title":"Weather protection."
+   },
+   {
+      "id":"1405.3",
+      "label":"1405.3",
+      "shape":"dot",
+      "title":"Vapor retarders."
+   },
+   {
+      "id":"1405.6",
+      "label":"1405.6",
+      "shape":"dot",
+      "title":"Anchored masonry veneer."
+   },
+   {
+      "id":"1405.7",
+      "label":"1405.7",
+      "shape":"dot",
+      "title":"Stone veneer."
+   },
+   {
+      "id":"1405.13",
+      "label":"1405.13",
+      "shape":"dot",
+      "title":"Exterior windows and doors."
+   },
+   {
+      "id":"1405.14",
+      "label":"1405.14",
+      "shape":"dot",
+      "title":"Vinyl siding."
+   },
+   {
+      "id":"1405.16",
+      "label":"1405.16",
+      "shape":"dot",
+      "title":"Fiber-cement siding."
+   },
+   {
+      "id":"1405.17",
+      "label":"1405.17",
+      "shape":"dot",
+      "title":"Fastening."
+   },
+   {
+      "id":"1405.18",
+      "label":"1405.18",
+      "shape":"dot",
+      "title":"Polypropylene siding."
+   },
+   {
+      "id":"1406.3",
+      "label":"1406.3",
+      "shape":"dot",
+      "title":"Balconies and similar projections."
+   },
+   {
+      "id":"1407.2",
+      "label":"1407.2",
+      "shape":"dot",
+      "title":"Exterior wall finish."
+   },
+   {
+      "id":"1407.3",
+      "label":"1407.3",
+      "shape":"dot",
+      "title":"Architectural trim and embellishments."
+   },
+   {
+      "id":"1407.10",
+      "label":"1407.10",
+      "shape":"dot",
+      "title":" Type I, II, III and IV construction."
+   },
+   {
+      "id":"1407.11",
+      "label":"1407.11",
+      "shape":"dot",
+      "title":"Alternate conditions."
+   },
+   {
+      "id":"1407.14",
+      "label":"1407.14",
+      "shape":"dot",
+      "title":"Labeling."
+   },
+   {
+      "id":"1408.6",
+      "label":"1408.6",
+      "shape":"dot",
+      "title":"Special inspections."
+   },
+   {
+      "id":"1409.2",
+      "label":"1409.2",
+      "shape":"dot",
+      "title":"Exterior wall finish."
+   },
+   {
+      "id":"1409.3",
+      "label":"1409.3",
+      "shape":"dot",
+      "title":"Architectural trim and embellishments."
+   },
+   {
+      "id":"1409.10",
+      "label":"1409.10",
+      "shape":"dot",
+      "title":" Type I, II, III and IV construction."
+   },
+   {
+      "id":"1409.11",
+      "label":"1409.11",
+      "shape":"dot",
+      "title":"Alternate conditions."
+   },
+   {
+      "id":"1409.14",
+      "label":"1409.14",
+      "shape":"dot",
+      "title":"Labeling."
+   },
+   {
+      "id":"2403.1",
+      "label":"2403.1",
+      "shape":"dot",
+      "title":"Identification."
+   },
+   {
+      "id":"2404.2",
+      "label":"2404.2",
+      "shape":"dot",
+      "title":"Sloped glass."
+   },
+   {
+      "id":"2404.3",
+      "label":"2404.3",
+      "shape":"dot",
+      "title":" Wired, patterned and sandblasted glass."
+   },
+   {
+      "id":"2405.2",
+      "label":"2405.2",
+      "shape":"dot",
+      "title":"Allowable glazing materials and limitations."
+   },
+   {
+      "id":"2405.5",
+      "label":"2405.5",
+      "shape":"dot",
+      "title":"Unit skylights and tubular daylighting devices."
+   },
+   {
+      "id":"2406.1",
+      "label":"2406.1",
+      "shape":"dot",
+      "title":"Human impact loads."
+   },
+   {
+      "id":"2406.2",
+      "label":"2406.2",
+      "shape":"dot",
+      "title":"Impact test."
+   },
+   {
+      "id":"2406.3",
+      "label":"2406.3",
+      "shape":"dot",
+      "title":"Identification of safety glazing."
+   },
+   {
+      "id":"2406.4",
+      "label":"2406.4",
+      "shape":"dot",
+      "title":"Hazardous locations."
+   },
+   {
+      "id":"2407.1",
+      "label":"2407.1",
+      "shape":"dot",
+      "title":"Materials."
+   },
+   {
+      "id":"2408.2",
+      "label":"2408.2",
+      "shape":"dot",
+      "title":"Racquetball and squash courts."
+   },
+   {
+      "id":"1503.5",
+      "label":"1503.5",
+      "shape":"dot",
+      "title":"Attic and rafter ventilation."
+   },
+   {
+      "id":"1503.6",
+      "label":"1503.6",
+      "shape":"dot",
+      "title":"Crickets and saddles."
+   },
+   {
+      "id":"1504.1",
+      "label":"1504.1",
+      "shape":"dot",
+      "title":"Wind resistance of roofs."
+   },
+   {
+      "id":"1504.2",
+      "label":"1504.2",
+      "shape":"dot",
+      "title":"Wind resistance of clay and concrete tile."
+   },
+   {
+      "id":"1504.4",
+      "label":"1504.4",
+      "shape":"dot",
+      "title":"Ballasted low-slope roof systems."
+   },
+   {
+      "id":"1504.8",
+      "label":"1504.8",
+      "shape":"dot",
+      "title":"Aggregate."
+   },
+   {
+      "id":"1505.1",
+      "label":"1505.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"1505.6",
+      "label":"1505.6",
+      "shape":"dot",
+      "title":"Fire-retardant-treated wood shingles and shakes."
+   },
+   {
+      "id":"1505.7",
+      "label":"1505.7",
+      "shape":"dot",
+      "title":"Special purpose roofs."
+   },
+   {
+      "id":"1505.8",
+      "label":"1505.8",
+      "shape":"dot",
+      "title":"Building-integrated photovoltaic products."
+   },
+   {
+      "id":"1505.9",
+      "label":"1505.9",
+      "shape":"dot",
+      "title":"Photovoltaic panels and modules."
+   },
+   {
+      "id":"1505.10",
+      "label":"1505.10",
+      "shape":"dot",
+      "title":"Roof gardens and landscaped roofs."
+   },
+   {
+      "id":"1507.8",
+      "label":"1507.8",
+      "shape":"dot",
+      "title":"Wood shingles."
+   },
+   {
+      "id":"1507.9",
+      "label":"1507.9",
+      "shape":"dot",
+      "title":"Wood shakes."
+   },
+   {
+      "id":"1507.16",
+      "label":"1507.16",
+      "shape":"dot",
+      "title":" Vegetative roofs, roof gardens and landscaped roofs."
+   },
+   {
+      "id":"1508.2",
+      "label":"1508.2",
+      "shape":"dot",
+      "title":"Material standards."
+   },
+   {
+      "id":"1510.2",
+      "label":"1510.2",
+      "shape":"dot",
+      "title":"Penthouses."
+   },
+   {
+      "id":"1510.8",
+      "label":"1510.8",
+      "shape":"dot",
+      "title":"Other rooftop structures."
+   },
+   {
+      "id":"1511.1",
+      "label":"1511.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"1703.1",
+      "label":"1703.1",
+      "shape":"dot",
+      "title":"Approved agency."
+   },
+   {
+      "id":"1703.5",
+      "label":"1703.5",
+      "shape":"dot",
+      "title":"Labeling."
+   },
+   {
+      "id":"1704.2",
+      "label":"1704.2",
+      "shape":"dot",
+      "title":"Special inspections and tests."
+   },
+   {
+      "id":"1704.3",
+      "label":"1704.3",
+      "shape":"dot",
+      "title":"Statement of special inspections."
+   },
+   {
+      "id":"1704.5",
+      "label":"1704.5",
+      "shape":"dot",
+      "title":"Submittals to the building official."
+   },
+   {
+      "id":"1704.6",
+      "label":"1704.6",
+      "shape":"dot",
+      "title":"Structural observations."
+   },
+   {
+      "id":"1705.3",
+      "label":"1705.3",
+      "shape":"dot",
+      "title":"Concrete construction."
+   },
+   {
+      "id":"1705.5",
+      "label":"1705.5",
+      "shape":"dot",
+      "title":"Wood construction."
+   },
+   {
+      "id":"1705.6",
+      "label":"1705.6",
+      "shape":"dot",
+      "title":"Soils."
+   },
+   {
+      "id":"1705.7",
+      "label":"1705.7",
+      "shape":"dot",
+      "title":"Driven deep foundations."
+   },
+   {
+      "id":"1705.8",
+      "label":"1705.8",
+      "shape":"dot",
+      "title":"Cast-in-place deep foundations."
+   },
+   {
+      "id":"1705.10",
+      "label":"1705.10",
+      "shape":"dot",
+      "title":"Fabricated items."
+   },
+   {
+      "id":"1705.11",
+      "label":"1705.11",
+      "shape":"dot",
+      "title":"Special inspections for wind resistance."
+   },
+   {
+      "id":"1705.12",
+      "label":"1705.12",
+      "shape":"dot",
+      "title":"Special inspections for seismic resistance."
+   },
+   {
+      "id":"1705.13",
+      "label":"1705.13",
+      "shape":"dot",
+      "title":"Testing for seismic resistance."
+   },
+   {
+      "id":"1705.14",
+      "label":"1705.14",
+      "shape":"dot",
+      "title":"Sprayed fire-resistant materials."
+   },
+   {
+      "id":"1705.17",
+      "label":"1705.17",
+      "shape":"dot",
+      "title":"Fire-resistant penetrations and joints."
+   },
+   {
+      "id":"1707.1",
+      "label":"1707.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"1708.1",
+      "label":"1708.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"1708.3",
+      "label":"1708.3",
+      "shape":"dot",
+      "title":"In-situ load tests."
+   },
+   {
+      "id":"1709.2",
+      "label":"1709.2",
+      "shape":"dot",
+      "title":"Load test procedures specified."
+   },
+   {
+      "id":"1709.3",
+      "label":"1709.3",
+      "shape":"dot",
+      "title":"Load test procedures not specified."
+   },
+   {
+      "id":"1709.5",
+      "label":"1709.5",
+      "shape":"dot",
+      "title":"Exterior window and door assemblies."
+   },
+   {
+      "id":"2301.3",
+      "label":"2301.3",
+      "shape":"dot",
+      "title":"Nominal sizes."
+   },
+   {
+      "id":"2303.4",
+      "label":"2303.4",
+      "shape":"dot",
+      "title":"Trusses."
+   },
+   {
+      "id":"2304.1",
+      "label":"2304.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"2304.7",
+      "label":"2304.7",
+      "shape":"dot",
+      "title":"Interior paneling."
+   },
+   {
+      "id":"2304.8",
+      "label":"2304.8",
+      "shape":"dot",
+      "title":"Floor and roof sheathing."
+   },
+   {
+      "id":"2304.9",
+      "label":"2304.9",
+      "shape":"dot",
+      "title":"Lumber decking."
+   },
+   {
+      "id":"2304.10",
+      "label":"2304.10",
+      "shape":"dot",
+      "title":"Connectors and fasteners."
+   },
+   {
+      "id":"2304.11",
+      "label":"2304.11",
+      "shape":"dot",
+      "title":"Heavy timber construction."
+   },
+   {
+      "id":"2304.12",
+      "label":"2304.12",
+      "shape":"dot",
+      "title":"Protection against decay and termites."
+   },
+   {
+      "id":"2304.13",
+      "label":"2304.13",
+      "shape":"dot",
+      "title":"Long-term loading."
+   },
+   {
+      "id":"2306.1",
+      "label":"2306.1",
+      "shape":"dot",
+      "title":"Allowable stress design."
+   },
+   {
+      "id":"2306.2",
+      "label":"2306.2",
+      "shape":"dot",
+      "title":"Wood-frame diaphragms."
+   },
+   {
+      "id":"2306.3",
+      "label":"2306.3",
+      "shape":"dot",
+      "title":"Wood-frame shear walls."
+   },
+   {
+      "id":"2308.1",
+      "label":"2308.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"2308.2",
+      "label":"2308.2",
+      "shape":"dot",
+      "title":"Limitations."
+   },
+   {
+      "id":"2308.6",
+      "label":"2308.6",
+      "shape":"dot",
+      "title":"Wall bracing."
+   },
+   {
+      "id":"2308.8",
+      "label":"2308.8",
+      "shape":"dot",
+      "title":"Design of elements."
+   },
+   {
+      "id":"2103.1",
+      "label":"2103.1",
+      "shape":"dot",
+      "title":"Masonry units."
+   },
+   {
+      "id":"2103.2",
+      "label":"2103.2",
+      "shape":"dot",
+      "title":"Mortar."
+   },
+   {
+      "id":"2902.1",
+      "label":"2902.1",
+      "shape":"dot",
+      "title":"Minimum number of fixtures."
+   },
+   {
+      "id":"2902.3",
+      "label":"2902.3",
+      "shape":"dot",
+      "title":"Employee and public toilet facilities."
+   },
+   {
+      "id":"2902.4",
+      "label":"2902.4",
+      "shape":"dot",
+      "title":"Signage."
+   },
+   {
+      "id":"2204.1",
+      "label":"2204.1",
+      "shape":"dot",
+      "title":"Welding."
+   },
+   {
+      "id":"2204.2",
+      "label":"2204.2",
+      "shape":"dot",
+      "title":"Bolting."
+   },
+   {
+      "id":"2205.2",
+      "label":"2205.2",
+      "shape":"dot",
+      "title":"Seismic design."
+   },
+   {
+      "id":"2206.2",
+      "label":"2206.2",
+      "shape":"dot",
+      "title":"Seismic design."
+   },
+   {
+      "id":"2207.1",
+      "label":"2207.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"2207.2",
+      "label":"2207.2",
+      "shape":"dot",
+      "title":"Design."
+   },
+   {
+      "id":"2207.3",
+      "label":"2207.3",
+      "shape":"dot",
+      "title":"Calculations."
+   },
+   {
+      "id":"2207.4",
+      "label":"2207.4",
+      "shape":"dot",
+      "title":"Steel joist drawings."
+   },
+   {
+      "id":"2207.5",
+      "label":"2207.5",
+      "shape":"dot",
+      "title":"Certification."
+   },
+   {
+      "id":"2210.1",
+      "label":"2210.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"2211.1",
+      "label":"2211.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"2211.3",
+      "label":"2211.3",
+      "shape":"dot",
+      "title":"Truss design."
+   },
+   {
+      "id":"3102.1",
+      "label":"3102.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"3102.3",
+      "label":"3102.3",
+      "shape":"dot",
+      "title":"Type of construction."
+   },
+   {
+      "id":"3102.5",
+      "label":"3102.5",
+      "shape":"dot",
+      "title":"Maximum height."
+   },
+   {
+      "id":"3102.8",
+      "label":"3102.8",
+      "shape":"dot",
+      "title":"Inflation systems."
+   },
+   {
+      "id":"3103.1",
+      "label":"3103.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"3104.3",
+      "label":"3104.3",
+      "shape":"dot",
+      "title":"Construction."
+   },
+   {
+      "id":"3104.5",
+      "label":"3104.5",
+      "shape":"dot",
+      "title":"Connections of pedestrian walkways to buildings."
+   },
+   {
+      "id":"3104.10",
+      "label":"3104.10",
+      "shape":"dot",
+      "title":"Tunneled walkway."
+   },
+   {
+      "id":"3105.1",
+      "label":"3105.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"3106.1",
+      "label":"3106.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"3110.1",
+      "label":"3110.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"504.3",
+      "label":"504.3",
+      "shape":"dot",
+      "title":"Height in feet."
+   },
+   {
+      "id":"504.4",
+      "label":"504.4",
+      "shape":"dot",
+      "title":"Number of stories."
+   },
+   {
+      "id":"505.1",
+      "label":"505.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"505.2",
+      "label":"505.2",
+      "shape":"dot",
+      "title":"Mezzanines."
+   },
+   {
+      "id":"505.3",
+      "label":"505.3",
+      "shape":"dot",
+      "title":"Equipment platforms."
+   },
+   {
+      "id":"507.1",
+      "label":"507.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"507.2",
+      "label":"507.2",
+      "shape":"dot",
+      "title":"Measurement of open spaces."
+   },
+   {
+      "id":"507.4",
+      "label":"507.4",
+      "shape":"dot",
+      "title":" Sprinklered, one-story buildings."
+   },
+   {
+      "id":"507.8",
+      "label":"507.8",
+      "shape":"dot",
+      "title":" Group H-2, H-3 and H-4 occupancies."
+   },
+   {
+      "id":"507.9",
+      "label":"507.9",
+      "shape":"dot",
+      "title":"Unlimited mixed occupancy buildings with Group H-5."
+   },
+   {
+      "id":"507.10",
+      "label":"507.10",
+      "shape":"dot",
+      "title":"Aircraft paint hangar."
+   },
+   {
+      "id":"508.1",
+      "label":"508.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"508.2",
+      "label":"508.2",
+      "shape":"dot",
+      "title":"Accessory occupancies."
+   },
+   {
+      "id":"508.4",
+      "label":"508.4",
+      "shape":"dot",
+      "title":"Separated occupancies."
+   },
+   {
+      "id":"509.2",
+      "label":"509.2",
+      "shape":"dot",
+      "title":"Occupancy classification."
+   },
+   {
+      "id":"510.1",
+      "label":"510.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"510.2",
+      "label":"510.2",
+      "shape":"dot",
+      "title":"Horizontal building separation allowance."
+   },
+   {
+      "id":"510.4",
+      "label":"510.4",
+      "shape":"dot",
+      "title":"Parking beneath Group R."
+   },
+   {
+      "id":"1801.2",
+      "label":"1801.2",
+      "shape":"dot",
+      "title":"Design basis."
+   },
+   {
+      "id":"1803.1",
+      "label":"1803.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"1803.2",
+      "label":"1803.2",
+      "shape":"dot",
+      "title":"Investigations required."
+   },
+   {
+      "id":"1803.5",
+      "label":"1803.5",
+      "shape":"dot",
+      "title":"Investigated conditions."
+   },
+   {
+      "id":"1803.6",
+      "label":"1803.6",
+      "shape":"dot",
+      "title":"Reporting."
+   },
+   {
+      "id":"1804.5",
+      "label":"1804.5",
+      "shape":"dot",
+      "title":"Grading and fill in flood hazard areas."
+   },
+   {
+      "id":"1804.6",
+      "label":"1804.6",
+      "shape":"dot",
+      "title":"Compacted fill material."
+   },
+   {
+      "id":"1805.1",
+      "label":"1805.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"1805.2",
+      "label":"1805.2",
+      "shape":"dot",
+      "title":"Dampproofing."
+   },
+   {
+      "id":"1805.3",
+      "label":"1805.3",
+      "shape":"dot",
+      "title":"Waterproofing."
+   },
+   {
+      "id":"1805.4",
+      "label":"1805.4",
+      "shape":"dot",
+      "title":"Subsoil drainage system."
+   },
+   {
+      "id":"1806.1",
+      "label":"1806.1",
+      "shape":"dot",
+      "title":"Load combinations."
+   },
+   {
+      "id":"1806.2",
+      "label":"1806.2",
+      "shape":"dot",
+      "title":"Presumptive load-bearing values."
+   },
+   {
+      "id":"1806.3",
+      "label":"1806.3",
+      "shape":"dot",
+      "title":"Lateral load resistance."
+   },
+   {
+      "id":"1807.1",
+      "label":"1807.1",
+      "shape":"dot",
+      "title":"Foundation walls."
+   },
+   {
+      "id":"1807.2",
+      "label":"1807.2",
+      "shape":"dot",
+      "title":"Retaining walls."
+   },
+   {
+      "id":"1807.3",
+      "label":"1807.3",
+      "shape":"dot",
+      "title":"Embedded posts and poles."
+   },
+   {
+      "id":"1808.1",
+      "label":"1808.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"1808.2",
+      "label":"1808.2",
+      "shape":"dot",
+      "title":"Design for capacity and settlement."
+   },
+   {
+      "id":"1808.3",
+      "label":"1808.3",
+      "shape":"dot",
+      "title":"Design loads."
+   },
+   {
+      "id":"1808.6",
+      "label":"1808.6",
+      "shape":"dot",
+      "title":"Design for expansive soils."
+   },
+   {
+      "id":"1808.7",
+      "label":"1808.7",
+      "shape":"dot",
+      "title":"Foundations on or adjacent to slopes."
+   },
+   {
+      "id":"1808.8",
+      "label":"1808.8",
+      "shape":"dot",
+      "title":"Concrete foundations."
+   },
+   {
+      "id":"1809.1",
+      "label":"1809.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"1809.2",
+      "label":"1809.2",
+      "shape":"dot",
+      "title":"Supporting soils."
+   },
+   {
+      "id":"1809.4",
+      "label":"1809.4",
+      "shape":"dot",
+      "title":"Depth and width of footings."
+   },
+   {
+      "id":"1809.7",
+      "label":"1809.7",
+      "shape":"dot",
+      "title":"Prescriptive footings for light-frame construction."
+   },
+   {
+      "id":"1809.9",
+      "label":"1809.9",
+      "shape":"dot",
+      "title":"Masonry-unit footings."
+   },
+   {
+      "id":"1809.13",
+      "label":"1809.13",
+      "shape":"dot",
+      "title":"Footing seismic ties."
+   },
+   {
+      "id":"1810.1",
+      "label":"1810.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"1810.2",
+      "label":"1810.2",
+      "shape":"dot",
+      "title":"Analysis."
+   },
+   {
+      "id":"1810.3",
+      "label":"1810.3",
+      "shape":"dot",
+      "title":"Design and detailing."
+   },
+   {
+      "id":"1810.4",
+      "label":"1810.4",
+      "shape":"dot",
+      "title":"Installation."
+   },
+   {
+      "id":"102.4.2",
+      "label":"102.4.2",
+      "shape":"dot",
+      "title":"Provisions in referenced codes and standards."
+   },
+   {
+      "id":"104.10.1",
+      "label":"104.10.1",
+      "shape":"dot",
+      "title":"Flood hazard areas."
+   },
+   {
+      "id":"107.2.5",
+      "label":"107.2.5",
+      "shape":"dot",
+      "title":"Site plan."
+   },
+   {
+      "id":"110.3.3",
+      "label":"110.3.3",
+      "shape":"dot",
+      "title":"Lowest floor elevation."
+   },
+   {
+      "id":"110.3.8",
+      "label":"110.3.8",
+      "shape":"dot",
+      "title":"Other inspections."
+   },
+   {
+      "id":"110.3.10",
+      "label":"110.3.10",
+      "shape":"dot",
+      "title":"Final inspection."
+   },
+   {
+      "id":"1203.4.2",
+      "label":"1203.4.2",
+      "shape":"dot",
+      "title":"Exceptions."
+   },
+   {
+      "id":"1205.2.2",
+      "label":"1205.2.2",
+      "shape":"dot",
+      "title":"Exterior openings."
+   },
+   {
+      "id":"1103.2.2",
+      "label":"1103.2.2",
+      "shape":"dot",
+      "title":"Employee work areas."
+   },
+   {
+      "id":"1107.5.1",
+      "label":"1107.5.1",
+      "shape":"dot",
+      "title":"Group I-1."
+   },
+   {
+      "id":"1107.5.2",
+      "label":"1107.5.2",
+      "shape":"dot",
+      "title":"Group I-2 nursing homes."
+   },
+   {
+      "id":"1107.5.3",
+      "label":"1107.5.3",
+      "shape":"dot",
+      "title":"Group I-2 hospitals."
+   },
+   {
+      "id":"1107.6.1",
+      "label":"1107.6.1",
+      "shape":"dot",
+      "title":"Group R-1."
+   },
+   {
+      "id":"1107.6.2",
+      "label":"1107.6.2",
+      "shape":"dot",
+      "title":"Group R-2."
+   },
+   {
+      "id":"1107.6.3",
+      "label":"1107.6.3",
+      "shape":"dot",
+      "title":"Group R-3."
+   },
+   {
+      "id":"1107.6.4",
+      "label":"1107.6.4",
+      "shape":"dot",
+      "title":"Group R-4."
+   },
+   {
+      "id":"1107.7.4",
+      "label":"1107.7.4",
+      "shape":"dot",
+      "title":"Site impracticality."
+   },
+   {
+      "id":"1603.1.1",
+      "label":"1603.1.1",
+      "shape":"dot",
+      "title":"Floor live load."
+   },
+   {
+      "id":"1603.1.2",
+      "label":"1603.1.2",
+      "shape":"dot",
+      "title":"Roof live load."
+   },
+   {
+      "id":"1603.1.4",
+      "label":"1603.1.4",
+      "shape":"dot",
+      "title":"Wind design data."
+   },
+   {
+      "id":"1603.1.7",
+      "label":"1603.1.7",
+      "shape":"dot",
+      "title":"Flood design data."
+   },
+   {
+      "id":"1604.3.1",
+      "label":"1604.3.1",
+      "shape":"dot",
+      "title":"Deflections."
+   },
+   {
+      "id":"1604.3.6",
+      "label":"1604.3.6",
+      "shape":"dot",
+      "title":"Limits."
+   },
+   {
+      "id":"1604.8.3",
+      "label":"1604.8.3",
+      "shape":"dot",
+      "title":"Decks."
+   },
+   {
+      "id":"1605.1.1",
+      "label":"1605.1.1",
+      "shape":"dot",
+      "title":"Stability."
+   },
+   {
+      "id":"1605.3.1",
+      "label":"1605.3.1",
+      "shape":"dot",
+      "title":"Basic load combinations."
+   },
+   {
+      "id":"1605.3.2",
+      "label":"1605.3.2",
+      "shape":"dot",
+      "title":"Alternative basic load combinations."
+   },
+   {
+      "id":"1607.10.1",
+      "label":"1607.10.1",
+      "shape":"dot",
+      "title":"Basic uniform live load reduction."
+   },
+   {
+      "id":"1607.10.2",
+      "label":"1607.10.2",
+      "shape":"dot",
+      "title":"Alternative uniform live load reduction."
+   },
+   {
+      "id":"1607.12.1",
+      "label":"1607.12.1",
+      "shape":"dot",
+      "title":"Distribution of roof loads."
+   },
+   {
+      "id":"1607.12.2",
+      "label":"1607.12.2",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"1607.12.3",
+      "label":"1607.12.3",
+      "shape":"dot",
+      "title":"Occupiable roofs."
+   },
+   {
+      "id":"1607.12.4",
+      "label":"1607.12.4",
+      "shape":"dot",
+      "title":"Awnings and canopies."
+   },
+   {
+      "id":"1607.12.5",
+      "label":"1607.12.5",
+      "shape":"dot",
+      "title":"Photovoltaic panel systems."
+   },
+   {
+      "id":"1607.7.2",
+      "label":"1607.7.2",
+      "shape":"dot",
+      "title":"Fire truck and emergency vehicles."
+   },
+   {
+      "id":"1607.7.3",
+      "label":"1607.7.3",
+      "shape":"dot",
+      "title":"Heavy vehicle garages."
+   },
+   {
+      "id":"1607.7.4",
+      "label":"1607.7.4",
+      "shape":"dot",
+      "title":"Forklifts and movable equipment."
+   },
+   {
+      "id":"1607.7.5",
+      "label":"1607.7.5",
+      "shape":"dot",
+      "title":"Posting."
+   },
+   {
+      "id":"1609.1.1",
+      "label":"1609.1.1",
+      "shape":"dot",
+      "title":"Determination of wind loads."
+   },
+   {
+      "id":"1609.1.2",
+      "label":"1609.1.2",
+      "shape":"dot",
+      "title":"Protection of openings."
+   },
+   {
+      "id":"1609.3.1",
+      "label":"1609.3.1",
+      "shape":"dot",
+      "title":"Wind speed conversion."
+   },
+   {
+      "id":"1609.4.1",
+      "label":"1609.4.1",
+      "shape":"dot",
+      "title":"Wind directions and sectors."
+   },
+   {
+      "id":"1609.4.2",
+      "label":"1609.4.2",
+      "shape":"dot",
+      "title":"Surface roughness categories."
+   },
+   {
+      "id":"1609.5.2",
+      "label":"1609.5.2",
+      "shape":"dot",
+      "title":"Roof coverings."
+   },
+   {
+      "id":"1609.5.3",
+      "label":"1609.5.3",
+      "shape":"dot",
+      "title":"Rigid tile."
+   },
+   {
+      "id":"1609.6.1",
+      "label":"1609.6.1",
+      "shape":"dot",
+      "title":"Scope."
+   },
+   {
+      "id":"1609.6.2",
+      "label":"1609.6.2",
+      "shape":"dot",
+      "title":"Symbols and notations."
+   },
+   {
+      "id":"1609.6.4",
+      "label":"1609.6.4",
+      "shape":"dot",
+      "title":"Design procedure."
+   },
+   {
+      "id":"1612.3.1",
+      "label":"1612.3.1",
+      "shape":"dot",
+      "title":"Design flood elevations."
+   },
+   {
+      "id":"1613.3.3",
+      "label":"1613.3.3",
+      "shape":"dot",
+      "title":"Site coefficients and adjusted maximum considered earthquake spectral response acceleration parameters."
+   },
+   {
+      "id":"1613.3.4",
+      "label":"1613.3.4",
+      "shape":"dot",
+      "title":"Design spectral response acceleration parameters."
+   },
+   {
+      "id":"1613.3.5",
+      "label":"1613.3.5",
+      "shape":"dot",
+      "title":"Determination of seismic design category."
+   },
+   {
+      "id":"1615.4.2",
+      "label":"1615.4.2",
+      "shape":"dot",
+      "title":"Other bearing wall structures."
+   },
+   {
+      "id":"2603.12.1",
+      "label":"2603.12.1",
+      "shape":"dot",
+      "title":"Direct attachment."
+   },
+   {
+      "id":"2603.12.2",
+      "label":"2603.12.2",
+      "shape":"dot",
+      "title":"Furred cladding attachment."
+   },
+   {
+      "id":"2603.4.1",
+      "label":"2603.4.1",
+      "shape":"dot",
+      "title":"Thermal barrier not required."
+   },
+   {
+      "id":"2603.5.2",
+      "label":"2603.5.2",
+      "shape":"dot",
+      "title":"Thermal barrier."
+   },
+   {
+      "id":"2603.5.3",
+      "label":"2603.5.3",
+      "shape":"dot",
+      "title":"Potential heat."
+   },
+   {
+      "id":"2603.5.7",
+      "label":"2603.5.7",
+      "shape":"dot",
+      "title":"Ignition."
+   },
+   {
+      "id":"2603.7.1",
+      "label":"2603.7.1",
+      "shape":"dot",
+      "title":"Separation required."
+   },
+   {
+      "id":"2603.7.2",
+      "label":"2603.7.2",
+      "shape":"dot",
+      "title":"Approval."
+   },
+   {
+      "id":"2606.7.5",
+      "label":"2606.7.5",
+      "shape":"dot",
+      "title":"Electrical luminaires."
+   },
+   {
+      "id":"1003.3.1",
+      "label":"1003.3.1",
+      "shape":"dot",
+      "title":"Headroom."
+   },
+   {
+      "id":"1004.1.1",
+      "label":"1004.1.1",
+      "shape":"dot",
+      "title":"Cumulative occupant loads."
+   },
+   {
+      "id":"1004.1.2",
+      "label":"1004.1.2",
+      "shape":"dot",
+      "title":"Areas without fixed seating."
+   },
+   {
+      "id":"1005.3.1",
+      "label":"1005.3.1",
+      "shape":"dot",
+      "title":"Stairways."
+   },
+   {
+      "id":"1005.3.2",
+      "label":"1005.3.2",
+      "shape":"dot",
+      "title":"Other egress components."
+   },
+   {
+      "id":"1005.7.2",
+      "label":"1005.7.2",
+      "shape":"dot",
+      "title":"Other projections."
+   },
+   {
+      "id":"1005.7.3",
+      "label":"1005.7.3",
+      "shape":"dot",
+      "title":"Protruding objects."
+   },
+   {
+      "id":"1006.2.1",
+      "label":"1006.2.1",
+      "shape":"dot",
+      "title":"Egress based on occupant load and common path of egress travel distance."
+   },
+   {
+      "id":"1006.2.2",
+      "label":"1006.2.2",
+      "shape":"dot",
+      "title":"Egress based on use."
+   },
+   {
+      "id":"1006.3.1",
+      "label":"1006.3.1",
+      "shape":"dot",
+      "title":"Egress based on occupant load."
+   },
+   {
+      "id":"1006.3.2",
+      "label":"1006.3.2",
+      "shape":"dot",
+      "title":"Single exits."
+   },
+   {
+      "id":"1008.2.1",
+      "label":"1008.2.1",
+      "shape":"dot",
+      "title":"Illumination level under normal power."
+   },
+   {
+      "id":"1008.3.2",
+      "label":"1008.3.2",
+      "shape":"dot",
+      "title":"Buildings."
+   },
+   {
+      "id":"1009.2.1",
+      "label":"1009.2.1",
+      "shape":"dot",
+      "title":"Elevators required."
+   },
+   {
+      "id":"1009.6.1",
+      "label":"1009.6.1",
+      "shape":"dot",
+      "title":"Travel distance."
+   },
+   {
+      "id":"1009.6.2",
+      "label":"1009.6.2",
+      "shape":"dot",
+      "title":"Stairway or elevator access."
+   },
+   {
+      "id":"1009.6.5",
+      "label":"1009.6.5",
+      "shape":"dot",
+      "title":"Two-way communication."
+   },
+   {
+      "id":"1009.7.1",
+      "label":"1009.7.1",
+      "shape":"dot",
+      "title":"Size."
+   },
+   {
+      "id":"1010.1.4",
+      "label":"1010.1.4",
+      "shape":"dot",
+      "title":"Special doors."
+   },
+   {
+      "id":"1010.1.5",
+      "label":"1010.1.5",
+      "shape":"dot",
+      "title":"Floor elevation."
+   },
+   {
+      "id":"1010.1.7",
+      "label":"1010.1.7",
+      "shape":"dot",
+      "title":"Thresholds."
+   },
+   {
+      "id":"1010.1.9",
+      "label":"1010.1.9",
+      "shape":"dot",
+      "title":"Door operations."
+   },
+   {
+      "id":"1010.2.1",
+      "label":"1010.2.1",
+      "shape":"dot",
+      "title":"Stadiums."
+   },
+   {
+      "id":"1010.3.2",
+      "label":"1010.3.2",
+      "shape":"dot",
+      "title":"Additional door."
+   },
+   {
+      "id":"1011.12.2",
+      "label":"1011.12.2",
+      "shape":"dot",
+      "title":"Roof access."
+   },
+   {
+      "id":"1011.5.2",
+      "label":"1011.5.2",
+      "shape":"dot",
+      "title":"Riser height and tread depth."
+   },
+   {
+      "id":"1011.5.3",
+      "label":"1011.5.3",
+      "shape":"dot",
+      "title":"Winder treads."
+   },
+   {
+      "id":"1011.5.4",
+      "label":"1011.5.4",
+      "shape":"dot",
+      "title":"Dimensional uniformity."
+   },
+   {
+      "id":"1011.5.5",
+      "label":"1011.5.5",
+      "shape":"dot",
+      "title":"Nosing and riser profile."
+   },
+   {
+      "id":"1012.5.1",
+      "label":"1012.5.1",
+      "shape":"dot",
+      "title":"Width and capacity."
+   },
+   {
+      "id":"1015.2.1",
+      "label":"1015.2.1",
+      "shape":"dot",
+      "title":"Glazing."
+   },
+   {
+      "id":"1017.2.1",
+      "label":"1017.2.1",
+      "shape":"dot",
+      "title":"Exterior egress balcony increase."
+   },
+   {
+      "id":"1022.2.1",
+      "label":"1022.2.1",
+      "shape":"dot",
+      "title":"Detailed requirements."
+   },
+   {
+      "id":"1023.11.1",
+      "label":"1023.11.1",
+      "shape":"dot",
+      "title":"Termination and extension."
+   },
+   {
+      "id":"1023.3.1",
+      "label":"1023.3.1",
+      "shape":"dot",
+      "title":"Extension."
+   },
+   {
+      "id":"1023.9.1",
+      "label":"1023.9.1",
+      "shape":"dot",
+      "title":"Signage requirements."
+   },
+   {
+      "id":"1028.4.1",
+      "label":"1028.4.1",
+      "shape":"dot",
+      "title":"Width or capacity."
+   },
+   {
+      "id":"1029.10.1",
+      "label":"1029.10.1",
+      "shape":"dot",
+      "title":"Transitions and stairways that maintain stepped aisle riser and tread dimensions."
+   },
+   {
+      "id":"1029.10.2",
+      "label":"1029.10.2",
+      "shape":"dot",
+      "title":"Transitions to stairways that do not maintain stepped aisle riser and tread dimensions."
+   },
+   {
+      "id":"1029.11.1",
+      "label":"1029.11.1",
+      "shape":"dot",
+      "title":"Walking surface."
+   },
+   {
+      "id":"1029.12.1",
+      "label":"1029.12.1",
+      "shape":"dot",
+      "title":"Seating at tables."
+   },
+   {
+      "id":"1029.13.1",
+      "label":"1029.13.1",
+      "shape":"dot",
+      "title":"Ramped aisles."
+   },
+   {
+      "id":"1029.13.2",
+      "label":"1029.13.2",
+      "shape":"dot",
+      "title":"Stepped aisles."
+   },
+   {
+      "id":"1029.16.1",
+      "label":"1029.16.1",
+      "shape":"dot",
+      "title":"Perimeter guards."
+   },
+   {
+      "id":"1029.16.3",
+      "label":"1029.16.3",
+      "shape":"dot",
+      "title":"Sightline-constrained guard heights."
+   },
+   {
+      "id":"1029.6.2",
+      "label":"1029.6.2",
+      "shape":"dot",
+      "title":"Smoke-protected assembly seating."
+   },
+   {
+      "id":"1029.6.3",
+      "label":"1029.6.3",
+      "shape":"dot",
+      "title":"Outdoor smoke-protected assembly seating."
+   },
+   {
+      "id":"1029.9.5",
+      "label":"1029.9.5",
+      "shape":"dot",
+      "title":"Dead end aisles."
+   },
+   {
+      "id":"1029.9.6",
+      "label":"1029.9.6",
+      "shape":"dot",
+      "title":"Aisle measurement."
+   },
+   {
+      "id":"1029.9.7",
+      "label":"1029.9.7",
+      "shape":"dot",
+      "title":"Stairways connecting to stepped aisles."
+   },
+   {
+      "id":"1029.9.8",
+      "label":"1029.9.8",
+      "shape":"dot",
+      "title":"Stairways connecting to vomitories."
+   },
+   {
+      "id":"402.4.1",
+      "label":"402.4.1",
+      "shape":"dot",
+      "title":"Area and types of construction."
+   },
+   {
+      "id":"402.6.2",
+      "label":"402.6.2",
+      "shape":"dot",
+      "title":"Kiosks."
+   },
+   {
+      "id":"402.6.4",
+      "label":"402.6.4",
+      "shape":"dot",
+      "title":"Plastic signs."
+   },
+   {
+      "id":"402.7.2",
+      "label":"402.7.2",
+      "shape":"dot",
+      "title":"Smoke control."
+   },
+   {
+      "id":"402.8.1",
+      "label":"402.8.1",
+      "shape":"dot",
+      "title":"Mall width."
+   },
+   {
+      "id":"403.2.3",
+      "label":"403.2.3",
+      "shape":"dot",
+      "title":"Structural integrity of interior exit stairways and elevator hoistway enclosures."
+   },
+   {
+      "id":"403.2.4",
+      "label":"403.2.4",
+      "shape":"dot",
+      "title":"Sprayed fire-resistant materials (SFRM)."
+   },
+   {
+      "id":"403.4.3",
+      "label":"403.4.3",
+      "shape":"dot",
+      "title":"Standpipe system."
+   },
+   {
+      "id":"403.4.8",
+      "label":"403.4.8",
+      "shape":"dot",
+      "title":"Standby and emergency power."
+   },
+   {
+      "id":"403.5.2",
+      "label":"403.5.2",
+      "shape":"dot",
+      "title":"Additional interior exit stairway."
+   },
+   {
+      "id":"403.5.4",
+      "label":"403.5.4",
+      "shape":"dot",
+      "title":"Smokeproof enclosures."
+   },
+   {
+      "id":"403.6.1",
+      "label":"403.6.1",
+      "shape":"dot",
+      "title":"Fire service access elevator."
+   },
+   {
+      "id":"405.4.2",
+      "label":"405.4.2",
+      "shape":"dot",
+      "title":"Smoke barrier penetration."
+   },
+   {
+      "id":"405.7.1",
+      "label":"405.7.1",
+      "shape":"dot",
+      "title":"Number of exits."
+   },
+   {
+      "id":"405.7.2",
+      "label":"405.7.2",
+      "shape":"dot",
+      "title":"Smokeproof enclosure."
+   },
+   {
+      "id":"406.3.2",
+      "label":"406.3.2",
+      "shape":"dot",
+      "title":"Clear height."
+   },
+   {
+      "id":"406.3.4",
+      "label":"406.3.4",
+      "shape":"dot",
+      "title":"Separation."
+   },
+   {
+      "id":"406.4.1",
+      "label":"406.4.1",
+      "shape":"dot",
+      "title":"Clear height."
+   },
+   {
+      "id":"406.4.2",
+      "label":"406.4.2",
+      "shape":"dot",
+      "title":"Guards."
+   },
+   {
+      "id":"406.4.3",
+      "label":"406.4.3",
+      "shape":"dot",
+      "title":"Vehicle barriers."
+   },
+   {
+      "id":"406.4.6",
+      "label":"406.4.6",
+      "shape":"dot",
+      "title":"Mixed occupancy separation."
+   },
+   {
+      "id":"406.5.1",
+      "label":"406.5.1",
+      "shape":"dot",
+      "title":"Construction."
+   },
+   {
+      "id":"406.5.4",
+      "label":"406.5.4",
+      "shape":"dot",
+      "title":"Area and height."
+   },
+   {
+      "id":"406.5.5",
+      "label":"406.5.5",
+      "shape":"dot",
+      "title":"Area and height increases."
+   },
+   {
+      "id":"406.5.8",
+      "label":"406.5.8",
+      "shape":"dot",
+      "title":"Standpipe system."
+   },
+   {
+      "id":"406.5.9",
+      "label":"406.5.9",
+      "shape":"dot",
+      "title":"Enclosure of vertical openings."
+   },
+   {
+      "id":"406.5.10",
+      "label":"406.5.10",
+      "shape":"dot",
+      "title":"Ventilation."
+   },
+   {
+      "id":"406.8.1",
+      "label":"406.8.1",
+      "shape":"dot",
+      "title":"Mixed uses."
+   },
+   {
+      "id":"407.2.3",
+      "label":"407.2.3",
+      "shape":"dot",
+      "title":"Psychiatric treatment areas."
+   },
+   {
+      "id":"407.3.1",
+      "label":"407.3.1",
+      "shape":"dot",
+      "title":"Corridor doors."
+   },
+   {
+      "id":"407.4.1",
+      "label":"407.4.1",
+      "shape":"dot",
+      "title":"Direct access to a corridor."
+   },
+   {
+      "id":"407.4.3",
+      "label":"407.4.3",
+      "shape":"dot",
+      "title":"Projections in nursing home corridors."
+   },
+   {
+      "id":"407.4.4",
+      "label":"407.4.4",
+      "shape":"dot",
+      "title":"Group I-2 care suites."
+   },
+   {
+      "id":"407.5.3",
+      "label":"407.5.3",
+      "shape":"dot",
+      "title":"Horizontal assemblies."
+   },
+   {
+      "id":"408.3.4",
+      "label":"408.3.4",
+      "shape":"dot",
+      "title":"Spiral stairways."
+   },
+   {
+      "id":"408.3.5",
+      "label":"408.3.5",
+      "shape":"dot",
+      "title":"Ships ladders."
+   },
+   {
+      "id":"408.3.8",
+      "label":"408.3.8",
+      "shape":"dot",
+      "title":"Interior exit stairway and ramp construction."
+   },
+   {
+      "id":"408.4.2",
+      "label":"408.4.2",
+      "shape":"dot",
+      "title":"Power-operated doors and locks."
+   },
+   {
+      "id":"408.5.2",
+      "label":"408.5.2",
+      "shape":"dot",
+      "title":"Shaft openings in communicating floor levels."
+   },
+   {
+      "id":"408.8.4",
+      "label":"408.8.4",
+      "shape":"dot",
+      "title":"Smoke-tight doors."
+   },
+   {
+      "id":"410.3.1",
+      "label":"410.3.1",
+      "shape":"dot",
+      "title":"Stage construction."
+   },
+   {
+      "id":"410.3.5",
+      "label":"410.3.5",
+      "shape":"dot",
+      "title":"Proscenium curtain."
+   },
+   {
+      "id":"410.3.7",
+      "label":"410.3.7",
+      "shape":"dot",
+      "title":"Stage ventilation."
+   },
+   {
+      "id":"410.6.1",
+      "label":"410.6.1",
+      "shape":"dot",
+      "title":"Arrangement."
+   },
+   {
+      "id":"412.3.1",
+      "label":"412.3.1",
+      "shape":"dot",
+      "title":"Type of construction."
+   },
+   {
+      "id":"412.3.2",
+      "label":"412.3.2",
+      "shape":"dot",
+      "title":"Stairways."
+   },
+   {
+      "id":"412.3.5",
+      "label":"412.3.5",
+      "shape":"dot",
+      "title":"Automatic fire detection systems."
+   },
+   {
+      "id":"412.4.6",
+      "label":"412.4.6",
+      "shape":"dot",
+      "title":"Fire suppression."
+   },
+   {
+      "id":"412.7.1",
+      "label":"412.7.1",
+      "shape":"dot",
+      "title":"Ancillary areas."
+   },
+   {
+      "id":"412.8.2",
+      "label":"412.8.2",
+      "shape":"dot",
+      "title":"Design."
+   },
+   {
+      "id":"414.1.2",
+      "label":"414.1.2",
+      "shape":"dot",
+      "title":"Materials."
+   },
+   {
+      "id":"414.2.2",
+      "label":"414.2.2",
+      "shape":"dot",
+      "title":"Percentage of maximum allowable quantities."
+   },
+   {
+      "id":"414.2.3",
+      "label":"414.2.3",
+      "shape":"dot",
+      "title":"Number."
+   },
+   {
+      "id":"414.2.4",
+      "label":"414.2.4",
+      "shape":"dot",
+      "title":"Fire-resistance-rating requirements."
+   },
+   {
+      "id":"414.2.5",
+      "label":"414.2.5",
+      "shape":"dot",
+      "title":"Hazardous material in Group M display and storage areas and in Group S storage areas."
+   },
+   {
+      "id":"414.5.1",
+      "label":"414.5.1",
+      "shape":"dot",
+      "title":"Explosion control."
+   },
+   {
+      "id":"415.10.1",
+      "label":"415.10.1",
+      "shape":"dot",
+      "title":"Flammable and combustible liquids."
+   },
+   {
+      "id":"415.11.1",
+      "label":"415.11.1",
+      "shape":"dot",
+      "title":"Fabrication areas."
+   },
+   {
+      "id":"415.11.3",
+      "label":"415.11.3",
+      "shape":"dot",
+      "title":"Service corridors."
+   },
+   {
+      "id":"415.11.5",
+      "label":"415.11.5",
+      "shape":"dot",
+      "title":" HPM rooms, gas rooms, liquid storage room construction."
+   },
+   {
+      "id":"415.6.1",
+      "label":"415.6.1",
+      "shape":"dot",
+      "title":"Group H occupancy minimum fire separation distance."
+   },
+   {
+      "id":"415.6.2",
+      "label":"415.6.2",
+      "shape":"dot",
+      "title":" Detached buildings for Group H-1, H-2 or H-3 occupancy."
+   },
+   {
+      "id":"415.8.2",
+      "label":"415.8.2",
+      "shape":"dot",
+      "title":"Separation of incompatible materials."
+   },
+   {
+      "id":"415.9.1",
+      "label":"415.9.1",
+      "shape":"dot",
+      "title":"Flammable and combustible liquids."
+   },
+   {
+      "id":"419.3.1",
+      "label":"419.3.1",
+      "shape":"dot",
+      "title":"Egress capacity."
+   },
+   {
+      "id":"419.3.2",
+      "label":"419.3.2",
+      "shape":"dot",
+      "title":"Spiral stairways."
+   },
+   {
+      "id":"422.3.1",
+      "label":"422.3.1",
+      "shape":"dot",
+      "title":"Means of egress."
+   },
+   {
+      "id":"703.2.1",
+      "label":"703.2.1",
+      "shape":"dot",
+      "title":"Nonsymmetrical wall construction."
+   },
+   {
+      "id":"703.5.2",
+      "label":"703.5.2",
+      "shape":"dot",
+      "title":"Composite materials."
+   },
+   {
+      "id":"705.2.1",
+      "label":"705.2.1",
+      "shape":"dot",
+      "title":"Type I and II construction."
+   },
+   {
+      "id":"705.2.3",
+      "label":"705.2.3",
+      "shape":"dot",
+      "title":"Combustible projections."
+   },
+   {
+      "id":"705.8.1",
+      "label":"705.8.1",
+      "shape":"dot",
+      "title":"Allowable area of openings."
+   },
+   {
+      "id":"705.8.2",
+      "label":"705.8.2",
+      "shape":"dot",
+      "title":"Protected openings."
+   },
+   {
+      "id":"705.8.4",
+      "label":"705.8.4",
+      "shape":"dot",
+      "title":"Mixed openings."
+   },
+   {
+      "id":"705.8.6",
+      "label":"705.8.6",
+      "shape":"dot",
+      "title":"Vertical exposure."
+   },
+   {
+      "id":"705.9.1",
+      "label":"705.9.1",
+      "shape":"dot",
+      "title":"Voids."
+   },
+   {
+      "id":"706.5.1",
+      "label":"706.5.1",
+      "shape":"dot",
+      "title":"Exterior walls."
+   },
+   {
+      "id":"707.3.1",
+      "label":"707.3.1",
+      "shape":"dot",
+      "title":"Shaft enclosures."
+   },
+   {
+      "id":"707.3.2",
+      "label":"707.3.2",
+      "shape":"dot",
+      "title":"Interior exit stairway and ramp construction."
+   },
+   {
+      "id":"707.3.3",
+      "label":"707.3.3",
+      "shape":"dot",
+      "title":"Enclosures for exit access stairways."
+   },
+   {
+      "id":"707.3.4",
+      "label":"707.3.4",
+      "shape":"dot",
+      "title":"Exit passageway."
+   },
+   {
+      "id":"707.3.5",
+      "label":"707.3.5",
+      "shape":"dot",
+      "title":"Horizontal exit."
+   },
+   {
+      "id":"707.3.6",
+      "label":"707.3.6",
+      "shape":"dot",
+      "title":"Atriums."
+   },
+   {
+      "id":"707.3.8",
+      "label":"707.3.8",
+      "shape":"dot",
+      "title":"Control areas."
+   },
+   {
+      "id":"707.3.9",
+      "label":"707.3.9",
+      "shape":"dot",
+      "title":"Separated occupancies."
+   },
+   {
+      "id":"707.3.10",
+      "label":"707.3.10",
+      "shape":"dot",
+      "title":"Fire areas."
+   },
+   {
+      "id":"707.5.1",
+      "label":"707.5.1",
+      "shape":"dot",
+      "title":"Supporting construction."
+   },
+   {
+      "id":"707.7.1",
+      "label":"707.7.1",
+      "shape":"dot",
+      "title":"Prohibited penetrations."
+   },
+   {
+      "id":"709.4.2",
+      "label":"709.4.2",
+      "shape":"dot",
+      "title":"Smoke-barrier walls enclosing areas of refuge or elevator lobbies."
+   },
+   {
+      "id":"711.2.3",
+      "label":"711.2.3",
+      "shape":"dot",
+      "title":"Supporting construction."
+   },
+   {
+      "id":"711.2.4",
+      "label":"711.2.4",
+      "shape":"dot",
+      "title":"Fire-resistance rating."
+   },
+   {
+      "id":"712.1.5",
+      "label":"712.1.5",
+      "shape":"dot",
+      "title":"Joints."
+   },
+   {
+      "id":"712.1.8",
+      "label":"712.1.8",
+      "shape":"dot",
+      "title":"Masonry chimney."
+   },
+   {
+      "id":"712.1.10",
+      "label":"712.1.10",
+      "shape":"dot",
+      "title":"Parking garages."
+   },
+   {
+      "id":"712.1.14",
+      "label":"712.1.14",
+      "shape":"dot",
+      "title":"Group I-3."
+   },
+   {
+      "id":"712.1.15",
+      "label":"712.1.15",
+      "shape":"dot",
+      "title":"Skylights."
+   },
+   {
+      "id":"713.13.1",
+      "label":"713.13.1",
+      "shape":"dot",
+      "title":"Waste and linen."
+   },
+   {
+      "id":"714.1.1",
+      "label":"714.1.1",
+      "shape":"dot",
+      "title":"Ducts and air transfer openings."
+   },
+   {
+      "id":"714.3.2",
+      "label":"714.3.2",
+      "shape":"dot",
+      "title":"Membrane penetrations."
+   },
+   {
+      "id":"714.4.2",
+      "label":"714.4.2",
+      "shape":"dot",
+      "title":"Membrane penetrations."
+   },
+   {
+      "id":"715.1.1",
+      "label":"715.1.1",
+      "shape":"dot",
+      "title":"Curtain wall assembly."
+   },
+   {
+      "id":"716.3.1",
+      "label":"716.3.1",
+      "shape":"dot",
+      "title":"Fire-rated glazing identification."
+   },
+   {
+      "id":"716.3.2",
+      "label":"716.3.2",
+      "shape":"dot",
+      "title":"Fire-protection-rated glazing identification."
+   },
+   {
+      "id":"716.5.3",
+      "label":"716.5.3",
+      "shape":"dot",
+      "title":"Door assemblies in corridors and smoke barriers."
+   },
+   {
+      "id":"716.5.4",
+      "label":"716.5.4",
+      "shape":"dot",
+      "title":"Door assemblies in other fire partitions."
+   },
+   {
+      "id":"716.5.5",
+      "label":"716.5.5",
+      "shape":"dot",
+      "title":"Doors in interior exit stairways and ramps and exit passageways."
+   },
+   {
+      "id":"716.5.6",
+      "label":"716.5.6",
+      "shape":"dot",
+      "title":"Fire door frames with transom lights and sidelights."
+   },
+   {
+      "id":"716.5.7",
+      "label":"716.5.7",
+      "shape":"dot",
+      "title":"Labeled protective assemblies."
+   },
+   {
+      "id":"716.5.8",
+      "label":"716.5.8",
+      "shape":"dot",
+      "title":"Glazing material."
+   },
+   {
+      "id":"716.5.9",
+      "label":"716.5.9",
+      "shape":"dot",
+      "title":"Door closing."
+   },
+   {
+      "id":"716.6.7",
+      "label":"716.6.7",
+      "shape":"dot",
+      "title":"Interior fire window assemblies."
+   },
+   {
+      "id":"716.6.8",
+      "label":"716.6.8",
+      "shape":"dot",
+      "title":"Labeling requirements."
+   },
+   {
+      "id":"717.1.2",
+      "label":"717.1.2",
+      "shape":"dot",
+      "title":"Ducts that penetrate fire-resistance-rated assemblies without dampers."
+   },
+   {
+      "id":"717.2.1",
+      "label":"717.2.1",
+      "shape":"dot",
+      "title":"Smoke control system."
+   },
+   {
+      "id":"717.3.3",
+      "label":"717.3.3",
+      "shape":"dot",
+      "title":"Damper actuation."
+   },
+   {
+      "id":"717.5.1",
+      "label":"717.5.1",
+      "shape":"dot",
+      "title":"Fire walls."
+   },
+   {
+      "id":"717.5.2",
+      "label":"717.5.2",
+      "shape":"dot",
+      "title":"Fire barriers."
+   },
+   {
+      "id":"717.5.3",
+      "label":"717.5.3",
+      "shape":"dot",
+      "title":"Shaft enclosures."
+   },
+   {
+      "id":"717.5.4",
+      "label":"717.5.4",
+      "shape":"dot",
+      "title":"Fire partitions."
+   },
+   {
+      "id":"717.5.5",
+      "label":"717.5.5",
+      "shape":"dot",
+      "title":"Smoke barriers."
+   },
+   {
+      "id":"717.5.6",
+      "label":"717.5.6",
+      "shape":"dot",
+      "title":"Exterior walls."
+   },
+   {
+      "id":"717.6.1",
+      "label":"717.6.1",
+      "shape":"dot",
+      "title":"Through penetrations."
+   },
+   {
+      "id":"717.6.2",
+      "label":"717.6.2",
+      "shape":"dot",
+      "title":"Membrane penetrations."
+   },
+   {
+      "id":"718.2.4",
+      "label":"718.2.4",
+      "shape":"dot",
+      "title":"Stairways."
+   },
+   {
+      "id":"718.2.5",
+      "label":"718.2.5",
+      "shape":"dot",
+      "title":"Ceiling and floor openings."
+   },
+   {
+      "id":"718.4.1",
+      "label":"718.4.1",
+      "shape":"dot",
+      "title":"Draftstopping materials."
+   },
+   {
+      "id":"722.2.1",
+      "label":"722.2.1",
+      "shape":"dot",
+      "title":"Concrete walls."
+   },
+   {
+      "id":"722.2.2",
+      "label":"722.2.2",
+      "shape":"dot",
+      "title":"Concrete floor and roof slabs."
+   },
+   {
+      "id":"722.2.4",
+      "label":"722.2.4",
+      "shape":"dot",
+      "title":"Concrete columns."
+   },
+   {
+      "id":"722.3.1",
+      "label":"722.3.1",
+      "shape":"dot",
+      "title":"Equivalent thickness."
+   },
+   {
+      "id":"722.3.2",
+      "label":"722.3.2",
+      "shape":"dot",
+      "title":"Concrete masonry walls."
+   },
+   {
+      "id":"722.3.4",
+      "label":"722.3.4",
+      "shape":"dot",
+      "title":"Concrete masonry lintels."
+   },
+   {
+      "id":"722.3.5",
+      "label":"722.3.5",
+      "shape":"dot",
+      "title":"Concrete masonry columns."
+   },
+   {
+      "id":"722.4.1",
+      "label":"722.4.1",
+      "shape":"dot",
+      "title":"Masonry walls."
+   },
+   {
+      "id":"722.4.2",
+      "label":"722.4.2",
+      "shape":"dot",
+      "title":"Multiwythe walls."
+   },
+   {
+      "id":"722.5.1",
+      "label":"722.5.1",
+      "shape":"dot",
+      "title":"Structural steel columns."
+   },
+   {
+      "id":"722.5.2",
+      "label":"722.5.2",
+      "shape":"dot",
+      "title":"Structural steel beams and girders."
+   },
+   {
+      "id":"722.6.1",
+      "label":"722.6.1",
+      "shape":"dot",
+      "title":"General."
+   },
+   {
+      "id":"722.6.2",
+      "label":"722.6.2",
+      "shape":"dot",
+      "title":" Walls, floors and roofs."
+   },
+   {
+      "id":"3304.1.4",
+      "label":"3304.1.4",
+      "shape":"dot",
+      "title":"Fill supporting foundations."
+   },
+   {
+      "id":"2508.5.4",
+      "label":"2508.5.4",
+      "shape":"dot",
+      "title":"Fasteners."
+   },
+   {
+      "id":"2510.5.2",
+      "label":"2510.5.2",
+      "shape":"dot",
+      "title":"Use of gypsum backing board."
+   },
+   {
+      "id":"2511.1.1",
+      "label":"2511.1.1",
+      "shape":"dot",
+      "title":"Installation."
+   },
+   {
+      "id":"2512.8.2",
+      "label":"2512.8.2",
+      "shape":"dot",
+      "title":"Curing."
+   },
+   {
+      "id":"3002.1.1",
+      "label":"3002.1.1",
+      "shape":"dot",
+      "title":"Opening protectives."
+   },
+   {
+      "id":"3007.6.1",
+      "label":"3007.6.1",
+      "shape":"dot",
+      "title":"Access to interior exit stairway or ramp."
+   },
+   {
+      "id":"3007.6.2",
+      "label":"3007.6.2",
+      "shape":"dot",
+      "title":"Lobby enclosure."
+   },
+   {
+      "id":"3007.6.3",
+      "label":"3007.6.3",
+      "shape":"dot",
+      "title":"Lobby doorways."
+   },
+   {
+      "id":"3007.6.5",
+      "label":"3007.6.5",
+      "shape":"dot",
+      "title":"Fire service access elevator symbol."
+   },
+   {
+      "id":"3008.1.1",
+      "label":"3008.1.1",
+      "shape":"dot",
+      "title":"Additional exit stairway."
+   },
+   {
+      "id":"3008.6.1",
+      "label":"3008.6.1",
+      "shape":"dot",
+      "title":"Access to interior exit stairway or ramp."
+   },
+   {
+      "id":"3008.6.2",
+      "label":"3008.6.2",
+      "shape":"dot",
+      "title":"Lobby enclosure."
+   },
+   {
+      "id":"3008.6.3",
+      "label":"3008.6.3",
+      "shape":"dot",
+      "title":"Lobby doorways."
+   },
+   {
+      "id":"3008.6.6",
+      "label":"3008.6.6",
+      "shape":"dot",
+      "title":"Two-way communication system."
+   },
+   {
+      "id":"602.4.1",
+      "label":"602.4.1",
+      "shape":"dot",
+      "title":"Fire-retardant-treated wood in exterior walls."
+   },
+   {
+      "id":"602.4.2",
+      "label":"602.4.2",
+      "shape":"dot",
+      "title":"Cross-laminated timber in exterior walls."
+   },
+   {
+      "id":"602.4.3",
+      "label":"602.4.3",
+      "shape":"dot",
+      "title":"Columns."
+   },
+   {
+      "id":"602.4.8",
+      "label":"602.4.8",
+      "shape":"dot",
+      "title":"Partitions and walls."
+   },
+   {
+      "id":"803.1.1",
+      "label":"803.1.1",
+      "shape":"dot",
+      "title":"Interior wall and ceiling finish materials."
+   },
+   {
+      "id":"803.13.1",
+      "label":"803.13.1",
+      "shape":"dot",
+      "title":"Direct attachment and furred construction."
+   },
+   {
+      "id":"901.6.2",
+      "label":"901.6.2",
+      "shape":"dot",
+      "title":"Fire alarm systems."
+   },
+   {
+      "id":"2702.1.7",
+      "label":"2702.1.7",
+      "shape":"dot",
+      "title":"Group I-2 occupancies."
+   },
+   {
+      "id":"2702.2.1",
+      "label":"2702.2.1",
+      "shape":"dot",
+      "title":"Emergency alarm systems."
+   },
+   {
+      "id":"2702.2.2",
+      "label":"2702.2.2",
+      "shape":"dot",
+      "title":"Elevators and platform lifts."
+   },
+   {
+      "id":"2702.2.5",
+      "label":"2702.2.5",
+      "shape":"dot",
+      "title":"Exit signs."
+   },
+   {
+      "id":"2702.2.6",
+      "label":"2702.2.6",
+      "shape":"dot",
+      "title":"Group I-2 occupancies."
+   },
+   {
+      "id":"2702.2.7",
+      "label":"2702.2.7",
+      "shape":"dot",
+      "title":"Group I-3 occupancies."
+   },
+   {
+      "id":"2702.2.9",
+      "label":"2702.2.9",
+      "shape":"dot",
+      "title":"High-rise buildings."
+   },
+   {
+      "id":"2702.2.11",
+      "label":"2702.2.11",
+      "shape":"dot",
+      "title":"Means of egress illumination."
+   },
+   {
+      "id":"2702.2.12",
+      "label":"2702.2.12",
+      "shape":"dot",
+      "title":"Membrane structures."
+   },
+   {
+      "id":"2702.2.14",
+      "label":"2702.2.14",
+      "shape":"dot",
+      "title":"Semiconductor fabrication facilities."
+   },
+   {
+      "id":"305.1.1",
+      "label":"305.1.1",
+      "shape":"dot",
+      "title":"Accessory to places of religious worship."
+   },
+   {
+      "id":"307.1.1",
+      "label":"307.1.1",
+      "shape":"dot",
+      "title":"Uses other than Group H."
+   },
+   {
+      "id":"311.1.1",
+      "label":"311.1.1",
+      "shape":"dot",
+      "title":"Accessory storage spaces."
+   },
+   {
+      "id":"1405.10.1",
+      "label":"1405.10.1",
+      "shape":"dot",
+      "title":"Exterior adhered masonry veneer."
+   },
+   {
+      "id":"1405.10.3",
+      "label":"1405.10.3",
+      "shape":"dot",
+      "title":"Interior adhered masonry veneers."
+   },
+   {
+      "id":"1405.11.2",
+      "label":"1405.11.2",
+      "shape":"dot",
+      "title":"Weather protection."
+   },
+   {
+      "id":"1405.14.1",
+      "label":"1405.14.1",
+      "shape":"dot",
+      "title":"Application."
+   },
+   {
+      "id":"1405.16.1",
+      "label":"1405.16.1",
+      "shape":"dot",
+      "title":"Panel siding."
+   },
+   {
+      "id":"1405.16.2",
+      "label":"1405.16.2",
+      "shape":"dot",
+      "title":"Lap siding."
+   },
+   {
+      "id":"1405.3.1",
+      "label":"1405.3.1",
+      "shape":"dot",
+      "title":"Class I and II vapor retarders."
+   },
+   {
+      "id":"1405.3.2",
+      "label":"1405.3.2",
+      "shape":"dot",
+      "title":"Class III vapor retarders."
+   },
+   {
+      "id":"1405.4.2",
+      "label":"1405.4.2",
+      "shape":"dot",
+      "title":"Masonry."
+   },
+   {
+      "id":"1406.2.1",
+      "label":"1406.2.1",
+      "shape":"dot",
+      "title":" Type I, II, III and IV construction."
+   },
+   {
+      "id":"1407.10.3",
+      "label":"1407.10.3",
+      "shape":"dot",
+      "title":"Thermal barrier not required."
+   },
+   {
+      "id":"1407.11.3",
+      "label":"1407.11.3",
+      "shape":"dot",
+      "title":"Installations up to 75 feet in height (Option 1)."
+   },
+   {
+      "id":"1407.11.4",
+      "label":"1407.11.4",
+      "shape":"dot",
+      "title":"Installations up to 75 feet in height (Option 2)."
+   },
+   {
+      "id":"1408.4.1",
+      "label":"1408.4.1",
+      "shape":"dot",
+      "title":"EIFS with drainage."
+   },
+   {
+      "id":"1409.10.3",
+      "label":"1409.10.3",
+      "shape":"dot",
+      "title":"Thermal barrier not required."
+   },
+   {
+      "id":"2404.3.2",
+      "label":"2404.3.2",
+      "shape":"dot",
+      "title":"Sloped wired glass."
+   },
+   {
+      "id":"2404.3.4",
+      "label":"2404.3.4",
+      "shape":"dot",
+      "title":"Sloped patterned glass."
+   },
+   {
+      "id":"2405.5.1",
+      "label":"2405.5.1",
+      "shape":"dot",
+      "title":"Skylights rated for the same performance grade for both positive and negative design pressure."
+   },
+   {
+      "id":"2405.5.2",
+      "label":"2405.5.2",
+      "shape":"dot",
+      "title":"Skylights rated for separate performance grades for positive and negative design pressure."
+   },
+   {
+      "id":"2406.1.1",
+      "label":"2406.1.1",
+      "shape":"dot",
+      "title":"Impact test."
+   },
+   {
+      "id":"2406.1.4",
+      "label":"2406.1.4",
+      "shape":"dot",
+      "title":"Louvered windows and jalousies."
+   },
+   {
+      "id":"2406.3.1",
+      "label":"2406.3.1",
+      "shape":"dot",
+      "title":"Multipane assemblies."
+   },
+   {
+      "id":"2406.4.2",
+      "label":"2406.4.2",
+      "shape":"dot",
+      "title":"Glazing adjacent to doors."
+   },
+   {
+      "id":"2406.4.6",
+      "label":"2406.4.6",
+      "shape":"dot",
+      "title":"Glazing adjacent to stairways and ramps."
+   },
+   {
+      "id":"2406.4.7",
+      "label":"2406.4.7",
+      "shape":"dot",
+      "title":"Glazing adjacent to the bottom stairway landing."
+   },
+   {
+      "id":"2407.1.1",
+      "label":"2407.1.1",
+      "shape":"dot",
+      "title":"Loads."
+   },
+   {
+      "id":"2407.1.2",
+      "label":"2407.1.2",
+      "shape":"dot",
+      "title":"Support."
+   },
+   {
+      "id":"2407.1.4",
+      "label":"2407.1.4",
+      "shape":"dot",
+      "title":"Glazing in wind-borne debris regions."
+   },
+   {
+      "id":"1503.4.2",
+      "label":"1503.4.2",
+      "shape":"dot",
+      "title":"Scuppers."
+   },
+   {
+      "id":"1504.1.1",
+      "label":"1504.1.1",
+      "shape":"dot",
+      "title":"Wind resistance of asphalt shingles."
+   },
+   {
+      "id":"1504.3.2",
+      "label":"1504.3.2",
+      "shape":"dot",
+      "title":"Structural metal panel roof systems."
+   },
+   {
+      "id":"1507.10.2",
+      "label":"1507.10.2",
+      "shape":"dot",
+      "title":"Material standards."
+   },
+   {
+      "id":"1507.12.3",
+      "label":"1507.12.3",
+      "shape":"dot",
+      "title":"Ballasted thermoset low-slope roofs."
+   },
+   {
+      "id":"1507.13.3",
+      "label":"1507.13.3",
+      "shape":"dot",
+      "title":"Ballasted thermoplastic low-slope roofs."
+   },
+   {
+      "id":"1507.14.3",
+      "label":"1507.14.3",
+      "shape":"dot",
+      "title":"Application."
+   },
+   {
+      "id":"1507.17.4",
+      "label":"1507.17.4",
+      "shape":"dot",
+      "title":"Underlayment application."
+   },
+   {
+      "id":"1507.17.8",
+      "label":"1507.17.8",
+      "shape":"dot",
+      "title":"Wind resistance."
+   },
+   {
+      "id":"1507.2.2",
+      "label":"1507.2.2",
+      "shape":"dot",
+      "title":"Slope."
+   },
+   {
+      "id":"1507.2.8",
+      "label":"1507.2.8",
+      "shape":"dot",
+      "title":"Underlayment application."
+   },
+   {
+      "id":"1507.3.2",
+      "label":"1507.3.2",
+      "shape":"dot",
+      "title":"Deck slope."
+   },
+   {
+      "id":"1507.3.3",
+      "label":"1507.3.3",
+      "shape":"dot",
+      "title":"Underlayment."
+   },
+   {
+      "id":"1507.3.7",
+      "label":"1507.3.7",
+      "shape":"dot",
+      "title":"Attachment."
+   },
+   {
+      "id":"1507.4.5",
+      "label":"1507.4.5",
+      "shape":"dot",
+      "title":"Underlayment and high wind."
+   },
+   {
+      "id":"1507.5.3",
+      "label":"1507.5.3",
+      "shape":"dot",
+      "title":"Underlayment."
+   },
+   {
+      "id":"1507.6.3",
+      "label":"1507.6.3",
+      "shape":"dot",
+      "title":"Underlayment."
+   },
+   {
+      "id":"1507.7.3",
+      "label":"1507.7.3",
+      "shape":"dot",
+      "title":"Underlayment."
+   },
+   {
+      "id":"1507.7.6",
+      "label":"1507.7.6",
+      "shape":"dot",
+      "title":"Application."
+   },
+   {
+      "id":"1507.8.3",
+      "label":"1507.8.3",
+      "shape":"dot",
+      "title":"Underlayment."
+   },
+   {
+      "id":"1507.8.5",
+      "label":"1507.8.5",
+      "shape":"dot",
+      "title":"Material standards."
+   },
+   {
+      "id":"1507.8.7",
+      "label":"1507.8.7",
+      "shape":"dot",
+      "title":"Application."
+   },
+   {
+      "id":"1507.9.3",
+      "label":"1507.9.3",
+      "shape":"dot",
+      "title":"Underlayment."
+   },
+   {
+      "id":"1507.9.6",
+      "label":"1507.9.6",
+      "shape":"dot",
+      "title":"Material standards."
+   },
+   {
+      "id":"1507.9.8",
+      "label":"1507.9.8",
+      "shape":"dot",
+      "title":"Application."
+   },
+   {
+      "id":"1510.2.2",
+      "label":"1510.2.2",
+      "shape":"dot",
+      "title":"Area limitation."
+   },
+   {
+      "id":"1510.6.2",
+      "label":"1510.6.2",
+      "shape":"dot",
+      "title":"Type I, II, III and IV construction."
+   },
+   {
+      "id":"1510.6.3",
+      "label":"1510.6.3",
+      "shape":"dot",
+      "title":"Type V construction."
+   },
+   {
+      "id":"1510.7.2",
+      "label":"1510.7.2",
+      "shape":"dot",
+      "title":"Fire classification."
+   },
+   {
+      "id":"1510.8.2",
+      "label":"1510.8.2",
+      "shape":"dot",
+      "title":"Bulkheads."
+   },
+   {
+      "id":"1510.8.4",
+      "label":"1510.8.4",
+      "shape":"dot",
+      "title":"Fences."
+   },
+   {
+      "id":"1703.6.1",
+      "label":"1703.6.1",
+      "shape":"dot",
+      "title":"Follow-up inspection."
+   },
+   {
+      "id":"1704.2.3",
+      "label":"1704.2.3",
+      "shape":"dot",
+      "title":"Statement of special inspections."
+   },
+   {
+      "id":"1704.2.5",
+      "label":"1704.2.5",
+      "shape":"dot",
+      "title":"Special inspection of fabricated items."
+   },
+   {
+      "id":"1704.3.1",
+      "label":"1704.3.1",
+      "shape":"dot",
+      "title":"Content of statement of special inspections."
+   },
+   {
+      "id":"1704.3.2",
+      "label":"1704.3.2",
+      "shape":"dot",
+      "title":"Seismic requirements in the statement of special inspections."
+   },
+   {
+      "id":"1704.3.3",
+      "label":"1704.3.3",
+      "shape":"dot",
+      "title":"Wind requirements in the statement of special inspections."
+   },
+   {
+      "id":"1704.6.2",
+      "label":"1704.6.2",
+      "shape":"dot",
+      "title":"Structural observations for wind requirements."
+   },
+   {
+      "id":"1705.13.2",
+      "label":"1705.13.2",
+      "shape":"dot",
+      "title":"Nonstructural components."
+   },
+   {
+      "id":"1705.13.3",
+      "label":"1705.13.3",
+      "shape":"dot",
+      "title":"Designated seismic systems."
+   },
+   {
+      "id":"1705.17.1",
+      "label":"1705.17.1",
+      "shape":"dot",
+      "title":"Penetration firestops."
+   },
+   {
+      "id":"1705.17.2",
+      "label":"1705.17.2",
+      "shape":"dot",
+      "title":"Fire-resistant joint systems."
+   },
+   {
+      "id":"1705.2.3",
+      "label":"1705.2.3",
+      "shape":"dot",
+      "title":"Open-web steel joists and joist girders."
+   },
+   {
+      "id":"1705.4.2",
+      "label":"1705.4.2",
+      "shape":"dot",
+      "title":"Vertical masonry foundation elements."
+   },
+   {
+      "id":"1705.5.1",
+      "label":"1705.5.1",
+      "shape":"dot",
+      "title":"High-load diaphragms."
+   },
+   {
+      "id":"1708.3.1",
+      "label":"1708.3.1",
+      "shape":"dot",
+      "title":"Load test procedure specified."
+   },
+   {
+      "id":"1708.3.2",
+      "label":"1708.3.2",
+      "shape":"dot",
+      "title":"Load test procedure not specified."
+   },
+   {
+      "id":"1709.3.1",
+      "label":"1709.3.1",
+      "shape":"dot",
+      "title":"Test procedure."
+   },
+   {
+      "id":"1709.3.2",
+      "label":"1709.3.2",
+      "shape":"dot",
+      "title":"Deflection."
+   },
+   {
+      "id":"1709.5.1",
+      "label":"1709.5.1",
+      "shape":"dot",
+      "title":"Exterior windows and doors."
+   },
+   {
+      "id":"2303.1.5",
+      "label":"2303.1.5",
+      "shape":"dot",
+      "title":"Wood structural panels."
+   },
+   {
+      "id":"2303.1.6",
+      "label":"2303.1.6",
+      "shape":"dot",
+      "title":"Fiberboard."
+   },
+   {
+      "id":"2303.1.8",
+      "label":"2303.1.8",
+      "shape":"dot",
+      "title":"Particleboard."
+   },
+   {
+      "id":"2303.1.9",
+      "label":"2303.1.9",
+      "shape":"dot",
+      "title":"Preservative-treated wood."
+   },
+   {
+      "id":"2303.2.3",
+      "label":"2303.2.3",
+      "shape":"dot",
+      "title":"Testing."
+   },
+   {
+      "id":"2303.2.4",
+      "label":"2303.2.4",
+      "shape":"dot",
+      "title":"Labeling."
+   },
+   {
+      "id":"2303.2.5",
+      "label":"2303.2.5",
+      "shape":"dot",
+      "title":"Strength adjustments."
+   },
+   {
+      "id":"2303.2.6",
+      "label":"2303.2.6",
+      "shape":"dot",
+      "title":"Exposure to weather, damp or wet locations."
+   },
+   {
+      "id":"2303.2.9",
+      "label":"2303.2.9",
+      "shape":"dot",
+      "title":"Type I and II construction applications."
+   },
+   {
+      "id":"2303.4.6",
+      "label":"2303.4.6",
+      "shape":"dot",
+      "title":"TPI 1 specifications."
+   },
+   {
+      "id":"2303.4.7",
+      "label":"2303.4.7",
+      "shape":"dot",
+      "title":"Truss quality assurance."
+   },
+   {
+      "id":"2304.10.1",
+      "label":"2304.10.1",
+      "shape":"dot",
+      "title":"Fastener requirements."
+   },
+   {
+      "id":"2304.12.1",
+      "label":"2304.12.1",
+      "shape":"dot",
+      "title":"Locations requiring water-borne preservatives or naturally durable wood."
+   },
+   {
+      "id":"2304.12.6",
+      "label":"2304.12.6",
+      "shape":"dot",
+      "title":"Attic ventilation."
+   },
+   {
+      "id":"2304.12.7",
+      "label":"2304.12.7",
+      "shape":"dot",
+      "title":"Under-floor ventilation (crawl space)."
+   },
+   {
+      "id":"2304.6.1",
+      "label":"2304.6.1",
+      "shape":"dot",
+      "title":"Wood structural panel sheathing."
+   },
+   {
+      "id":"2306.1.4",
+      "label":"2306.1.4",
+      "shape":"dot",
+      "title":"Lumber decking."
+   },
+   {
+      "id":"2306.2.1",
+      "label":"2306.2.1",
+      "shape":"dot",
+      "title":"Gypsum board diaphragm ceilings."
+   },
+   {
+      "id":"2308.1.1",
+      "label":"2308.1.1",
+      "shape":"dot",
+      "title":"Portions exceeding limitations of conventional light-frame construction."
+   },
+   {
+      "id":"2308.1.2",
+      "label":"2308.1.2",
+      "shape":"dot",
+      "title":"Connections and fasteners."
+   },
+   {
+      "id":"2308.2.1",
+      "label":"2308.2.1",
+      "shape":"dot",
+      "title":"Stories."
+   },
+   {
+      "id":"2308.2.3",
+      "label":"2308.2.3",
+      "shape":"dot",
+      "title":"Allowable loads."
+   },
+   {
+      "id":"2308.2.5",
+      "label":"2308.2.5",
+      "shape":"dot",
+      "title":"Allowable roof span."
+   },
+   {
+      "id":"2308.3.1",
+      "label":"2308.3.1",
+      "shape":"dot",
+      "title":"Foundation plates or sills."
+   },
+   {
+      "id":"2308.3.2",
+      "label":"2308.3.2",
+      "shape":"dot",
+      "title":"Braced wall line sill plate anchorage in Seismic Design Categories D and E."
+   },
+   {
+      "id":"2308.4.7",
+      "label":"2308.4.7",
+      "shape":"dot",
+      "title":"Structural floor sheathing."
+   },
+   {
+      "id":"2308.4.8",
+      "label":"2308.4.8",
+      "shape":"dot",
+      "title":"Under-floor ventilation."
+   },
+   {
+      "id":"2308.4.9",
+      "label":"2308.4.9",
+      "shape":"dot",
+      "title":"Floor framing supporting braced wall panels."
+   },
+   {
+      "id":"2308.5.1",
+      "label":"2308.5.1",
+      "shape":"dot",
+      "title":"Stud size, height and spacing."
+   },
+   {
+      "id":"2308.5.3",
+      "label":"2308.5.3",
+      "shape":"dot",
+      "title":"Plates and sills."
+   },
+   {
+      "id":"2308.5.5",
+      "label":"2308.5.5",
+      "shape":"dot",
+      "title":"Openings in walls and partitions."
+   },
+   {
+      "id":"2308.5.6",
+      "label":"2308.5.6",
+      "shape":"dot",
+      "title":"Cripple walls."
+   },
+   {
+      "id":"2308.5.11",
+      "label":"2308.5.11",
+      "shape":"dot",
+      "title":"Exterior wall sheathing."
+   },
+   {
+      "id":"2308.6.1",
+      "label":"2308.6.1",
+      "shape":"dot",
+      "title":"Braced wall lines."
+   },
+   {
+      "id":"2308.6.2",
+      "label":"2308.6.2",
+      "shape":"dot",
+      "title":"Braced wall panels."
+   },
+   {
+      "id":"2308.6.3",
+      "label":"2308.6.3",
+      "shape":"dot",
+      "title":"Braced wall panel methods."
+   },
+   {
+      "id":"2308.6.4",
+      "label":"2308.6.4",
+      "shape":"dot",
+      "title":"Braced wall panel construction."
+   },
+   {
+      "id":"2308.6.5",
+      "label":"2308.6.5",
+      "shape":"dot",
+      "title":"Alternative bracing."
+   },
+   {
+      "id":"2308.6.6",
+      "label":"2308.6.6",
+      "shape":"dot",
+      "title":"Cripple wall bracing."
+   },
+   {
+      "id":"2308.6.7",
+      "label":"2308.6.7",
+      "shape":"dot",
+      "title":"Connections of braced wall panels."
+   },
+   {
+      "id":"2308.6.8",
+      "label":"2308.6.8",
+      "shape":"dot",
+      "title":"Braced wall line and diaphragm support."
+   },
+   {
+      "id":"2308.6.9",
+      "label":"2308.6.9",
+      "shape":"dot",
+      "title":"Attachment of sheathing."
+   },
+   {
+      "id":"2308.6.10",
+      "label":"2308.6.10",
+      "shape":"dot",
+      "title":"Limitations of concrete or masonry veneer."
+   },
+   {
+      "id":"2308.7.3",
+      "label":"2308.7.3",
+      "shape":"dot",
+      "title":"Ceiling joist and rafter framing."
+   },
+   {
+      "id":"2308.7.5",
+      "label":"2308.7.5",
+      "shape":"dot",
+      "title":"Wind uplift."
+   },
+   {
+      "id":"2308.7.8",
+      "label":"2308.7.8",
+      "shape":"dot",
+      "title":"Blocking."
+   },
+   {
+      "id":"2308.7.10",
+      "label":"2308.7.10",
+      "shape":"dot",
+      "title":"Roof sheathing."
+   },
+   {
+      "id":"2308.7.12",
+      "label":"2308.7.12",
+      "shape":"dot",
+      "title":"Roof planking."
+   },
+   {
+      "id":"2308.7.13",
+      "label":"2308.7.13",
+      "shape":"dot",
+      "title":"Wood trusses."
+   },
+   {
+      "id":"2308.7.14",
+      "label":"2308.7.14",
+      "shape":"dot",
+      "title":"Attic ventilation."
+   },
+   {
+      "id":"2308.8.1",
+      "label":"2308.8.1",
+      "shape":"dot",
+      "title":"Elements exceeding limitations of conventional construction."
+   },
+   {
+      "id":"2103.2.3",
+      "label":"2103.2.3",
+      "shape":"dot",
+      "title":"Mortars for ceramic wall and floor tile."
+   },
+   {
+      "id":"2902.1.1",
+      "label":"2902.1.1",
+      "shape":"dot",
+      "title":"Fixture calculations."
+   },
+   {
+      "id":"2902.2.1",
+      "label":"2902.2.1",
+      "shape":"dot",
+      "title":"Family or assisted-use toilet facilities serving as separate facilities."
+   },
+   {
+      "id":"2902.3.1",
+      "label":"2902.3.1",
+      "shape":"dot",
+      "title":"Access."
+   },
+   {
+      "id":"2205.2.2",
+      "label":"2205.2.2",
+      "shape":"dot",
+      "title":"Structural steel elements."
+   },
+   {
+      "id":"2207.1.1",
+      "label":"2207.1.1",
+      "shape":"dot",
+      "title":"Seismic design."
+   },
+   {
+      "id":"2211.3.3",
+      "label":"2211.3.3",
+      "shape":"dot",
+      "title":"Trusses spanning 60 feet or greater."
+   },
+   {
+      "id":"2211.3.4",
+      "label":"2211.3.4",
+      "shape":"dot",
+      "title":"Truss quality assurance."
+   },
+   {
+      "id":"3102.1.1",
+      "label":"3102.1.1",
+      "shape":"dot",
+      "title":"Tensile membrane structures."
+   },
+   {
+      "id":"3102.3.1",
+      "label":"3102.3.1",
+      "shape":"dot",
+      "title":"Membrane and interior liner material."
+   },
+   {
+      "id":"3104.1.1",
+      "label":"3104.1.1",
+      "shape":"dot",
+      "title":"Application."
+   },
+   {
+      "id":"3104.5.1",
+      "label":"3104.5.1",
+      "shape":"dot",
+      "title":"Fire barriers."
+   },
+   {
+      "id":"503.1.3",
+      "label":"503.1.3",
+      "shape":"dot",
+      "title":"Type I construction."
+   },
+   {
+      "id":"505.2.1",
+      "label":"505.2.1",
+      "shape":"dot",
+      "title":"Area limitation."
+   },
+   {
+      "id":"505.3.1",
+      "label":"505.3.1",
+      "shape":"dot",
+      "title":"Area limitation."
+   },
+   {
+      "id":"505.3.2",
+      "label":"505.3.2",
+      "shape":"dot",
+      "title":"Automatic sprinkler system."
+   },
+   {
+      "id":"505.3.3",
+      "label":"505.3.3",
+      "shape":"dot",
+      "title":"Guards."
+   },
+   {
+      "id":"507.1.1",
+      "label":"507.1.1",
+      "shape":"dot",
+      "title":"Accessory occupancies."
+   },
+   {
+      "id":"507.2.1",
+      "label":"507.2.1",
+      "shape":"dot",
+      "title":"Reduced open space."
+   },
+   {
+      "id":"507.4.1",
+      "label":"507.4.1",
+      "shape":"dot",
+      "title":"Mixed occupancy buildings with Groups A-1 and A-2."
+   },
+   {
+      "id":"507.8.3",
+      "label":"507.8.3",
+      "shape":"dot",
+      "title":"Occupancy separations."
+   },
+   {
+      "id":"508.2.1",
+      "label":"508.2.1",
+      "shape":"dot",
+      "title":"Occupancy classification."
+   },
+   {
+      "id":"508.2.4",
+      "label":"508.2.4",
+      "shape":"dot",
+      "title":"Separation of occupancies."
+   },
+   {
+      "id":"1803.5.10",
+      "label":"1803.5.10",
+      "shape":"dot",
+      "title":"Alternate setback and clearance."
+   },
+   {
+      "id":"1803.5.12",
+      "label":"1803.5.12",
+      "shape":"dot",
+      "title":"Seismic Design Categories D through F."
+   },
+   {
+      "id":"1805.1.1",
+      "label":"1805.1.1",
+      "shape":"dot",
+      "title":"Story above grade plane."
+   },
+   {
+      "id":"1805.1.2",
+      "label":"1805.1.2",
+      "shape":"dot",
+      "title":"Under-floor space."
+   },
+   {
+      "id":"1805.1.3",
+      "label":"1805.1.3",
+      "shape":"dot",
+      "title":"Ground-water control."
+   },
+   {
+      "id":"1805.2.1",
+      "label":"1805.2.1",
+      "shape":"dot",
+      "title":"Floors."
+   },
+   {
+      "id":"1805.2.2",
+      "label":"1805.2.2",
+      "shape":"dot",
+      "title":"Walls."
+   },
+   {
+      "id":"1805.3.2",
+      "label":"1805.3.2",
+      "shape":"dot",
+      "title":"Walls."
+   },
+   {
+      "id":"1805.4.1",
+      "label":"1805.4.1",
+      "shape":"dot",
+      "title":"Floor base course."
+   },
+   {
+      "id":"1805.4.2",
+      "label":"1805.4.2",
+      "shape":"dot",
+      "title":"Foundation drain."
+   },
+   {
+      "id":"1806.3.1",
+      "label":"1806.3.1",
+      "shape":"dot",
+      "title":"Combined resistance."
+   },
+   {
+      "id":"1806.3.3",
+      "label":"1806.3.3",
+      "shape":"dot",
+      "title":"Increase for depth."
+   },
+   {
+      "id":"1807.1.5",
+      "label":"1807.1.5",
+      "shape":"dot",
+      "title":"Concrete and masonry foundation walls."
+   },
+   {
+      "id":"1807.1.6",
+      "label":"1807.1.6",
+      "shape":"dot",
+      "title":"Prescriptive design of concrete and masonry foundation walls."
+   },
+   {
+      "id":"1807.3.2",
+      "label":"1807.3.2",
+      "shape":"dot",
+      "title":"Design criteria."
+   },
+   {
+      "id":"1808.3.1",
+      "label":"1808.3.1",
+      "shape":"dot",
+      "title":"Seismic overturning."
+   },
+   {
+      "id":"1808.6.3",
+      "label":"1808.6.3",
+      "shape":"dot",
+      "title":"Removal of expansive soil."
+   },
+   {
+      "id":"1808.6.4",
+      "label":"1808.6.4",
+      "shape":"dot",
+      "title":"Stabilization."
+   },
+   {
+      "id":"1808.7.1",
+      "label":"1808.7.1",
+      "shape":"dot",
+      "title":"Building clearance from ascending slopes."
+   },
+   {
+      "id":"1808.7.2",
+      "label":"1808.7.2",
+      "shape":"dot",
+      "title":"Foundation setback from descending slope surface."
+   },
+   {
+      "id":"1808.7.5",
+      "label":"1808.7.5",
+      "shape":"dot",
+      "title":"Alternate setback and clearance."
+   },
+   {
+      "id":"1808.8.1",
+      "label":"1808.8.1",
+      "shape":"dot",
+      "title":"Concrete or grout strength and mix proportioning."
+   },
+   {
+      "id":"1808.8.2",
+      "label":"1808.8.2",
+      "shape":"dot",
+      "title":"Concrete cover."
+   },
+   {
+      "id":"1809.9.1",
+      "label":"1809.9.1",
+      "shape":"dot",
+      "title":"Dimensions."
+   },
+   {
+      "id":"1810.1.3",
+      "label":"1810.1.3",
+      "shape":"dot",
+      "title":"Deep foundation elements classified as columns."
+   },
+   {
+      "id":"1810.2.2",
+      "label":"1810.2.2",
+      "shape":"dot",
+      "title":"Stability."
+   },
+   {
+      "id":"1810.2.4",
+      "label":"1810.2.4",
+      "shape":"dot",
+      "title":"Lateral loads."
+   },
+   {
+      "id":"1810.3.1",
+      "label":"1810.3.1",
+      "shape":"dot",
+      "title":"Design conditions."
+   },
+   {
+      "id":"1810.3.3",
+      "label":"1810.3.3",
+      "shape":"dot",
+      "title":"Determination of allowable loads."
+   },
+   {
+      "id":"1810.3.5",
+      "label":"1810.3.5",
+      "shape":"dot",
+      "title":"Dimensions of deep foundation elements."
+   },
+   {
+      "id":"1810.3.6",
+      "label":"1810.3.6",
+      "shape":"dot",
+      "title":"Splices."
+   },
+   {
+      "id":"1810.3.9",
+      "label":"1810.3.9",
+      "shape":"dot",
+      "title":"Cast-in-place deep foundations."
+   },
+   {
+      "id":"1810.3.10",
+      "label":"1810.3.10",
+      "shape":"dot",
+      "title":"Micropiles."
+   },
+   {
+      "id":"1810.4.12",
+      "label":"1810.4.12",
+      "shape":"dot",
+      "title":"Special inspection."
+   }
+]
