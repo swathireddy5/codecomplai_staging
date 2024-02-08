@@ -135,7 +135,7 @@ public class BookController {
 				  		"chps.book_id = bks.id left join tblstates sts on bks.state_id = sts.id and \r\n" +
 				  		"sts.state_name = '"+stateId+"' and bks.book_title = '"+bookName+"' and chps.chapter_title = '"+chaptId+"' where bks.id is not null and sts.state_name is not null;";
 					*/
-				  String sql = "select distinct chps.id as chapterId, sts.id as stateId, sts.state_name as State, bks.id as bookId, chps.chapter_title, chps.chapter_name, "
+				  String sql = "select distinct chps.id as chapterId, sts.id as stateId, sts.state_name as State, bks.id as bookId, chps.sequence, chps.chapter_title, chps.chapter_name, "
 				  		+ "subchps.id as subchapterId, subchps.subchapter_title, subchps.subchapter_content, sbchsec.id as subchaptersecid, sbchsec.subchapter_id, sbchsec.subchaptersection_no, \r\n" + 
 						"sbchsec.subchaptersection_title, sbchsec.subchaptersection_content, tblsbchsbsec.id as sbchpsecsubsecid, tblsbchsbsec.subchaptersubsection_content,"
 						+ " tblsbchsbsec.subchaptersubsection_title, tblsbchsbsbsec.id as sbchpsbsbsecId, tblsbchsbsbsec.subchaptersubsubsection_title, tblsbchsbsbsec.subchaptersubsubsection_content "

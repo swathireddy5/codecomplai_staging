@@ -354,6 +354,7 @@ body {
 									  </c:otherwise>
 									</c:choose>
 								</h3>
+								<%-- 
 								<ul>
 								
 									<c:forEach items="${sectionDetailsList}" var="section">
@@ -376,6 +377,7 @@ body {
 										</li>
 									</c:forEach>
 								</ul>
+								--%>
 							</li>
 						</c:forEach>
 						</ul>
