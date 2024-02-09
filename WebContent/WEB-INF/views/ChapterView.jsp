@@ -266,14 +266,14 @@ body {
 
     </head>
 
-    <body data-sidebar="dark" class="sidebar-enable ">
+    <body data-sidebar="dark" class="sidebar-enable">
     
     <!-- <body data-layout="horizontal" data-topbar="dark"> -->
 
         <!-- Begin page -->
         <div id="layout-wrapper">
         <input type="hidden" id='siteurl' name="siteurl" value="${siteurl}"/>
-
+        
             <%@include file="header.jsp" %>
 
                 
@@ -320,6 +320,8 @@ body {
 							<h5 class="card-title mb-4 font-size-14">${selectedBookTitle}</h5>
 						</div>
 						<ul class="m-0 p-0">
+						
+
 							<c:forEach items="${chpList}" var="chapter">
 								<c:set var = "chapterstring" value = "${chapter.key}"/>
 								<c:set var = "stringid" value = "${fn:split(chapterstring, '-')}" />
@@ -392,72 +394,74 @@ body {
 									<div tabindex="-1" id ="bookmarkDiv" class="col-md-12 col-12 mb-4">
                                         <h5 class="font-size-18 mb-1"><c:out value="${bookmarkstatus}"/></h5>
                                     </div>
+                                    
+                                    
+                                    <p class="text-primary mb-0"><c:out value="${resultSetAsJson}" /></p>
 									
                                     <p class="text-primary mb-0"><c:out value="${chapterList[0].chpTitle}" /></p>
 									<c:set var="count" value="0" scope="page" />
+									<c:set var="tmpSubChapterID" value="0" scope="page" />
+									<c:set var="subChapterSecID" value="0" scope="page" />
+									<c:set var="subChapterSecSubSecID" value="0" scope="page" />
+				
 									<c:forEach var = "chapter" items = "${chapterList}">
-									
-									<c:if test="${chapter.subChapterSecContent == null}">
-										<c:if test="${chapter.subChapterContent != null}">
+										<c:choose>
+										<c:when test="${tmpSubChapterID != chapter.subChapterId}">
+										
+								 		subchapter id - ${tmpSubChapterID = chapter.subChapterId}
 											<div class="col-sm-12 col-lg-12">
 	                                        	<div class="card">
 		                                            <div class="card-body" id = "${chapter.subChapterTitle}">
 			                                            <h4 class="card-title"><c:out value="${chapter.subChapterTitle}"/></h4>
-			                                            <p class="card-text">
-			                                            	<!-- <c:out value="${chapter.subChapterSecTitle }" escapeXml="false"/> <c:out value="${chapter.subChapterSecSubSecTitle }" escapeXml="false"/> </h6>
-											 				-->
+			                                            <!-- <p class="card-text">
 											 				<span style="word-break: break-all;white-space: normal;"><c:out value="${chapter.subChapterContent}" escapeXml="false"/> </span>
-			                                            </p>                                           
+			                                            </p>   -->                                        
 		                                            </div>
 	                                            </div>
                                             </div>
+										 </c:when>
+										  <c:otherwise>
+											<c:if test="${subChapterSecID != chapter.subChapterSecId}">
+											subChapterSecId - ${subChapterSecID = chapter.subChapterSecId}
+					
+											<div class="col-sm-12 col-lg-12">
+											<div class="card">
+												<div class="card-body" id = "${chapter.subChapterSecTitle }">
+														<span style="word-break: break-all;white-space: normal;"><c:out value="${chapter.subChapterSecContent }" escapeXml="false"/> </span>
+													</p>                                           
+												</div>
+									   
+											</div>
+											</div>	
+											
 										</c:if>
-									</c:if>
-									
-									<c:if test="${chapter.subChapterSecContent != null}">
-									
-										<div class="col-sm-12 col-lg-12">
-                                        <div class="card">
-                                            <div class="card-body" id = "${chapter.subChapterSecTitle }">
-	                                            <!-- <h4 class="card-title"><c:out value="${chapter.subChapterSecTitle}"/></h4>
-	                                            <p class="card-text">
-	                                            	<h6> <c:out value="${chapter.subChapterSecTitle }" escapeXml="false"/>    <c:out value="${chapter.subChapterSecSubSecTitle }" escapeXml="false"/> </h6>
-									 				-->
-									 				<span style="word-break: break-all;white-space: normal;"><c:out value="${chapter.subChapterSecContent }" escapeXml="false"/> </span>
-	                                            </p>                                           
-                                            </div>
-                                            <!-- 
-                                            
-                                            <ul class="list-inline product-review-link"><li class="list-inline-item"></li>
-                                                
-                                                <li class="list-inline-item">
-                                                    <a href="#" title="Graph" onclick="getGraphDataForMultiBook('${chapter.bookId}' , '${chapter.subChapterId }')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-family-tree me-1"></i> Graph</a>
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <a href="#" title="Print" onclick="printDiv('${chapter.subChapterSecTitle }')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-printer me-1"></i> Print</a>
-                                                </li>
-                                                <c:if test="${username != null}">
-                                                	<li class="list-inline-item">
-                                                    <a href="#" title="Comment" data-bs-toggle="modal" data-bs-target="#Add_Comment" title="Add Comment" onclick="addComment(${chapter.stateId}, ${chapter.bookId}, ${chapter.chapterId}, ${chapter.subChapterId}, ${chapter.subChapterSecId}, ${chapter.subChapterSecSubSecId})" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-comment me-1"></i> Comment</a>
-	                                                </li>
-	                                                <li class="list-inline-item">
-	                                                    <a href="#" title="Bookmark" onclick="addBookmark('${chapter.stateId}', ${chapter.bookId}, ${chapter.chapterId}, ${chapter.subChapterId}, ${chapter.subChapterSecId}, ${chapter.subChapterSecSubSecId}, 'bookmark','')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-bookmark me-1"></i> Bookmark</a>
-	                                                </li>
-                                                </c:if>
-                                            </ul><br/>  -->
-                                        </div>
-                                    	</div>
+											 </c:otherwise>
+										</c:choose>
+										
+										
+										
                                     	
-                                    	</c:if>
+
                                     	
-                                    	<c:if test="${chapter.subChapterSecSubSecContent != null}">
+
+
+
+
+
+
+
+
+
+									<c:if test="${subChapterSecSubSecID != chapter.subChapterSecSubSecId}">
+								 		subChapterSecSubSecID - ${subChapterSecSubSecID = chapter.subChapterSecSubSecId}
 										<div class="col-sm-12 col-lg-12">
                                         <div class="card">
                                             <div class="card-body" id = "${chapter.subChapterSecSubSecId }">
-	                                            <!-- <h4 class="card-title"><c:out value="${chapter.subChapterSecTitle}"/></h4>
+	                                            <!--  <h4 class="card-title"><c:out value="${chapter.subChapterSecTitle}"/></h4>  -->
 	                                            <p class="card-text">
-	                                            	<h6> <c:out value="${chapter.subChapterSecTitle }" escapeXml="false"/>    <c:out value="${chapter.subChapterSecSubSecTitle }" escapeXml="false"/> </h6>
-									 				-->
+	                                            	<!-- <h6> <c:out value="${chapter.subChapterSecTitle }" escapeXml="false"/>    <c:out value="${chapter.subChapterSecSubSecTitle }" escapeXml="false"/> </h6> -->
+									 				
+													<!-- Loading the content here. -->
 									 				<span style="word-break: break-all;white-space: normal;"><c:out value="${chapter.subChapterSecSubSecContent }" escapeXml="false"/> </span>
 	                                            </p>                                           
                                             
@@ -804,6 +808,10 @@ function toggleDiv(divtype)
 	 $("chaptermenu").on('click', function(e) {
 		    return false;
 		  });
+	 
+function getChapterDetails(){
+	var chapterDetailsJson = $('#chapterdetailsjson').val();
+}
 
 
 function showChapterContent(chapterId){

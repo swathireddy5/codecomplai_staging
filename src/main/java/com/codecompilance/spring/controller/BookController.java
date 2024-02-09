@@ -27,8 +27,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import com.codecompilance.spring.model.Book;
 import com.codecompilance.spring.model.Chapter;
+
 
 @Controller
 public class BookController {
@@ -47,7 +47,7 @@ public class BookController {
 		String bookUrl = request.getParameter("bookUrl");
 		int state_Id = Integer.parseInt(request.getParameter("stateId"));
 		int bookId = Integer.parseInt(request.getParameter("bookId"));
-		List<Chapter> chapterContentList = new ArrayList<Chapter>();
+		JSONObject resultSetAsJson = new JSONObject();
 		
 		session.setAttribute("selectedRegionId", regionName);
 		session.setAttribute("selectedBookUrl", bookUrl);
@@ -57,13 +57,15 @@ public class BookController {
 		
 		try {
 			chpList = getChaptersList(request, response, bookId, state_Id);
-			String chapterView = getChapterDetails(request, response, bookId, state_Id);
+			resultSetAsJson = getChapterDetails(request, response, bookId, state_Id);
+			session.setAttribute("resultSetAsJson", resultSetAsJson);
+			logger.debug("resultSetAsJson-->"+resultSetAsJson);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		session.setAttribute("chpList", chpList);
-		System.out.println("chpList-->"+chpList);
+		System.out.println("chpList-->"+resultSetAsJson);
 		//response.sendRedirect("ChapterView");
 		return "ChapterView";
 	}
@@ -112,13 +114,16 @@ public class BookController {
 
 //	This will return Chapter details of selected chapter
 	  @RequestMapping(value = "/getChapterDetails", method = RequestMethod.GET)
-	  public String getChapterDetails(HttpServletRequest request, HttpServletResponse response, int bookId, int stateId) 
+	  public JSONObject getChapterDetails(HttpServletRequest request, HttpServletResponse response, int bookId, int stateId) 
 	  {
 		  HttpSession session = request.getSession();
-		  JSONObject outputJsonObj = new JSONObject(); 
+		  //JSONObject outputJsonObj = new JSONObject(); 
 		  List<Chapter> chapterList = new ArrayList<Chapter>();
+		  JSONArray resultSetAsJson = null;
 		  Chapter chapter = new Chapter();
-		  ArrayList<String> sectionDetailsList = new ArrayList<String>();
+		  //ArrayList<String> sectionDetailsList = new ArrayList<String>();
+		  JSONObject resultSetAsJsonObj = new JSONObject();
+			
 		  Connection conn = null;
 		  Statement st = null;
 		  ResultSet rs = null;
@@ -127,14 +132,6 @@ public class BookController {
 			  conn = DBConnect.connect();
 			  if (conn != null) {
 				  st =(Statement) conn.createStatement();
-				  /*String sql = "select sts.id as stateId, sts.state_name as State, bks.id as bookId, bks.book_title , chps.id as chapterId, chps.chapter_title, "
-				  		+ "chps.chapter_name, subchps.id as subchapterId, subchps.subchapter_title, sbchsec.id as subchaptersecid, sbchsec.subchaptersection_title, sbchsec.subchaptersection_content, "
-				  		+ "tblsbchsbsec.id as sbchpsecsubsecid, tblsbchsbsec.subchaptersubsection_content, tblsbchsbsec.subchaptersubsection_title from tblsubchapterssubsections \r\n" + 
-				  		"tblsbchsbsec left join tblsubchaptersections sbchsec on tblsbchsbsec.subchaptersection_id = sbchsec.id left \r\n" + 
-				  		"join tblsubchapters subchps on sbchsec.subchapter_id = subchps.id left join tblchapters chps on subchps.chapter_id = chps.id left join tblbooks bks on \r\n" + 
-				  		"chps.book_id = bks.id left join tblstates sts on bks.state_id = sts.id and \r\n" +
-				  		"sts.state_name = '"+stateId+"' and bks.book_title = '"+bookName+"' and chps.chapter_title = '"+chaptId+"' where bks.id is not null and sts.state_name is not null;";
-					*/
 				  String sql = "select distinct chps.id as chapterId, sts.id as stateId, sts.state_name as State, bks.id as bookId, chps.sequence, chps.chapter_title, chps.chapter_name, "
 				  		+ "subchps.id as subchapterId, subchps.subchapter_title, subchps.subchapter_content, sbchsec.id as subchaptersecid, sbchsec.subchapter_id, sbchsec.subchaptersection_no, \r\n" + 
 						"sbchsec.subchaptersection_title, sbchsec.subchaptersection_content, tblsbchsbsec.id as sbchpsecsubsecid, tblsbchsbsec.subchaptersubsection_content,"
@@ -148,6 +145,9 @@ public class BookController {
 					
 					
 					rs=st.executeQuery(sql);
+					if(rs.next())
+						resultSetAsJson = convertToJSON(rs);
+					resultSetAsJsonObj.put("resultSetAsJson", resultSetAsJson);
 		            while (rs.next()) {
 		            	chapter = new Chapter();
 		            	chapter.setStateId(rs.getInt("stateId"));
@@ -192,7 +192,7 @@ public class BookController {
 			session.setAttribute("chapterList", chapterList);
 		    System.out.println("chapterList -->"+chapterList);
 		    //session.setAttribute("sectionDetailsList", sectionDetailsList);
-		    return "ChapterView";
+		    return resultSetAsJsonObj;
 	}
 	  
 	  
@@ -258,6 +258,19 @@ public class BookController {
 			  return sectionDetailsList.toString();
 			  //return "ChapterView";
 	}
-
+		  
+	public static JSONArray convertToJSON(ResultSet resultSet)
+            throws Exception {
+        JSONArray jsonArray = new JSONArray();
+        while (resultSet.next()) {
+            int total_columns = resultSet.getMetaData().getColumnCount();
+            JSONObject obj = new JSONObject();
+            for (int i = 0; i < total_columns; i++) {
+                obj.put(resultSet.getMetaData().getColumnLabel(i + 1).toLowerCase(), resultSet.getObject(i + 1));
+            }
+          jsonArray.put(obj);
+        }
+        return jsonArray;
+    }
 
 }
