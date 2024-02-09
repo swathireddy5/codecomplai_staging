@@ -148,30 +148,6 @@ public class BookController {
 					if(rs.next())
 						resultSetAsJson = convertToJSON(rs);
 					resultSetAsJsonObj.put("resultSetAsJson", resultSetAsJson);
-		            while (rs.next()) {
-		            	chapter = new Chapter();
-		            	chapter.setStateId(rs.getInt("stateId"));
-		            	chapter.setState(rs.getString("State"));
-		            	chapter.setBookId(rs.getInt("bookId"));
-		            	chapter.setChapterId(rs.getInt("chapterId"));
-		            	chapter.setChpName(rs.getString("chapter_name"));
-		            	chapter.setChpTitle(rs.getString("chapter_title"));
-		            	chapter.setSubChapterId(rs.getInt("subchapterId"));
-		            	chapter.setSubChapterTitle(rs.getString("subchapter_title"));
-		            	chapter.setSubChapterContent(rs.getString("subchapter_content"));
-		            	chapter.setSubChapterSecId(rs.getInt("subchaptersecid"));
-		            	chapter.setSubChapterSecName(rs.getString("subchaptersection_no"));
-		            	chapter.setSubChapterSecTitle(rs.getString("subchaptersection_title"));
-		            	chapter.setSubChapterSecContent(rs.getString("subchaptersection_content"));
-		            	chapter.setSubChapterSecSubSecId(rs.getInt("sbchpsecsubsecid"));
-		            	chapter.setSubChapterSecSubSecTitle(rs.getString("subchaptersubsection_title"));
-		            	chapter.setSubChapterSecSubSecContent(rs.getString("subchaptersubsection_content"));
-		            	chapter.setSubChapterSecSubSubSecId(rs.getInt("sbchpsbsbsecId"));
-		            	chapter.setSubChapterSecSubSubSecTitle(rs.getString("subchaptersubsubsection_title"));
-		            	chapter.setSubChapterSecSubSubSecContent(rs.getString("subchaptersubsubsection_content"));
-		            	chapterList.add(chapter);
-		            	//sectionDetailsList.add(rs.getInt("subchapterId")+"_"+rs.getString("subchapter_title"));
-		            }
 				}
 			  
 		  }catch (SQLException sqe) {
