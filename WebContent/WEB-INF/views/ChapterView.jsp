@@ -396,7 +396,19 @@ body {
                                     </div>
                                     
                                     
-                                    <p class="text-primary mb-0"><c:out value="${resultSetAsJson}" /></p>
+                                    <!-- <p class="text-primary mb-0">
+                                    <c:forEach begin="0" end="${resultSetAsJson.length() -1}" var="i">
+                                    	<c:out value="${resultSetAsJson.getJSONObject(i)}" />
+                                    	<div class="col-sm-12 col-lg-12">
+											<div class="card">
+												<div class="card-body" id = "${resultSetAsJson.getJSONObject(i).get('subchapter_title')}">
+														<span style="word-break: break-all;white-space: normal;"><c:out value="${resultSetAsJson.getJSONObject(i).get('subchapter_title')}" escapeXml="false"/> </span>
+												</div>
+									   
+											</div>
+											</div>
+                                    </c:forEach>
+                                    </p> -->
 									
                                     <p class="text-primary mb-0"><c:out value="${chapterList[0].chpTitle}" /></p>
 									<c:set var="count" value="0" scope="page" />
@@ -404,15 +416,15 @@ body {
 									<c:set var="subChapterSecID" value="0" scope="page" />
 									<c:set var="subChapterSecSubSecID" value="0" scope="page" />
 				
-									<c:forEach var = "chapter" items = "${chapterList}">
+									<c:forEach begin="0" end="${resultSetAsJson.length() -1}" var="i">
 										<c:choose>
-										<c:when test="${tmpSubChapterID != chapter.subChapterId}">
+										<c:when test="${tmpSubChapterID != resultSetAsJson.getJSONObject(i).get('subchapter_id')}">
 										
-								 		subchapter id - ${tmpSubChapterID = chapter.subChapterId}
+								 		subchapter_title - ${tmpSubChapterID = resultSetAsJson.getJSONObject(i).get('subchapter_id')}
 											<div class="col-sm-12 col-lg-12">
 	                                        	<div class="card">
-		                                            <div class="card-body" id = "${chapter.subChapterTitle}">
-			                                            <h4 class="card-title"><c:out value="${chapter.subChapterTitle}"/></h4>
+		                                            <div class="card-body" id = "${resultSetAsJson.getJSONObject(i).get('subchapter_id')}">
+			                                            <h4 class="card-title"><c:out value="${resultSetAsJson.getJSONObject(i).get('subchapter_title')}"/></h4>
 			                                            <!-- <p class="card-text">
 											 				<span style="word-break: break-all;white-space: normal;"><c:out value="${chapter.subChapterContent}" escapeXml="false"/> </span>
 			                                            </p>   -->                                        
@@ -421,13 +433,13 @@ body {
                                             </div>
 										 </c:when>
 										  <c:otherwise>
-											<c:if test="${subChapterSecID != chapter.subChapterSecId}">
-											subChapterSecId - ${subChapterSecID = chapter.subChapterSecId}
+											<c:if test="${subChapterSecID != resultSetAsJson.getJSONObject(i).get('subchaptersecid')}">
+											subChapterSecId - ${subChapterSecID = resultSetAsJson.getJSONObject(i).get('subchaptersecid')}
 					
 											<div class="col-sm-12 col-lg-12">
 											<div class="card">
-												<div class="card-body" id = "${chapter.subChapterSecTitle }">
-														<span style="word-break: break-all;white-space: normal;"><c:out value="${chapter.subChapterSecContent }" escapeXml="false"/> </span>
+												<div class="card-body" id = "${resultSetAsJson.getJSONObject(i).get('subchaptersecid')}">
+														<span style="word-break: break-all;white-space: normal;"><c:out value="${resultSetAsJson.getJSONObject(i).get('subchaptersection_title')}" escapeXml="false"/> </span>
 													</p>                                           
 												</div>
 									   
@@ -438,31 +450,21 @@ body {
 											 </c:otherwise>
 										</c:choose>
 										
-										
-										
-                                    	
-
-                                    	
 
 
 
 
-
-
-
-
-
-									<c:if test="${subChapterSecSubSecID != chapter.subChapterSecSubSecId}">
-								 		subChapterSecSubSecID - ${subChapterSecSubSecID = chapter.subChapterSecSubSecId}
+									<c:if test="${subChapterSecSubSecID != resultSetAsJson.getJSONObject(i).get('sbchpsecsubsecid')}">
+								 		subChapterSecSubSecID - ${subChapterSecSubSecID = resultSetAsJson.getJSONObject(i).get('sbchpsecsubsecid')}
 										<div class="col-sm-12 col-lg-12">
                                         <div class="card">
-                                            <div class="card-body" id = "${chapter.subChapterSecSubSecId }">
+                                            <div class="card-body" id = "${resultSetAsJson.getJSONObject(i).get('sbchpsecsubsecid')}">
 	                                            <!--  <h4 class="card-title"><c:out value="${chapter.subChapterSecTitle}"/></h4>  -->
 	                                            <p class="card-text">
-	                                            	<!-- <h6> <c:out value="${chapter.subChapterSecTitle }" escapeXml="false"/>    <c:out value="${chapter.subChapterSecSubSecTitle }" escapeXml="false"/> </h6> -->
+	                                            	<h6><c:out value="${resultSetAsJson.getJSONObject(i).get('subchaptersubsection_title')}" escapeXml="false"/> </h6> -->
 									 				
 													<!-- Loading the content here. -->
-									 				<span style="word-break: break-all;white-space: normal;"><c:out value="${chapter.subChapterSecSubSecContent }" escapeXml="false"/> </span>
+									 				<span style="word-break: break-all;white-space: normal;"><c:out value="${resultSetAsJson.getJSONObject(i).get('subchaptersubsection_content')}" escapeXml="false"/> </span>
 	                                            </p>                                           
                                             
                                             </div>

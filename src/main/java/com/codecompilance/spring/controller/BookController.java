@@ -47,7 +47,7 @@ public class BookController {
 		String bookUrl = request.getParameter("bookUrl");
 		int state_Id = Integer.parseInt(request.getParameter("stateId"));
 		int bookId = Integer.parseInt(request.getParameter("bookId"));
-		JSONObject resultSetAsJson = new JSONObject();
+		JSONArray resultSetAsJson = new JSONArray();
 		
 		session.setAttribute("selectedRegionId", regionName);
 		session.setAttribute("selectedBookUrl", bookUrl);
@@ -65,7 +65,7 @@ public class BookController {
 			e.printStackTrace();
 		}
 		session.setAttribute("chpList", chpList);
-		System.out.println("chpList-->"+resultSetAsJson);
+		System.out.println("resultSetAsJson-->"+resultSetAsJson);
 		//response.sendRedirect("ChapterView");
 		return "ChapterView";
 	}
@@ -114,7 +114,7 @@ public class BookController {
 
 //	This will return Chapter details of selected chapter
 	  @RequestMapping(value = "/getChapterDetails", method = RequestMethod.GET)
-	  public JSONObject getChapterDetails(HttpServletRequest request, HttpServletResponse response, int bookId, int stateId) 
+	  public JSONArray getChapterDetails(HttpServletRequest request, HttpServletResponse response, int bookId, int stateId) 
 	  {
 		  HttpSession session = request.getSession();
 		  //JSONObject outputJsonObj = new JSONObject(); 
@@ -122,7 +122,7 @@ public class BookController {
 		  JSONArray resultSetAsJson = null;
 		  Chapter chapter = new Chapter();
 		  //ArrayList<String> sectionDetailsList = new ArrayList<String>();
-		  JSONObject resultSetAsJsonObj = new JSONObject();
+		  //JSONObject resultSetAsJsonObj = new JSONObject();
 			
 		  Connection conn = null;
 		  Statement st = null;
@@ -147,7 +147,7 @@ public class BookController {
 					rs=st.executeQuery(sql);
 					if(rs.next())
 						resultSetAsJson = convertToJSON(rs);
-					resultSetAsJsonObj.put("resultSetAsJson", resultSetAsJson);
+					//resultSetAsJsonObj.put("resultSetAsJson", resultSetAsJson);
 				}
 			  
 		  }catch (SQLException sqe) {
@@ -168,7 +168,7 @@ public class BookController {
 			session.setAttribute("chapterList", chapterList);
 		    System.out.println("chapterList -->"+chapterList);
 		    //session.setAttribute("sectionDetailsList", sectionDetailsList);
-		    return resultSetAsJsonObj;
+		    return resultSetAsJson;
 	}
 	  
 	  
