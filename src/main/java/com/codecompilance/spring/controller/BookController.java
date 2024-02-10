@@ -42,12 +42,12 @@ public class BookController {
 	public String getBookDetails(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		HttpSession session = request.getSession();
 		
-		HashMap<String, Integer> chpList = new HashMap<String, Integer>();
 		String regionName = request.getParameter("regionName");
 		String bookUrl = request.getParameter("bookUrl");
 		int state_Id = Integer.parseInt(request.getParameter("stateId"));
 		int bookId = Integer.parseInt(request.getParameter("bookId"));
 		JSONArray resultSetAsJson = new JSONArray();
+		JSONArray chapterListAsJson = new JSONArray();
 		
 		session.setAttribute("selectedRegionId", regionName);
 		session.setAttribute("selectedBookUrl", bookUrl);
@@ -56,42 +56,51 @@ public class BookController {
 		session.setAttribute("selectedBookId", bookId);
 		
 		try {
-			chpList = getChaptersList(request, response, bookId, state_Id);
+			chapterListAsJson = getChaptersList(request, response, bookId, state_Id);
 			resultSetAsJson = getChapterDetails(request, response, bookId, state_Id);
 			session.setAttribute("resultSetAsJson", resultSetAsJson);
+			session.setAttribute("chapterListAsJson", chapterListAsJson);
 			logger.debug("resultSetAsJson-->"+resultSetAsJson);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		session.setAttribute("chpList", chpList);
 		System.out.println("resultSetAsJson-->"+resultSetAsJson);
+		System.out.println("chapterListAsJson-->"+chapterListAsJson);
 		//response.sendRedirect("ChapterView");
 		return "ChapterView";
 	}
 	
-	public HashMap<String, Integer> getChaptersList(HttpServletRequest request, HttpServletResponse response, int bookId, int stateId) {
-		HashMap<String, Integer> chapSecMap = new LinkedHashMap<String, Integer>();
-		ArrayList<String> chapterNamesList = new ArrayList<String>();
+	public JSONArray getChaptersList(HttpServletRequest request, HttpServletResponse response, int bookId, int stateId) {
 		Statement st = null;
 		Connection conn = null;
 		ResultSet rs = null;
+		JSONArray chapterListAsJson = new JSONArray();
 		try {
 			conn = DBConnect.connect();
 			if (conn != null) {
 	            st = conn.createStatement();
-	            String sql = "select chps.id as chapterId, chps.chapter_name, chps.chapter_title from tblchapters chps where "
-	            		+ "chps.book_id = "+bookId+" and chps.chapter_name is not null order by chps.sequence;";
+	            /*String sql = "select chps.id as chapterId, chps.chapter_name, chps.chapter_title from tblchapters chps where "
+	            		+ "chps.book_id = "+bookId+" and chps.chapter_name is not null order by chps.sequence;";*/
+	            
+	            String sql = "select chps.id as chapterId, sts.id as stateId, sts.state_name as State, bks.id as bookId, \r\n" + 
+	            		"chps.sequence, chps.chapter_title, chps.chapter_name, subchps.id as subchapterId, \r\n" + 
+	            		"subchps.subchapter_title from tblsubchapters subchps left join tblchapters chps on \r\n" + 
+	            		"chps.id = subchps.chapter_id left join tblbooks bks on chps.book_id = bks.id left join \r\n" + 
+	            		"tblstates sts on bks.state_id = sts.id and sts.id = "+stateId+" and bks.id = "+bookId+" and chps.id = subchps.chapter_id \r\n" + 
+	            		"where bks.id is not null and sts.id is not null and chps.id is not null order by chps.sequence;";
 	            
 	            rs = st.executeQuery(sql);
-	            while (rs.next()) {
+	            if(rs.next())
+	            	chapterListAsJson = convertToJSON(rs);
+	            /*while (rs.next()) {
 	            	StringBuilder chaptid = new StringBuilder();
 	            	int chpId = rs.getInt("chapterId");
 	            	chaptid.append(chpId);
 	            	chaptid.append("__");
 	            	chapterNamesList.add(chaptid+rs.getString("chapter_title"));
 	            	chapSecMap.put(rs.getInt("chapterId")+"-"+rs.getString("chapter_title").toUpperCase(), rs.getInt("chapterId"));
-	            }
+	            }*/
 			}
 		}catch (SQLException e) {
 			e.printStackTrace();
@@ -108,8 +117,8 @@ public class BookController {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("Chapters List --->"+chapSecMap);
-		return chapSecMap;
+		System.out.println("Chapters List --->"+chapterListAsJson);
+		return chapterListAsJson;
 	}
 
 //	This will return Chapter details of selected chapter
@@ -119,11 +128,8 @@ public class BookController {
 		  HttpSession session = request.getSession();
 		  //JSONObject outputJsonObj = new JSONObject(); 
 		  List<Chapter> chapterList = new ArrayList<Chapter>();
-		  JSONArray resultSetAsJson = null;
-		  Chapter chapter = new Chapter();
-		  //ArrayList<String> sectionDetailsList = new ArrayList<String>();
-		  //JSONObject resultSetAsJsonObj = new JSONObject();
-			
+		  JSONArray resultSetAsJson = new JSONArray();
+		  
 		  Connection conn = null;
 		  Statement st = null;
 		  ResultSet rs = null;

@@ -321,8 +321,8 @@ body {
 						</div>
 						<ul class="m-0 p-0">
 						
-
-							<c:forEach items="${chpList}" var="chapter">
+							<!--<c:out value="${chapterListAsJson}" />-->
+							<c:forEach begin="0" end="${chapterListAsJson.length() -1}" var="i">
 								<c:set var = "chapterstring" value = "${chapter.key}"/>
 								<c:set var = "stringid" value = "${fn:split(chapterstring, '-')}" />
 								<c:set var= "string2" value= '${param["chapterId"]}'/>
@@ -344,7 +344,7 @@ body {
 									<a id ="${stringid[0]}" href="#" onclick="getSectionDetails(${stringid[0]});">
 										<input type="hidden" id="chapterId" value="${stringid[0]}"/>-->
 									<a id ="${stringid[0]}" href="/${siteurl}/getSectionDetails?chapterId=${stringid[0]}&sectionId=">
-											<span>${stringid[1]}</span>
+											<span>${resultSetAsJson.getJSONObject(i).get('chapter_title')}</span>
 									</a>
 									
 									<c:choose>
@@ -356,7 +356,7 @@ body {
 									  </c:otherwise>
 									</c:choose>
 								</h3>
-								<%-- 
+								<%--
 								<ul>
 								
 									<c:forEach items="${sectionDetailsList}" var="section">
@@ -396,79 +396,63 @@ body {
                                     </div>
                                     
                                     
-                                    <!-- <p class="text-primary mb-0">
-                                    <c:forEach begin="0" end="${resultSetAsJson.length() -1}" var="i">
-                                    	<c:out value="${resultSetAsJson.getJSONObject(i)}" />
-                                    	<div class="col-sm-12 col-lg-12">
-											<div class="card">
-												<div class="card-body" id = "${resultSetAsJson.getJSONObject(i).get('subchapter_title')}">
-														<span style="word-break: break-all;white-space: normal;"><c:out value="${resultSetAsJson.getJSONObject(i).get('subchapter_title')}" escapeXml="false"/> </span>
-												</div>
-									   
-											</div>
-											</div>
-                                    </c:forEach>
-                                    </p> -->
-									
-                                    <p class="text-primary mb-0"><c:out value="${chapterList[0].chpTitle}" /></p>
-									<c:set var="count" value="0" scope="page" />
-									<c:set var="tmpSubChapterID" value="0" scope="page" />
+                      
+									<c:set var="tmpChapterID" value="0" scope="page" />
 									<c:set var="subChapterSecID" value="0" scope="page" />
 									<c:set var="subChapterSecSubSecID" value="0" scope="page" />
-				
-									<c:forEach begin="0" end="${resultSetAsJson.length() -1}" var="i">
-										<c:choose>
-										<c:when test="${tmpSubChapterID != resultSetAsJson.getJSONObject(i).get('subchapter_id')}">
+								
+									
+									
+										<c:forEach begin="0" end="${resultSetAsJson.length() -1}" var="i">
 										
-								 		subchapter_title - ${tmpSubChapterID = resultSetAsJson.getJSONObject(i).get('subchapter_id')}
-											<div class="col-sm-12 col-lg-12">
-	                                        	<div class="card">
-		                                            <div class="card-body" id = "${resultSetAsJson.getJSONObject(i).get('subchapter_id')}">
-			                                            <h4 class="card-title"><c:out value="${resultSetAsJson.getJSONObject(i).get('subchapter_title')}"/></h4>
-			                                            <!-- <p class="card-text">
-											 				<span style="word-break: break-all;white-space: normal;"><c:out value="${chapter.subChapterContent}" escapeXml="false"/> </span>
-			                                            </p>   -->                                        
-		                                            </div>
-	                                            </div>
-                                            </div>
-										 </c:when>
-										  <c:otherwise>
-											<c:if test="${subChapterSecID != resultSetAsJson.getJSONObject(i).get('subchaptersecid')}">
-											subChapterSecId - ${subChapterSecID = resultSetAsJson.getJSONObject(i).get('subchaptersecid')}
-					
-											<div class="col-sm-12 col-lg-12">
-											<div class="card">
-												<div class="card-body" id = "${resultSetAsJson.getJSONObject(i).get('subchaptersecid')}">
-														<span style="word-break: break-all;white-space: normal;"><c:out value="${resultSetAsJson.getJSONObject(i).get('subchaptersection_title')}" escapeXml="false"/> </span>
-													</p>                                           
-												</div>
-									   
-											</div>
-											</div>	
-											
-										</c:if>
-											 </c:otherwise>
-										</c:choose>
-										
-
-
-
-
-									<c:if test="${subChapterSecSubSecID != resultSetAsJson.getJSONObject(i).get('sbchpsecsubsecid')}">
-								 		subChapterSecSubSecID - ${subChapterSecSubSecID = resultSetAsJson.getJSONObject(i).get('sbchpsecsubsecid')}
 										<div class="col-sm-12 col-lg-12">
-                                        <div class="card">
-                                            <div class="card-body" id = "${resultSetAsJson.getJSONObject(i).get('sbchpsecsubsecid')}">
-	                                            <!--  <h4 class="card-title"><c:out value="${chapter.subChapterSecTitle}"/></h4>  -->
-	                                            <p class="card-text">
-	                                            	<h6><c:out value="${resultSetAsJson.getJSONObject(i).get('subchaptersubsection_title')}" escapeXml="false"/> </h6> -->
+	                                        	<div class="card">
+										<c:choose>
+										<c:when  test="${tmpChapterID != resultSetAsJson.getJSONObject(i).get('chapterid')}">
+										
+		                                           
+												   <div class="card-body" id = "${resultSetAsJson.getJSONObject(i).get('subchapter_id')}">
+												   <h4 class="card-title"><c:out value="${resultSetAsJson.getJSONObject(i).get('subchapter_title')}"/></h4> 
+													   
+													<h3 class="card-title">   <span style="word-break: break-all;white-space: normal;"><c:out value="${resultSetAsJson.getJSONObject(i).get('subchaptersection_title')}" escapeXml="false"/> </span></h3>
+													</p>        
+										
+			                                           
+							
+													 <p class="card-text">
+	                                            <!--	<h6><c:out value="${resultSetAsJson.getJSONObject(i).get('subchaptersubsection_title')}" escapeXml="false"/> </h6> -->
 									 				
 													<!-- Loading the content here. -->
-									 				<span style="word-break: break-all;white-space: normal;"><c:out value="${resultSetAsJson.getJSONObject(i).get('subchaptersubsection_content')}" escapeXml="false"/> </span>
-	                                            </p>                                           
-                                            
-                                            </div>
-                                            <ul class="list-inline product-review-link"><li class="list-inline-item"></li>
+									 			<span style="word-break: break-all;white-space: normal;"><c:out value="${resultSetAsJson.getJSONObject(i).get('subchaptersubsubsection_content')}" escapeXml="false"/> </span>
+	                                            </p>               
+												
+		                             
+									   ${tmpChapterID = resultSetAsJson.getJSONObject(i).get('chapterid')}
+									   ${subChapterSecID = resultSetAsJson.getJSONObject(i).get('subchaptersecid')}
+									  </div>
+									  </c:when>
+	                                      <c:otherwise>
+										 <div class="card-body" id = "${resultSetAsJson.getJSONObject(i).get('subchapter_id')}">
+										 <c:if test="${subChapterSecID != resultSetAsJson.getJSONObject(i).get('subchaptersecid')}">
+												
+					  ${subChapterSecID = resultSetAsJson.getJSONObject(i).get('subchaptersecid')}
+											
+													 <h4 class="card-title">	<span style="word-break: break-all;white-space: normal;"><c:out value="${resultSetAsJson.getJSONObject(i).get('subchaptersection_title')}" escapeXml="false"/> </span></h4>
+													</p>                                           
+												
+											
+										</c:if>
+												   
+													 <p class="card-text">
+	                                          		
+													<!-- Loading the content here. -->
+									 			<span style="word-break: break-all;white-space: normal;"><c:out value="${resultSetAsJson.getJSONObject(i).get('subchaptersubsubsection_content')}" escapeXml="false"/> </span>
+	                                            </p>               
+												</div>
+										  
+</c:otherwise>									
+</c:choose>									     
+                 <ul class="list-inline product-review-link"><li class="list-inline-item"></li>
                                                 <!-- <li class="list-inline-item">
                                                     <a href="#" title="Graph" onclick="getGraphData('${chapter.bookId}' , '${chapter.subChapterId }', '${chapter.subChapterSecSubSecId }')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-family-tree me-1"></i> Graph</a>
                                                 </li> -->
@@ -487,12 +471,12 @@ body {
 	                                                </li>
                                                 </c:if>
                                             </ul><br/>
-                                            
-                                        </div>
-                                    	</div>
-                                    	</c:if>
-										
-                                    </c:forEach>	
+</div>
+                                            </div>
+									</c:forEach>
+									
+									
+                                  
 									</div>
 									
 									<div class="resizer-x"></div>
@@ -515,9 +499,9 @@ body {
 								</div>
                         </div>
                         <!-- end page title -->
-					<div class="row">
+				 <!-- 	<div class="row">
 
-                        </div>
+                        </div> -->
         
                     </div> <!-- container-fluid -->
                 </div>
