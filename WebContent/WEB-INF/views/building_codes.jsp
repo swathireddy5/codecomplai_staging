@@ -46,7 +46,7 @@
             <!-- Start right Content here -->
             <!-- ============================================================== -->
             <div class="main-content">
-
+			<c:set var="flag" value="true" scope="session" />
                 <div class="page-content">
                     <div class="container-fluid">
                     <!-- start page title -->
@@ -167,7 +167,7 @@ $("#bookTitle").keyup(function() {
 				console.log(response);
 				$('#regionBasedBooksList').empty().append();
 				for(i = 0; i< response.length; i++){
-					$("#regionBasedBooksList").append('<a href="getBookDetails?regionName='+response[i].regionName+'&bookId='+response[i].bookId+'&stateId='+response[i].stateId+'&bookName='+response[i].bookName+'&bookUrl='+response[i].bookUrl+'" class="text-dark"><div class="card bg-dark text-light mb-2 bg-h"><span class="card-body"><h4 class="card-title text-light">'+response[i].regionName+'</h4><p class="card-text">'+response[i].bookName+'<i class="ri-arrow-right-line align-middle ms-2"></i></p></span></div></a>');
+					$("#regionBasedBooksList").append('<a onclick="return false;" href="getBookDetails?regionName='+response[i].regionName+'&bookId='+response[i].bookId+'&stateId='+response[i].stateId+'" class="text-dark"><div class="card bg-dark text-light mb-2 bg-h"><span class="card-body"><h4 class="card-title text-light">'+response[i].regionName+'</h4><p class="card-text">'+response[i].bookName+'<i class="ri-arrow-right-line align-middle ms-2"></i></p></span></div></a>');
 				}
 			}
 			
@@ -192,7 +192,7 @@ function changeState(selectedState){
 				console.log(response);
 				$('#regionBasedBooksList').empty().append();
 				for(i =0; i< response.length; i++){
-					$("#regionBasedBooksList").append('<a href="getBookDetails?regionName='+response[i].regionName+'&bookId='+response[i].bookId+'&stateId='+response[i].stateId+'&bookName='+response[i].bookName+'&bookUrl='+response[i].bookUrl+'" class="text-dark"><div class="card bg-dark text-light mb-2 bg-h"><span class="card-body"><h4 class="card-title text-light">'+response[i].regionName+'</h4><p class="card-text">'+response[i].bookName+'<i class="ri-arrow-right-line align-middle ms-2"></i></p></span></div></a>');
+					$("#regionBasedBooksList").append('<a href="getBookDetails?regionName='+response[i].regionName+'&bookId='+response[i].bookId+'&stateId='+response[i].stateId+'" class="text-dark"><div class="card bg-dark text-light mb-2 bg-h"><span class="card-body"><h4 class="card-title text-light">'+response[i].regionName+'</h4><p class="card-text">'+response[i].bookName+'<i class="ri-arrow-right-line align-middle ms-2"></i></p></span></div></a>');
 				}
 			}
 	},
@@ -257,70 +257,6 @@ function showPosition(position) {
   $('#currlocation').val(position.coords.latitude +
   ", " + position.coords.longitude)
 }
-});
-
-jQuery(function ($) {
-	$('.custom-select').on('change', function() {
-		year = this.value;
-		 // alert( this.value );
-		  if(year != "Current"){
-			  URL = "/"+$('#siteurl').val()+"/selectedStateBookListByYear?year="+ year;
-			  $.ajax({
-					type: "GET",
-					 async: false,  
-					url : URL,
-					dataType : 'json',
-					contentType : 'application/json; charset=utf-8',
-					success : function(response){
-						if(response != null && response !=""){
-							console.log("Success...");
-							console.log(response);
-							$("div .col-md-6 .tab-item").remove();
-					//		$("#regionBasedBooksListId .container .row").('<div class="col-md-6"></div>');
-							for(i =0; i< response.bookList.length; i++){
-								 $("#regionBasedBooksListId .container .row").append('<div class="col-md-6"><div v-for="tab in tabs" onclick="location.href = getBookDetails?regionName='+response.bookList[i].regionName+'&bookId='+response.bookList[i].bookId+'&stateId='+response.bookList[i].stateId+'&bookName='+response.bookList[i].bookName+'&bookUrl='+response.bookList[i].bookUrl+';" class="tab-item"><h3 class="tab-item__heading">'+response.bookList[i].regionName+'</h3>  <p class="tab-item__subheading"> '+response.bookList[i].bookName+' </p>    </div>  </div>');
-								 
-						          	
-									}
-						}
-																
-				},
-				 error: function(jqXHR, textStatus, errorThrown) {
-					 console.log("error ==== "+jqXHR.status + ' ' + jqXHR.responseText);
-			        }
-			    
-			}); 
-		  }
-		});
-$(".sidebar-dropdown > a").click(function() {
-$(".sidebar-submenu").slideUp(200);
-if (
-$(this)
-  .parent()
-  .hasClass("active")
-) {
-$(".sidebar-dropdown").removeClass("active");
-$(this)
-  .parent()
-  .removeClass("active");
-} else {
-$(".sidebar-dropdown").removeClass("active");
-$(this)
-  .next(".sidebar-submenu")
-  .slideDown(200);
-$(this)
-  .parent()
-  .addClass("active");
-}
-});
-
-$("#close-sidebar").click(function() {
-$(".page-wrapper").removeClass("toggled");
-});
-$("#show-sidebar").click(function() {
-$(".page-wrapper").addClass("toggled");
-});
-
 });
 </script>
 

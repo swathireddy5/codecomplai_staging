@@ -6,9 +6,9 @@
         <meta charset="utf-8" />
         <title>GetBookDetails</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- App favicon -->
+        <!-- App favicon 
         <link rel="shortcut icon" href="assets/images/favicon.ico">
-
+-->
         <!-- Bootstrap Css -->
         <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
         <!-- Icons Css -->
@@ -19,6 +19,13 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 		<script src="https://visjs.github.io/vis-network/standalone/umd/vis-network.min.js"></script>
 		<style>
+		
+
+
+
+/*CSS*/
+html { scroll-behavior: smooth; } 
+
 		#app {
   width: 100%;
   height: 83vh;
@@ -282,7 +289,7 @@ body {
             <!-- Start right Content here -->
             <!-- ============================================================== -->
             <div class="main-content m-0">
-
+			
                 <div class="page-content">
                     <div class="container-fluid">
 
@@ -319,70 +326,47 @@ body {
 						<div class="chat-leftsidebar-nav">
 							<h5 class="card-title mb-4 font-size-14">${selectedBookTitle}</h5>
 						</div>
-						<ul class="m-0 p-0">
+					<div id ="chapterList">
 						
-							<!--<c:out value="${chapterListAsJson}" />-->
+						 	<c:out value="${chapterList}" escapeXml="false"/>
+						 	
+						 
+						 	
+							<%--
+							<c:set var="chapterID" value="0"/>
+							<c:set var="samechapter" value="0"/>
 							<c:forEach begin="0" end="${chapterListAsJson.length() -1}" var="i">
-								<c:set var = "chapterstring" value = "${chapter.key}"/>
-								<c:set var = "stringid" value = "${fn:split(chapterstring, '-')}" />
-								<c:set var= "string2" value= '${param["chapterId"]}'/>
+								<c:choose>
+									<c:when test="${chapterID eq 0}">
+										<li id="${chapterListAsJson.getJSONObject(i).get('chapterid')}" class="active"> 
+									</c:when>    
+									<c:otherwise>
+										<li id="${chapterListAsJson.getJSONObject(i).get('chapterid')}"> 
+									</c:otherwise>
+								</c:choose>
+								
+								<c:if test="${chapterID eq chapterListAsJson.getJSONObject(i).get('chapterid')}">
+									<c:set var="samechapter" value="1"/>
+								</c:if>
 								
 								<c:choose>
-								  <c:when test="${stringid[0] eq string2}">
-								  	<li class="sidebar-dropdown active">
-							  	  </c:when>
-								  <c:otherwise>
-								  	<li class="sidebar-dropdown">
-								  </c:otherwise>
-								</c:choose>
-								<h3>
-									<!-- <a id ="${stringid[0]}" href="/codecompilance/showChapterDetails?chapterId=${stringid[0]}&sectionId="> -->
-									<!-- <a id ="${stringid[0]}" href="#" onclick="showChapterDetails('${stringid[0]}','')"> 
-									<a id ="${stringid[0]}" href="/codecompilance/getSectionDetails?chapterId=${stringid[0]}"> 
-										
-									<c:set var="chapterId" value="${stringid[0]}"/>
-									<a id ="${stringid[0]}" href="#" onclick="getSectionDetails(${stringid[0]});">
-										<input type="hidden" id="chapterId" value="${stringid[0]}"/>-->
-									<a id ="${stringid[0]}" href="/${siteurl}/getSectionDetails?chapterId=${stringid[0]}&sectionId=">
-											<span>${resultSetAsJson.getJSONObject(i).get('chapter_title')}</span>
-									</a>
-									
-									<c:choose>
-										<c:when test="${stringid[0] eq string2}">
-										 	<div class="sidebar-submenu" style="display: block;"></div>
-									  	</c:when>
-									  <c:otherwise>
-									  		<div class="sidebar-submenu" style="display: none;"></div>
-									  </c:otherwise>
-									</c:choose>
-								</h3>
-								<%--
-								<ul>
+									<c:when test="${samechapter eq 0}">
+										<li id="${chapterListAsJson.getJSONObject(i).get('chapterid')}" class="active">
+										<h3><a href="#">${chapterListAsJson.getJSONObject(i).get('chapter_title')}</a></h3>
+										<ul> 
+											<li><a href="#'${chapterListAsJson.getJSONObject(i).get('subchapterid')}'">${chapterListAsJson.getJSONObject(i).get('subchapter_title')}</a></li>
+										</ul>
+									</c:when>    
+									<c:otherwise>
+										<li><a href="#'${chapterListAsJson.getJSONObject(i).get('subchapterid')}'">${chapterListAsJson.getJSONObject(i).get('subchapter_title')}</a></li> 
+									</c:otherwise>
+								</c:choose>   
+								<c:set var="chapterID" value="${chapterListAsJson.getJSONObject(i).get('chapterid')}" />
 								
-									<c:forEach items="${sectionDetailsList}" var="section">
-									   <c:set var = "sectionString" value = "${section}"/>
-									   <c:set var = "sectionid" value = "${fn:split(sectionString, '_')}"/>
-									   <li>
-										<!-- <a id ="${sectionid[0]}" href="/codecompilance/showSectionDetails?chapterId=${stringid[0]}&sectionId=${sectionid[0]}">
-											<a id ="${sectionid[0]}" href="#" onclick="showSectionDetails('${stringid[0]}','${sectionid[0]}')">-->
-											<a id ="${sectionid[0]}" href="/${siteurl}/getSectionDetails?chapterId=${stringid[0]}&sectionId=${sectionid[0]}">
-										  ${sectionid[1]}
-										  </a>
-										  <c:choose>
-											<c:when test="${sectionid[0] eq string2}">
-											 <div class="sidebar-submenu" style="display: block;"></div>
-										  </c:when>
-										  <c:otherwise>
-										  <div class="sidebar-submenu" style="display: none;"></div>
-										  </c:otherwise>
-										</c:choose>
-										</li>
-									</c:forEach>
-								</ul>
-								--%>
-							</li>
-						</c:forEach>
+							</c:forEach> --%>
 						</ul>
+					</div>
+							
 					</div>
              	</div>
 			</div>
@@ -400,78 +384,87 @@ body {
 									<c:set var="tmpChapterID" value="0" scope="page" />
 									<c:set var="subChapterSecID" value="0" scope="page" />
 									<c:set var="subChapterSecSubSecID" value="0" scope="page" />
-								
-									
-									
 										<c:forEach begin="0" end="${resultSetAsJson.length() -1}" var="i">
-										
 										<div class="col-sm-12 col-lg-12">
-	                                        	<div class="card">
+	                                    <div class="card">
 										<c:choose>
 										<c:when  test="${tmpChapterID != resultSetAsJson.getJSONObject(i).get('chapterid')}">
-										
-		                                           
-												   <div class="card-body" id = "${resultSetAsJson.getJSONObject(i).get('subchapter_id')}">
-												   <h4 class="card-title"><c:out value="${resultSetAsJson.getJSONObject(i).get('subchapter_title')}"/></h4> 
-													   
-													<h3 class="card-title">   <span style="word-break: break-all;white-space: normal;"><c:out value="${resultSetAsJson.getJSONObject(i).get('subchaptersection_title')}" escapeXml="false"/> </span></h3>
-													</p>        
-										
-			                                           
-							
-													 <p class="card-text">
-	                                            <!--	<h6><c:out value="${resultSetAsJson.getJSONObject(i).get('subchaptersubsection_title')}" escapeXml="false"/> </h6> -->
-									 				
-													<!-- Loading the content here. -->
-									 			<span style="word-break: break-all;white-space: normal;"><c:out value="${resultSetAsJson.getJSONObject(i).get('subchaptersubsubsection_content')}" escapeXml="false"/> </span>
-	                                            </p>               
-												
-		                             
-									   ${tmpChapterID = resultSetAsJson.getJSONObject(i).get('chapterid')}
-									   ${subChapterSecID = resultSetAsJson.getJSONObject(i).get('subchaptersecid')}
-									  </div>
-									  </c:when>
-	                                      <c:otherwise>
-										 <div class="card-body" id = "${resultSetAsJson.getJSONObject(i).get('subchapter_id')}">
-										 <c:if test="${subChapterSecID != resultSetAsJson.getJSONObject(i).get('subchaptersecid')}">
-												
-					  ${subChapterSecID = resultSetAsJson.getJSONObject(i).get('subchaptersecid')}
-											
-													 <h4 class="card-title">	<span style="word-break: break-all;white-space: normal;"><c:out value="${resultSetAsJson.getJSONObject(i).get('subchaptersection_title')}" escapeXml="false"/> </span></h4>
-													</p>                                           
-												
-											
-										</c:if>
-												   
-													 <p class="card-text">
-	                                          		
-													<!-- Loading the content here. -->
-									 			<span style="word-break: break-all;white-space: normal;"><c:out value="${resultSetAsJson.getJSONObject(i).get('subchaptersubsubsection_content')}" escapeXml="false"/> </span>
-	                                            </p>               
-												</div>
-										  
-</c:otherwise>									
-</c:choose>									     
-                 <ul class="list-inline product-review-link"><li class="list-inline-item"></li>
+									    	<div class="card-body" id = "${resultSetAsJson.getJSONObject(i).get('subchapter_id')}">
+											   <h4 class="card-title"><c:out value="${resultSetAsJson.getJSONObject(i).get('subchapter_title')}"/></h4> 
+												<h3 class="card-title">   <span style="word-break: break-all;white-space: normal;"><c:out value="${resultSetAsJson.getJSONObject(i).get('subchaptersection_title')}" escapeXml="false"/> </span></h3>
+												 <p class="card-text">
+									 				<!-- Loading the content here. one -->
+									 				<span style="word-break: break-all;white-space: normal;">
+									 				<c:if test="${resultSetAsJson.getJSONObject(i).get('subchaptersubsubsection_content') != null}">
+									 					<c:out value="${resultSetAsJson.getJSONObject(i).get('subchaptersubsubsection_content')}" escapeXml="false"/>
+									 				</c:if>
+									 				</span>
+	                                            </p>
+	                                            <ul class="list-inline product-review-link"><li class="list-inline-item"></li>
                                                 <!-- <li class="list-inline-item">
                                                     <a href="#" title="Graph" onclick="getGraphData('${chapter.bookId}' , '${chapter.subChapterId }', '${chapter.subChapterSecSubSecId }')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-family-tree me-1"></i> Graph</a>
                                                 </li> -->
                                                 <li class="list-inline-item">
-                                                    <a href="#" title="Graph" onclick="getGraphDataForMultiBook('${chapter.bookId}' , '${chapter.subChapterId }')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-family-tree me-1"></i> Graph</a>
+                                                    <a href="#" title="Graph" onclick="getGraphDataForMultiBook(${resultSetAsJson.getJSONObject(i).get('stateid')}, '${resultSetAsJson.getJSONObject(i).get('bookid')}', ${resultSetAsJson.getJSONObject(i).get('chapterid')}, '${resultSetAsJson.getJSONObject(i).get('subchapter_id')}')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-family-tree me-1"></i> Graph</a>
                                                 </li>
                                                 <li class="list-inline-item">
-                                                    <a href="#" title="Print" onclick="printDiv('${chapter.subChapterSecSubSecId }')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-printer me-1"></i> Print</a>
+                                                    <a href="#" title="Print" onclick="printDiv('${resultSetAsJson.getJSONObject(i).get('subchapter_id')}')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-printer me-1"></i> Print</a>
                                                 </li>
                                                 <c:if test="${username != null}">
                                                 	<li class="list-inline-item">
-                                                    <a href="#" title="Comment" data-bs-toggle="modal" data-bs-target="#Add_Comment" title="Add Comment" onclick="addComment(${chapter.stateId}, ${chapter.bookId}, ${chapter.chapterId}, ${chapter.subChapterId}, ${chapter.subChapterSecId}, ${chapter.subChapterSecSubSecId})" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-comment me-1"></i> Comment</a>
+                                                    <a href="#" title="Comment" data-bs-toggle="modal" data-bs-target="#Add_Comment" title="Add Comment" onclick="addComment(${resultSetAsJson.getJSONObject(i).get('stateid')}, ${resultSetAsJson.getJSONObject(i).get('bookid')}, ${resultSetAsJson.getJSONObject(i).get('chapterid')}, ${resultSetAsJson.getJSONObject(i).get('subchapter_id')}, ${resultSetAsJson.getJSONObject(i).get('subchaptersecid')}, ${resultSetAsJson.getJSONObject(i).get('sbchpsecsubsecid')})" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-comment me-1"></i> Comment</a>
 	                                                </li>
 	                                                <li class="list-inline-item">
-	                                                    <a href="#" title="Bookmark" onclick="addBookmark(${chapter.stateId}, ${chapter.bookId}, ${chapter.chapterId}, ${chapter.subChapterId}, ${chapter.subChapterSecId}, ${chapter.subChapterSecSubSecId}, 'bookmark','')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-bookmark me-1"></i>Bookmark</a>
+	                                                    <a href="#" title="Bookmark" onclick="addBookmark(${resultSetAsJson.getJSONObject(i).get('stateid')}, ${resultSetAsJson.getJSONObject(i).get('bookid')}, ${resultSetAsJson.getJSONObject(i).get('chapterid')}, ${resultSetAsJson.getJSONObject(i).get('subchapter_id')}, ${resultSetAsJson.getJSONObject(i).get('subchaptersecid')}, ${resultSetAsJson.getJSONObject(i).get('sbchpsecsubsecid')}, 'bookmark','')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-bookmark me-1"></i>Bookmark</a>
 	                                                </li>
                                                 </c:if>
                                             </ul><br/>
-</div>
+	                                            
+									   		${tmpChapterID = resultSetAsJson.getJSONObject(i).get('chapterid')}
+									   		${subChapterSecID = resultSetAsJson.getJSONObject(i).get('subchaptersecid')}
+									  		</div>
+									  		
+									  </c:when>
+                                      <c:otherwise>
+										 <div class="card-body" id="${resultSetAsJson.getJSONObject(i).get('subchapter_id')}">
+										 	<c:if test="${subChapterSecID != resultSetAsJson.getJSONObject(i).get('subchaptersecid')}">
+												${subChapterSecID = resultSetAsJson.getJSONObject(i).get('subchaptersecid')}
+													 <h4 class="card-title">	<span style="word-break: break-all;white-space: normal;"><c:out value="${resultSetAsJson.getJSONObject(i).get('subchaptersection_title')}" escapeXml="false"/> </span></h4>
+											</c:if>												   
+												 <p class="card-text">	                                          		
+													<!-- Loading the content here. two-->
+									 				<span style="word-break: break-all;white-space: normal;">
+									 				<c:if test="${resultSetAsJson.getJSONObject(i).get('subchaptersubsubsection_content') != null}">
+									 					<c:out value="${resultSetAsJson.getJSONObject(i).get('subchaptersubsubsection_content')}" escapeXml="false"/>
+									 				</c:if> 
+									 				</span>
+	                                            </p>
+	                                            <ul class="list-inline product-review-link"><li class="list-inline-item"></li>
+                                                <!-- <li class="list-inline-item">
+                                                    <a href="#" title="Graph" onclick="getGraphData('${chapter.bookId}' , '${chapter.subChapterId }', '${chapter.subChapterSecSubSecId }')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-family-tree me-1"></i> Graph</a>
+                                                </li> -->
+                                                <li class="list-inline-item">
+                                                    <a href="#" title="Graph" onclick="getGraphDataForMultiBook(${resultSetAsJson.getJSONObject(i).get('stateid')}, '${resultSetAsJson.getJSONObject(i).get('bookid')}' ,${resultSetAsJson.getJSONObject(i).get('chapterid')}, '${resultSetAsJson.getJSONObject(i).get('subchapter_id')}')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-family-tree me-1"></i> Graph</a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a href="#" title="Print" onclick="printDiv('${resultSetAsJson.getJSONObject(i).get('subchapter_id')}')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-printer me-1"></i> Print</a>
+                                                </li>
+                                                <c:if test="${username != null}">
+                                                	<li class="list-inline-item">
+                                                    <a href="#" title="Comment" data-bs-toggle="modal" data-bs-target="#Add_Comment" title="Add Comment" onclick="addComment(${resultSetAsJson.getJSONObject(i).get('stateid')}, ${resultSetAsJson.getJSONObject(i).get('bookid')}, ${resultSetAsJson.getJSONObject(i).get('chapterid')}, ${resultSetAsJson.getJSONObject(i).get('subchapter_id')}, ${resultSetAsJson.getJSONObject(i).get('subchaptersecid')}, ${resultSetAsJson.getJSONObject(i).get('sbchpsecsubsecid')})" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-comment me-1"></i> Comment</a>
+	                                                </li>
+	                                                <li class="list-inline-item">
+	                                                    <a href="#" title="Bookmark" onclick="addBookmark(${resultSetAsJson.getJSONObject(i).get('stateid')}, ${resultSetAsJson.getJSONObject(i).get('bookid')}, ${resultSetAsJson.getJSONObject(i).get('chapterid')}, ${resultSetAsJson.getJSONObject(i).get('subchapter_id')}, ${resultSetAsJson.getJSONObject(i).get('subchaptersecid')}, ${resultSetAsJson.getJSONObject(i).get('sbchpsecsubsecid')}, 'bookmark','')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-bookmark me-1"></i>Bookmark</a>
+	                                                </li>
+                                                </c:if>
+                                            </ul><br/>
+	                                            
+										  </div>
+										  
+										</c:otherwise>
+										</c:choose>									     
+                 							
+											</div>
                                             </div>
 									</c:forEach>
 									
@@ -578,6 +571,7 @@ body {
 
         <script src="assets/js/app.js"></script>
 		<script type="text/javascript">
+
 		(function () {
   "use strict";
 
@@ -726,9 +720,9 @@ body {
       delete e._clientY;
     }
   })();
-})();	
+})();
 			
-			$(document).ready(function() {
+$(document).ready(function() {
 		$("#accordian a").click(function() {
 				var link = $(this);
 				var closest_ul = link.closest("ul");
@@ -748,7 +742,17 @@ body {
 				}
 		})
 })
-		</script>
+
+	</script>
+	<script>
+    function clickFunction(event, elem) {
+
+        console.log(event);
+        console.log(elem);
+        event.preventDefault();
+    }    
+</script>
+	
 <script>
 
 	var nodes = null;
@@ -790,112 +794,7 @@ function toggleDiv(divtype)
 		$('#myDiv2').toggleClass('fullscreen'); 
 	});
 	
-	
-	 $("chaptermenu").on('click', function(e) {
-		    return false;
-		  });
 	 
-function getChapterDetails(){
-	var chapterDetailsJson = $('#chapterdetailsjson').val();
-}
-
-
-function showChapterContent(chapterId){
-	/* 	var chapId;
-		if(chapterId.includes("/")){
-			chapId = chapterId.split("/");
-			//alert(chapId.pop());
-			chapterId = chapId.pop();
-		} */
-            
-		 URL = "/"+$('#siteurl').val()+"/showChapterContent";
-			$.ajax({
-				type: "POST",
-				 async: false,  
-				url : URL,
-				dataType : 'json',
-				contentType : 'application/json; charset=utf-8',
-			data: JSON.stringify({"chapterId": chapterId } ),
-				success : function(response){
-					if(response != null && response !=""){
-						console.log("Success...");
-						console.log(response.outputPage);
-						//$(".container .row .col-xl-12").replaceWith(response.outputPage);
-						$(".container .row .col-xl-12").html(response.outputPage);
-						//window.location.href = response.outputPage;
-					}
-			},
-			 error: function(jqXHR, textStatus, errorThrown) {
-				 console.log("error ==== "+jqXHR.status + ' ' + jqXHR.responseText);
-		        }
-		    
-		}); 
-		
-	}
-function showChapterDetails(chapterId){
-	
-	 URL = "/"+$('#siteurl').val()+"/showChapterDetails?chapterId="+chapterId;
-	 
-		$.ajax({
-			type: "GET",
-			 async: false,  
-			url : URL,
-			dataType : 'json',
-			contentType : 'application/json; charset=utf-8',
-			data: chapterId,
-			success : function(response){
-				if(response != null && response !=""){
-					console.log("Success...");
-					console.log(response.outputPage);
-					$("#accordian").load(" #accordian");
-					//$("#myDiv0").load(" #myDiv0");
-				}
-														
-		},
-		 error: function(jqXHR, textStatus, errorThrown) {
-			 console.log("error ==== "+jqXHR.status + ' ' + jqXHR.responseText);
-	        }
-	    
-	}); 
-	
-}
-
-
-function getSectionDetails(chapterId){
-	 //alert(chapterId);
-	 URL = "/"+$('#siteurl').val()+"/getSectionDetails?chapterId="+chapterId;
-	 document.getElementById("chapterId").value=chapterId;
-		$.ajax({
-			type: "GET",
-			 async: false,  
-			url : URL,
-			dataType : 'json',
-			contentType : 'application/json; charset=utf-8',
-			data: chapterId,
-			success : function(response){
-				if(response != null && response !=""){
-					console.log("Success...");
-					console.log(response.sectionDetailsList);
-					$("#sectionDetailsList").val = response.sectionDetailsList;
-					$("#accordian").load(" #accordian");
-					//$("#myDiv0").load(" #myDiv0");
-				}
-														
-		},
-		 error: function(jqXHR, textStatus, errorThrown) {
-			 console.log("error ==== "+jqXHR.status + ' ' + jqXHR.responseText);
-	        }
-	});
-}
-
-/*
-$('.update-accordian').click(function(e) {
-    e.stopImmediatePropagation();
-});
-
-*/
-
-
 //initialize global variables.
 var edges;
 var nodes;
@@ -904,7 +803,7 @@ var container;
 var options, data;
 
 // This method is responsible for drawing the graph, returns the drawn network
-function drawGraph(bookId, sname, nodes, edges) {
+function drawGraph(stateId, bookId, chapterId, sname, nodes, edges) {
 		
 	var container = document.getElementById('mynetwork');
 	    
@@ -963,35 +862,6 @@ function drawGraph(bookId, sname, nodes, edges) {
     	    },
     	  };
 
-    /*var options = {
-"configure": {
-    "enabled": false
-},
-"edges": {
-    "color": {
-        "inherit": true
-    },
-    "smooth": {
-        "enabled": false,
-        "type": "continuous"
-    }
-},
-"interaction": {
-    "dragNodes": true,
-    "hideEdgesOnDrag": false,
-    "hideNodesOnDrag": false
-},
-"physics": {
-    "enabled": true,
-    "stabilization": {
-        "enabled": true,
-        "fit": true,
-        "iterations": 1000,
-        "onlyDynamicEdges": false,
-        "updateInterval": 50
-    }
-}
-};*/
 var node1 = 0;
 network = new vis.Network(container, data, options);
 /*
@@ -1032,9 +902,10 @@ network.on("click", function(e) {
 	// call to get the section for the selected node
 	//getSectionForNode(stateId, regionId, bookId, sname,  node1);
 	if(typeof node1 != "undefined"){
-		getSectionForSelectedNode(bookId, sname, node1);
+		getSectionForSelectedNode(stateId, bookId, chapterId, sname, node1);
+		e.preventDefault();
 	}
-	
+	e.preventDefault();
 	
 });
 
@@ -1042,51 +913,52 @@ return network;
 }
 
 
-function getSectionForSelectedNode(bookId, subchapter_id, subchaptersection_no){
-	var siteurl = $('#siteurl').val();
-	//alert(bookId);
-	//alert(subchapter_id);
-	//alert(subchaptersection_no);
-	URL = "/"+siteurl+"/showSectionDetailsForNode?bookId="+bookId+"&subchapter_id="+subchapter_id+"&subchaptersection_no="+subchaptersection_no;
-	$.ajax({
-		type: "POST",
-		async: false,
-		url : URL,
-		contentType : 'application/json; charset=utf-8',
-		dataType: 'json',
-		cache: false,
- 		success: function (response) {
- 			console.log("response in showSectionDetailsForNode-->"+response.chapterId+","+response.sectionId+","+response.subchaptersection_no);
- 			$("#accordian").load(" #accordian");
- 			$("#myDiv0").load(" #myDiv0");
- 			//getGraphData(response.bookId, response.subchapter_id, response.subchaptersection_no);
- 			//showSectionDetails(response.chapterId,response.sectionId);
- 		},
-          error: function () {
-              console.log("error in showSectionDetailsForNode");
-          }
-      });
-}
+ function getSectionForSelectedNode(stateId, bookId, chapterId, subchapter_id, subchaptersection_no){
+	 var siteurl = $('#siteurl').val();
+	 /* alert(stateId);
+	 alert(subchapter_id);
+	 alert(subchaptersection_no); */
+	 URL = "/"+siteurl+"/showSectionDetailsForNode?stateId="+stateId+"&bookId="+bookId+"&chapterId="+chapterId+"&subchapter_id="+subchapter_id+"&subchaptersection_no="+subchaptersection_no;
+	 $.ajax({
+		 type: "POST",
+		 async: false,
+		 url : URL,
+		 contentType : 'application/json; charset=utf-8',
+		 dataType: 'json',
+		 cache: false,
+ 		 success: function (response) {
+ 			 console.log("response in showSectionDetailsForNode-->"+response);
+ 			 $("#accordian").load(" #accordian");
+ 			 $("#myDiv0").load(" #myDiv0");
+ 			 //getGraphData(response.bookId, response.subchapter_id, response.subchaptersection_no);
+ 			 //showSectionDetails(response.chapterId,response.sectionId);
+ 			
+ 		 },
+           error: function () {
+               console.log("error in showSectionDetailsForNode");
+           }
+       });
+ }
 
-function showSectionDetails(chapter, section){
-		 $('#bookmarkstatus').val("");
-		 URL = "/"+$('#siteurl').val()+"/showSectionDetails?chapterId="+chapter+"&sectionId="+section;
-			$.ajax({
-				type: "GET",
-				async: false,
-				url : URL,
-				contentType : 'application/json; charset=utf-8',
-				dataType: 'json',
-				cache: false,
-		 		success: function (response) {
-		 			console.log("response in showSectionDetails-->");
-		 			$("#myDiv0").load(" #myDiv0");
-		 		},
-		          error: function () {
-		              console.log("error in showSectionDetails");
-		          }
-		      });
-}
+// function showSectionDetails(chapter, section){
+		 // $('#bookmarkstatus').val("");
+		 // URL = "/"+$('#siteurl').val()+"/showSectionDetails?chapterId="+chapter+"&sectionId="+section;
+			// $.ajax({
+				// type: "GET",
+				// async: false,
+				// url : URL,
+				// contentType : 'application/json; charset=utf-8',
+				// dataType: 'json',
+				// cache: false,
+		 		// success: function (response) {
+		 			// console.log("response in showSectionDetails-->");
+		 			// $("#myDiv0").load(" #myDiv0");
+		 		// },
+		          // error: function () {
+		              // console.log("error in showSectionDetails");
+		          // }
+		      // });
+// }
 	
 	
 	
@@ -1151,11 +1023,8 @@ function printDiv(divName) {
 	 //alert(divName);
      var printContents = document.getElementById(divName).innerHTML;
      var originalContents = document.body.innerHTML;
-
      document.body.innerHTML = printContents;
-
      window.print();
-
      document.body.innerHTML = originalContents;
 }
 
@@ -1198,7 +1067,7 @@ function printDiv(divName) {
 	 		success: function (response) {
 	 			console.log("response -->"+response.nodes);
 	 			console.log("response -->"+response.edges);
-	            drawGraph(bookId, subChpSecId, response.nodes, response.edges);
+	            drawGraph(bookId, chapterId, subChpSecId, response.nodes, response.edges);
               },
               error: function () {
                   console.log("error");
@@ -1207,9 +1076,9 @@ function printDiv(divName) {
         }
 
     
-      function getGraphDataForMultiBook(bookId, schapterid) {
+      function getGraphDataForMultiBook(stateId, bookId, chapterId, schapterid) {
       	
-      	URL = "/"+$('#siteurl').val()+"/getNodesAndEdgesForMultiBook?bookid="+bookId+"&schapterid="+schapterid;
+      	URL = "/"+$('#siteurl').val()+"/getNodesAndEdgesForMultiBook?bookid="+bookId+"&chapterId="+chapterId+"&schapterid="+schapterid;
       	$.ajax({
   			type: "GET",
   			async: false,
@@ -1220,13 +1089,16 @@ function printDiv(divName) {
   	 		success: function (response) {
   	 			console.log("response -->"+response.nodes);
   	 			console.log("response -->"+response.edges);
-  	            drawGraph(bookId, schapterid, response.nodes, response.edges);
+  	            drawGraph(stateId, bookId, chapterId, schapterid, response.nodes, response.edges);
                 },
                 error: function () {
                     console.log("error");
                 }
             });
       }
+	  
+	  
+
 </script>
 
 <!-- chatbot  -->

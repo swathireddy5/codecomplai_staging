@@ -47,7 +47,6 @@ import org.apache.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -59,15 +58,10 @@ import com.codecompilance.spring.model.BookmarkView;
 import com.codecompilance.spring.model.BuildingComposition;
 import com.codecompilance.spring.model.Chapter;
 import com.codecompilance.spring.model.ChapterSectionDetails;
-import com.codecompilance.spring.model.ChapterList;
 import com.codecompilance.spring.model.FloorDetails;
 import com.codecompilance.spring.model.ProjectView;
 import com.codecompilance.spring.model.QueryData;
 import com.codecompilance.spring.model.RegionCodeYear;
-import com.codecompilance.spring.model.SubChapterSecSubSec;
-import com.codecompilance.spring.model.SubChapterSecSubSubSec;
-import com.codecompilance.spring.model.SubChp;
-import com.codecompilance.spring.model.SubChpSec;
 import com.codecompilance.spring.model.UserView;
 import com.codecompilance.spring.model.WallSegmentDetails;
 
@@ -104,7 +98,7 @@ public class HomeController {
 	}
 	
 	/* ChapterView jsp page request mapping method */
-	@RequestMapping(value = "/ChapterView", method = RequestMethod.GET)
+	@RequestMapping(value = "/ChapterView", method = RequestMethod.POST)
 	public String ChapterView(HttpServletRequest request, HttpServletResponse response) {
 		return "ChapterView";
 
@@ -847,111 +841,6 @@ public class HomeController {
 				System.out.println("Chapters List --->"+chapSecMap);
 				return chapSecMap;
 			}
-	  
-	
-//			This will return Chapter details of selected chapter
-			@RequestMapping(value = "/showSectionDetailsForNode", method = RequestMethod.POST)
-			  public @ResponseBody String showSectionDetailsForNode(HttpServletRequest request, HttpServletResponse response) 
-			  {
-				  HttpSession session = request.getSession();
-				  
-				  int bookId = Integer.parseInt(request.getParameter("bookId"));
-				  int subchapter_id = Integer.parseInt(request.getParameter("subchapter_id"));
-				  int subchaptersection_no = Integer.parseInt(request.getParameter("subchaptersection_no"));
-				  
-				  String bookTitle = null;
-				  String statename = null;
-				  int chapterId = 0;
-				  int sectionId = 0;
-				  int stateId = 0;
-				  
-				  //int chapterId = Integer.parseInt(chaptId);
-				  JSONObject outputJsonObj = new JSONObject();
-				  Connection conn = null;
-				  Statement st = null;
-				  ResultSet rs = null;
-				  Chapter chapter = null;
-				  String sql = null;
-				  List<Chapter> chapterList = new ArrayList<Chapter>();
-				  //HashMap<String, ArrayList<String>> chpList = new LinkedHashMap<String, ArrayList<String>>();
-				  HashMap<String, Integer> chpList = new LinkedHashMap<String, Integer>();
-				  	
-				  try 
-				  {
-					  conn = DBConnect.connect();
-					  if(conn != null) {
-						  st=(Statement) conn.createStatement();
-					  
-						  /*sql = "select * from tblsubchaptersections where id = "+subchaptersection_no
-								  +" UNION\r\n" + 
-						  		"select * from tblsubchapterssubsections where subchaptersection_id = "+subchaptersection_no+";";*/
-						  
-						  /*sql = "select distinct sts.id, sts.state_name, bks.book_title, sbcpsec.book_id, sbcpsec.subchapter_id, sbcpsec.subchaptersection_content, "
-						  		+ "sbcpsec.subchaptersection_no, sbcpsec.subchaptersection_title from tblsubchaptersections sbcpsec left join tblbooks bks on "
-						  		+ "sbcpsec.book_id = bks.id  left join tblstates sts on sts.id = bks.state_id where sbcpsec.id = "+subchaptersection_no+";" ; */
-						  
-						    sql = "select bks.state_id, sbchsc.book_id, bks.book_title, sbchsc.subchaptersection_title, sbchsc.subchaptersection_content,\r\n" + 
-						    		"sbchsbsc.subchaptersubsection_title, sbchsbsc.subchaptersubsection_content \r\n" +
-						    		"from tblsubchaptersections sbchsc left join tblsubchapters sbchps on \r\n" + 
-						    		"sbchsc.subchapter_id = sbchps.id left join tblbooks bks on bks.id = sbchsc.book_id \r\n" + 
-						    		"left join tblsubchapterssubsections sbchsbsc on sbchsbsc.subchaptersection_id = sbchsc.id where sbchsc.id = "+subchaptersection_no;
-						  
-						  rs = st.executeQuery(sql);
-							while (rs.next()) {
-				            	chapter = new Chapter();
-				            	chapter.setStateId(rs.getInt("state_id"));
-				            	stateId = rs.getInt("state_id");
-				            	chapter.setBookId(rs.getInt("book_id"));
-				            	bookId = rs.getInt("book_id");
-				            	chapter.setBookName(rs.getString("book_title"));
-				            	bookTitle = rs.getString("book_title");
-				            	chapter.setSubChapterSecId(subchaptersection_no);
-				            	chapter.setSubChapterSecTitle(rs.getString("subchaptersection_title"));
-				            	chapter.setSubChapterSecContent(rs.getString("subchaptersection_content"));
-				            	chapter.setSubChapterSecSubSecName(rs.getString("subchaptersubsection_title"));
-				            	chapter.setSubChapterSecSubSecTitle(rs.getString("subchaptersubsection_title"));
-				            	chapter.setSubChapterSecSubSecContent(rs.getString("subchaptersubsection_content"));
-				            	chapterList.add(chapter);
-				            }
-					  }
-					  session.setAttribute("selectedStateId", stateId);
-					  session.setAttribute("selectedBookId", bookId);
-					  chpList = getChaptersList(request, response, bookId, stateId);
-				  }catch (SQLException sqe) {
-					  sqe.printStackTrace();
-				  }catch (Exception e) {
-					  e.printStackTrace();
-				  }finally {
-					  try {
-							rs.close();
-							st.close();
-							conn.close();
-						} catch (SQLException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-				  }
-				  System.out.println("chapterList in showSectionDetailsForNode  ----> "+chapterList);
-				  session.setAttribute("chapterList", chapterList);
-				  session.setAttribute("selectedBookTitle", bookTitle);
-				  session.setAttribute("chpList", chpList);
-				  session.setAttribute("selectedRegionId", statename);
-				  session.setAttribute("selectedBookUrl", bookTitle);
-				  session.setAttribute("selectedBookTitle", bookTitle);
-				  outputJsonObj.put("chapterList", chapterList);
-				  outputJsonObj.put("chapterId", chapterId);
-				  outputJsonObj.put("sectionId", sectionId);
-				  outputJsonObj.put("bookId", bookId);
-				  outputJsonObj.put("bookUrl", bookTitle);
-				  outputJsonObj.put("subchaptersection_no", subchaptersection_no);
-				  outputJsonObj.put("subchapter_id", subchapter_id);
-				  outputJsonObj.put("outputPage", "ChapterView"); //outputJsonObj.put("outputPage", "book_details");
-				  return  outputJsonObj.toString();
-				  //return "ChapterView";
-			}
-		  
-		  
-		  
 		  
 //	This method returns book code years list for the given stateId , region Id
 	@RequestMapping(value = "/getCodeYearsList", method = RequestMethod.POST, produces = "application/json")
