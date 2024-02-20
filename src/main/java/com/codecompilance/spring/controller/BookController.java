@@ -37,39 +37,28 @@ public class BookController {
 	public String getBookDetails(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		HttpSession session = request.getSession();
 		
-		if(session.getAttribute("flag")!= null && "false".equalsIgnoreCase(session.getAttribute("flag").toString())) {
-			// Do Nothing
-			
-		}else {
-		
-			String regionName = request.getParameter("regionName");
-			if (request.getParameter("stateId") != null && request.getParameter("bookId") != null) {
-				int state_Id = Integer.parseInt(request.getParameter("stateId"));
-				int bookId = Integer.parseInt(request.getParameter("bookId"));
-				JSONArray resultSetAsJson = new JSONArray();
-				StringBuffer chapterList = null;
-	
-				session.setAttribute("selectedRegionId", regionName);
-				session.setAttribute("selectedStateId", state_Id);
-				session.setAttribute("selectedBookId", bookId);
-	
-				try {
-					chapterList = getChaptersList(request, response, bookId, state_Id, 0);
-					resultSetAsJson = getChapterDetails(request, response, bookId, state_Id);
-					session.setAttribute("resultSetAsJson", resultSetAsJson);
-					session.setAttribute("chapterList", chapterList);
-					//System.out.println("chapterList-->" + chapterList);
-					logger.debug("resultSetAsJson and chapterListAsJson from getBookDetails");
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-				// System.out.println("resultSetAsJson-->"+resultSetAsJson);
-				// System.out.println("chapterListAsJson-->"+chapterListAsJson);
-				// response.sendRedirect("ChapterView");
-				return "ChapterView";
+		String regionName = request.getParameter("regionName");
+		if (request.getParameter("stateId") != null && request.getParameter("bookId") != null) {
+			int state_Id = Integer.parseInt(request.getParameter("stateId"));
+			int bookId = Integer.parseInt(request.getParameter("bookId"));
+			JSONArray resultSetAsJson = new JSONArray();
+			StringBuffer chapterList = null;
+
+			session.setAttribute("selectedRegionId", regionName);
+			session.setAttribute("selectedStateId", state_Id);
+			session.setAttribute("selectedBookId", bookId);
+
+			try {
+				chapterList = getChaptersList(request, response, bookId, state_Id, 0);
+				resultSetAsJson = getChapterDetails(request, response, bookId, state_Id);
+				session.setAttribute("resultSetAsJson", resultSetAsJson);
+				session.setAttribute("chapterList", chapterList);
+				//System.out.println("chapterList-->" + chapterList);
+				logger.debug("resultSetAsJson and chapterListAsJson from getBookDetails");
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		}
-		
 		return "ChapterView";
 	}
 
@@ -293,18 +282,11 @@ public class BookController {
 	@RequestMapping(value = "/showSectionDetailsForNode", method = RequestMethod.POST)
 	public @ResponseBody String showSectionDetailsForNode(HttpServletRequest request, HttpServletResponse response) {
 		JSONObject outputJsonObj = new JSONObject();
-		StringBuffer chapterList = null;
-		JSONArray resultSetAsJson = new JSONArray();
-		//String flag = "false";
-
-		HttpSession session = request.getSession();
+		
 		if (request.getParameter("subchaptersection_no") != null) {
-			int state_Id = Integer.parseInt(request.getParameter("stateId"));
-			int bookId = Integer.parseInt(request.getParameter("bookId"));
-			int chapterId = Integer.parseInt(request.getParameter("chapterId"));;
-			int subchapter_id = Integer.parseInt(request.getParameter("subchapter_id"));
 			int subchaptersection_no = Integer.parseInt(request.getParameter("subchaptersection_no"));
-			String regionName = null;
+			int newBookId = 0;
+			int newStateId = 0;
 			Connection conn = null;
 			Statement st = null;
 			ResultSet rs = null;
@@ -314,39 +296,18 @@ public class BookController {
 				if (conn != null) {
 					st = (Statement) conn.createStatement();
 
-					  sql = "select *, sbchsc.subchapter_id, sbchps.subchapter_title, bks.state_id as stateId, sbchsc.book_id, bks.book_title, bks.book_region, "
-					  		+ "sbchps.id as subchapterId , sbchps.chapter_id as chapterId, sbchsc.subchaptersection_title, sbchsc.subchaptersection_content,\r\n"
-					  +  "sbchsbsc.subchaptersubsection_title, sbchsbsc.subchaptersubsection_content \r\n"
-					  + "from tblsubchaptersections sbchsc left join tblsubchapters sbchps on \r\n"
-					  + "sbchsc.subchapter_id = sbchps.id left join tblbooks bks on bks.id = sbchsc.book_id "
-					  + "left join tblsubchapterssubsections sbchsbsc on sbchsbsc.subchaptersection_id = sbchsc.id "
-					  + "left join tblsubchapterssubsubsections sbchsbsbsc on sbchsbsc.id = sbchsbsbsc.subchaptersubsection_id where sbchsc.id = "+subchaptersection_no;
+					  sql = "SELECT sts.id as stateId, sbchpsec.book_id FROM tblsubchaptersections sbchpsec join tblbooks bks on bks.id = sbchpsec.book_id\r\n" + 
+					  		"left join tblstates sts on sts.id = bks.state_id where sbchpsec.id = "+subchaptersection_no+";";
 					 
-
-//					sql = "select distinct chps.id as chapterId, sts.id as stateId, sts.state_name as State, bks.id as bookId, chps.sequence, chps.chapter_title, chps.chapter_name, "
-//							+ "subchps.id as subchapterId, subchps.subchapter_title, subchps.subchapter_content, sbchsec.id as subchaptersecid, sbchsec.subchapter_id, sbchsec.subchaptersection_no, \r\n"
-//							+ "sbchsec.subchaptersection_title, sbchsec.subchaptersection_content, tblsbchsbsec.id as sbchpsecsubsecid, tblsbchsbsec.subchaptersubsection_content,"
-//							+ " tblsbchsbsec.subchaptersubsection_title, tblsbchsbsbsec.id as sbchpsbsbsecId, tblsbchsbsbsec.subchaptersubsubsection_title, tblsbchsbsbsec.subchaptersubsubsection_content "
-//							+ "from tblsubchapterssubsubsections tblsbchsbsbsec left join tblsubchapterssubsections tblsbchsbsec on tblsbchsbsbsec.subchaptersubsection_id = tblsbchsbsec.id \r\n"
-//							+ " left join tblsubchaptersections sbchsec on tblsbchsbsec.subchaptersection_id = sbchsec.id left join tblsubchapters subchps on "
-//							+ "sbchsec.subchapter_id = subchps.id left join tblchapters chps on subchps.chapter_id = chps.id left join tblbooks bks on \r\n"
-//							+ "chps.book_id = bks.id sbchsec.id = " + subchaptersection_no
-//							+ " and chps.id = subchps.chapter_id where chps.id is not null "
-//							+ "order by chps.sequence, tblsbchsbsec.id, tblsbchsbsbsec.id;";
-
 					rs = st.executeQuery(sql);
 					if (rs.next()) {
-						state_Id = rs.getInt("stateId");
-						bookId = rs.getInt("book_id");
-						chapterId = rs.getInt("chapterId");
-						regionName = rs.getString("book_region");
-						resultSetAsJson = convertToJSON(rs);
+						newStateId = rs.getInt("stateId");
+						newBookId = rs.getInt("book_id");
 					}
+					outputJsonObj.put("newStateId", newStateId);
+					outputJsonObj.put("newBookId", newBookId);
 				}
-				chapterList = getChaptersList(request, response, bookId, state_Id, chapterId);
-				session.setAttribute("selectedRegionId", regionName);
-				session.setAttribute("selectedStateId", state_Id);
-				session.setAttribute("selectedBookId", bookId);
+				
 			} catch (SQLException sqe) {
 				sqe.printStackTrace();
 			} catch (Exception e) {
@@ -362,14 +323,8 @@ public class BookController {
 				}
 			}
 		}
-		session.setAttribute("resultSetAsJson", resultSetAsJson);
-		session.setAttribute("chapterList", chapterList);
-		logger.debug("resultSetAsJson and chapterListAsJson from showSectionDetailsForNode");
-		session.setAttribute("flag", "false");
-		//System.out.println("resultSetAsJson-->" + resultSetAsJson);
-		outputJsonObj.put("outputPage", "ChapterView"); // outputJsonObj.put("outputPage", "book_details");
+		outputJsonObj.put("outputPage", "ChapterView");
 		return outputJsonObj.toString();
-		// return "ChapterView";
 	}
 
 }

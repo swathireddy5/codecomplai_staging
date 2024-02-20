@@ -918,7 +918,7 @@ return network;
 	 /* alert(stateId);
 	 alert(subchapter_id);
 	 alert(subchaptersection_no); */
-	 URL = "/"+siteurl+"/showSectionDetailsForNode?stateId="+stateId+"&bookId="+bookId+"&chapterId="+chapterId+"&subchapter_id="+subchapter_id+"&subchaptersection_no="+subchaptersection_no;
+	 URL = "/"+siteurl+"/showSectionDetailsForNode?subchaptersection_no="+subchaptersection_no;
 	 $.ajax({
 		 type: "POST",
 		 async: false,
@@ -930,6 +930,9 @@ return network;
  			 console.log("response in showSectionDetailsForNode-->"+response);
  			 $("#accordian").load(" #accordian");
  			 $("#myDiv0").load(" #myDiv0");
+ 			 if(response.newBookId == bookId){
+ 				 
+ 			 }
  			 //getGraphData(response.bookId, response.subchapter_id, response.subchaptersection_no);
  			 //showSectionDetails(response.chapterId,response.sectionId);
  			
