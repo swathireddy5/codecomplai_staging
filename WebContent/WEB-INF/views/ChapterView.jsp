@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="utf-8" />
-        <title>GetBookDetails</title>
+        <title>Chapter View</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- App favicon 
         <link rel="shortcut icon" href="assets/images/favicon.ico">
@@ -326,7 +326,7 @@ body {
 						<div class="chat-leftsidebar-nav">
 							<h5 class="card-title mb-4 font-size-14">${selectedBookTitle}</h5>
 						</div>
-					<div id ="chapterList">
+						<div id ="chapterList">
 						
 						 	<c:out value="${chapterList}" escapeXml="false"/>
 						 	
@@ -744,47 +744,39 @@ $(document).ready(function() {
 })
 
 	</script>
-	<script>
-    function clickFunction(event, elem) {
-
-        console.log(event);
-        console.log(elem);
-        event.preventDefault();
-    }    
-</script>
-	
+		
 <script>
 
 	var nodes = null;
 	var edges = null;
 	var network = null;
 	
-	  var LENGTH_MAIN = 350,
-	  LENGTH_SERVER = 150,
-	  LENGTH_SUB = 50,
-	  WIDTH_SCALE = 2,
-	  GREEN = "green",
-	  RED = "#C5000B",
-	  ORANGE = "orange",
-	  //GRAY = '#666666',
-	  GRAY = "gray",
-	  BLACK = "#2B1B17";
+	var LENGTH_MAIN = 350,
+	LENGTH_SERVER = 150,
+	LENGTH_SUB = 50,
+	WIDTH_SCALE = 2,
+	GREEN = "green",
+	RED = "#C5000B",
+	ORANGE = "orange",
+	//GRAY = '#666666',
+	GRAY = "gray",
+	BLACK = "#2B1B17";
 		
-function toggleDiv(divtype)
-{
-	if(divtype == 'div0')
+	function toggleDiv(divtype)
 	{
-		$('#myDiv0').toggleClass('fullscreen');
+		if(divtype == 'div0')
+		{
+			$('#myDiv0').toggleClass('fullscreen');
+		}
+		else if(divtype == 'div1')
+		{
+			$('#myDiv').toggleClass('fullscreen'); 
+		}
+		else if(divtype == 'div2')
+		{
+			$('#myDiv2').toggleClass('fullscreen');
+		}
 	}
-	else if(divtype == 'div1')
-	{
-		$('#myDiv').toggleClass('fullscreen'); 
-	}
-	else if(divtype == 'div2')
-	{
-		$('#myDiv2').toggleClass('fullscreen');
-	}
-}
 
 	$('myDiv1').click(function(e){
 		$('#myDiv').toggleClass('fullscreen'); 
@@ -795,12 +787,12 @@ function toggleDiv(divtype)
 	});
 	
 	 
-//initialize global variables.
-var edges;
-var nodes;
-var network; 
-var container;
-var options, data;
+	//initialize global variables.
+	var edges;
+	var nodes;
+	var network; 
+	var container;
+	var options, data;
 
 // This method is responsible for drawing the graph, returns the drawn network
 function drawGraph(stateId, bookId, chapterId, sname, nodes, edges) {
@@ -812,16 +804,12 @@ function drawGraph(stateId, bookId, chapterId, sname, nodes, edges) {
 	//nodes = new vis.DataSet([{'id':'50627','label':'50627'},{'id':'49989','label':'49989'},{'id':'50134','label':'50134'},{'id':'50625','label':'50625'},{'id':'50629','label':'50629'},{'id':'50651','label':'50651'},{'id':'50626','label':'50626'},{'id':'49914','label':'49914'},{'shape':'dot','id':'49915','label':'49915','title':'graph','allowedToMoveX':'true','allowedToMoveY':'true'},{'shape':'dot','id':'49916','label':'49916','title':'graph','allowedToMoveX':'true','allowedToMoveY':'true'},{'shape':'dot','id':'49917','label':'49917','title':'graph','allowedToMoveX':'true','allowedToMoveY':'true'}]);
     //edges = new vis.DataSet([{'from':'49914','to':'49916'},{'from':'49914','to':'49915'},{'from':'49914','to':'50629'},{'from':'49914','to':'50625'},{'from':'49914','to':'50651'},{'from':'49915','to':'49916'},{'from':'49915','to':'49914'},{'from':'49915','to':'51025'},{'from':'49915','to':'51172'},{'from':'49915','to':'49988'},{'from':'49916','to':'49914'},{'from':'49916','to':'49915'},{'from':'49916','to':'50627'},{'from':'49916','to':'50626'},{'from':'49916','to':'49989'},{'from':'49917','to':'49916'},{'from':'49917','to':'49992'},{'from':'49917','to':'50134'},{'from':'49917','to':'49915'},{'from':'49917','to':'51212'}]);
     
-    
     var nodes = new vis.DataSet(nodes);
    	// create an array with edges
    	var edges = new vis.DataSet(edges);
    	
-   	
-
     // adding nodes and edges to the graph
     data = {nodes: nodes, edges: edges};
-    
     
     var options = {
     	    nodes: {
@@ -903,10 +891,7 @@ network.on("click", function(e) {
 	//getSectionForNode(stateId, regionId, bookId, sname,  node1);
 	if(typeof node1 != "undefined"){
 		getSectionForSelectedNode(stateId, bookId, chapterId, sname, node1);
-		e.preventDefault();
 	}
-	e.preventDefault();
-	
 });
 
 return network;
@@ -918,7 +903,16 @@ return network;
 	 /* alert(stateId);
 	 alert(subchapter_id);
 	 alert(subchaptersection_no); */
-	 URL = "/"+siteurl+"/showSectionDetailsForNode?subchaptersection_no="+subchaptersection_no;
+	 var newBookId = 75;
+	 var newStateId = 3;
+	 var newChapterId = 2147;
+	 /*if(newBookId == bookId && newStateId == stateId){
+		 URL = "/"+siteurl+"/getBookDetails?bookId="+bookId+"&stateId="+stateId+"&chapterId="+newChapterId+"&subchaptersection_no="+subchaptersection_no;
+	 }else{
+		 URL = "/"+siteurl+"/getBookDetails?bookId="+newBookId+"&stateId="+newStateId+"&chapterId="+newChapterId+"&subchaptersection_no="+subchaptersection_no;
+	 } */
+	 
+	 URL = "/"+siteurl+"/showSectionDetailsForNode?stateId="+stateId+"&bookId="+bookId+"&newBookId="+newBookId+"&newStateId="+newStateId+"&newChapterId="+newChapterId;
 	 $.ajax({
 		 type: "POST",
 		 async: false,
@@ -928,17 +922,11 @@ return network;
 		 cache: false,
  		 success: function (response) {
  			 console.log("response in showSectionDetailsForNode-->"+response);
- 			 $("#accordian").load(" #accordian");
+ 			 $("#chapterList").load(" #chapterList");
  			 $("#myDiv0").load(" #myDiv0");
- 			 if(response.newBookId == bookId){
- 				 
- 			 }
- 			 //getGraphData(response.bookId, response.subchapter_id, response.subchaptersection_no);
- 			 //showSectionDetails(response.chapterId,response.sectionId);
- 			
  		 },
            error: function () {
-               console.log("error in showSectionDetailsForNode");
+               console.log("error in showSectionDetailsForNode"+error);
            }
        });
  }
@@ -1057,7 +1045,6 @@ function printDiv(divName) {
       function getGraphData(bookId, schapterid, subChpSecId) {
     	//bookid = "75";
     	//schapterid = "12340";
-    	//URL = "/codecompilance/getRnodes?node="+node;
     	
     	URL = "/"+$('#siteurl').val()+"/getNodesAndEdges?bookid="+bookId+"&schapterid="+schapterid+"&subChpSecId="+subChpSecId;
     	$.ajax({

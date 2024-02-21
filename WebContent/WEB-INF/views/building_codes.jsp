@@ -192,7 +192,9 @@ function changeState(selectedState){
 				console.log(response);
 				$('#regionBasedBooksList').empty().append();
 				for(i =0; i< response.length; i++){
-					$("#regionBasedBooksList").append('<a href="getBookDetails?regionName='+response[i].regionName+'&bookId='+response[i].bookId+'&stateId='+response[i].stateId+'" class="text-dark"><div class="card bg-dark text-light mb-2 bg-h"><span class="card-body"><h4 class="card-title text-light">'+response[i].regionName+'</h4><p class="card-text">'+response[i].bookName+'<i class="ri-arrow-right-line align-middle ms-2"></i></p></span></div></a>');
+					//$("#regionBasedBooksList").append('<a href="getBookDetails?regionName='+response[i].regionName+'&bookId='+response[i].bookId+'&stateId='+response[i].stateId+'" class="text-dark"><div class="card bg-dark text-light mb-2 bg-h"><span class="card-body"><h4 class="card-title text-light">'+response[i].regionName+'</h4><p class="card-text">'+response[i].bookName+'<i class="ri-arrow-right-line align-middle ms-2"></i></p></span></div></a>');
+					//$("#regionBasedBooksList").append('<a href="#" onclick="javascript:getBookDetails('+response[i].regionName+','+response[i].bookId+','+response[i].stateId+');" class="text-dark"><div class="card bg-dark text-light mb-2 bg-h"><span class="card-body"><h4 class="card-title text-light">'+response[i].regionName+'</h4><p class="card-text">'+response[i].bookName+'<i class="ri-arrow-right-line align-middle ms-2"></i></p></span></div></a>');		
+					$("#regionBasedBooksList").append('<a href="#" onclick="javascript:getBookDetails('+response[i].bookId+','+response[i].stateId+');" class="text-dark"><div class="card bg-dark text-light mb-2 bg-h"><span class="card-body"><h4 class="card-title text-light">'+response[i].regionName+'</h4><p class="card-text">'+response[i].bookName+'<i class="ri-arrow-right-line align-middle ms-2"></i></p></span></div></a>');		
 				}
 			}
 	},
@@ -201,6 +203,29 @@ function changeState(selectedState){
         }
     
 	});
+}
+
+function getBookDetails(bookId, stateId){
+	
+	console.log("getBookDetails bookId -->"+bookId);
+    URL = "/"+$('#siteurl').val()+"/getBookDetails?bookId="+bookId+"&stateId="+stateId;
+	$.ajax({
+		type: "POST",
+		async: false,  
+		url : URL,
+		success : function(response){
+			if(response != null && response !=""){
+				console.log("response.outputPage"+response.outputPage);
+				window.location.href = "ChapterView";
+			}
+													
+	},
+	 error: function(jqXHR, textStatus, errorThrown) {
+            alert(jqXHR.status + ' ' + jqXHR.responseText);
+        }
+    
+	});
+	
 }
 
 function getval(selectedState)
@@ -237,7 +262,7 @@ function getval(selectedState)
             alert(jqXHR.status + ' ' + jqXHR.responseText);
         }
     
-}); 
+	}); 
 }
 
 $(document).ready(function(){

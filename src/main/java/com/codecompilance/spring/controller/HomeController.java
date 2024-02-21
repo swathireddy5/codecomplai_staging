@@ -98,7 +98,7 @@ public class HomeController {
 	}
 	
 	/* ChapterView jsp page request mapping method */
-	@RequestMapping(value = "/ChapterView", method = RequestMethod.POST)
+	@RequestMapping(value = "/ChapterView", method = RequestMethod.GET)
 	public String ChapterView(HttpServletRequest request, HttpServletResponse response) {
 		return "ChapterView";
 
