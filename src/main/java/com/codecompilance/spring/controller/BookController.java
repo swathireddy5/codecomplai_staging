@@ -31,50 +31,83 @@ public class BookController {
 	Properties prop = new Properties();
 	InputStream inputStream;
 	String propFileName = "dbconnection.properties";
+	//int pStateId = 0;
+	//int pBookId = 0;
 
 //	This method is used to get book details for the given stateId and region Id
-	@RequestMapping(value = "/getBookDetails", method = RequestMethod.POST)
-	public String getBookDetails(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	@RequestMapping(value = "/getBookDetails", method = RequestMethod.GET)
+	public @ResponseBody String getBookDetails(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		HttpSession session = request.getSession();
 		JSONObject outputJsonObj = new JSONObject();
+		StringBuffer chapterList = null;
+		JSONArray chapterListAsJson = new JSONArray();
+		
+		JSONArray resultSetAsJson = new JSONArray();
+		String regionName = request.getParameter("regionName");
+		session.setAttribute("selectedRegionId", regionName);
 		
 		try {
 			if (request.getParameter("stateId") != null && request.getParameter("bookId") != null) {
 				int state_Id = Integer.parseInt(request.getParameter("stateId"));
 				int bookId = Integer.parseInt(request.getParameter("bookId"));
-				/*
-				 * if(request.getParameter("chapterId") != null) { chapterId =
-				 * Integer.parseInt(request.getParameter("chapterId")); }
-				 */
-				StringBuffer chapterList = null;
-				JSONArray chapterListAsJson = new JSONArray();
-				
-					JSONArray resultSetAsJson = new JSONArray();
-					String regionName = request.getParameter("regionName");
-					session.setAttribute("selectedRegionId", regionName);
-					session.setAttribute("selectedStateId", state_Id);
-					session.setAttribute("selectedBookId", bookId);
-					
-					resultSetAsJson = getChapterDetails(request, response, bookId, state_Id);
-					session.setAttribute("resultSetAsJson", resultSetAsJson);
-					chapterListAsJson = getChaptersList(request, response, bookId, state_Id);
-					session.setAttribute("chapterListAsJson", chapterListAsJson);
-					chapterList = processChaptersList(chapterListAsJson, 0);
-					session.setAttribute("chapterList", chapterList);
-					System.out.println("chapterList-->" + chapterList);
-					logger.debug("resultSetAsJson and chapterListAsJson from getBookDetails");
+				session.setAttribute("selectedStateId", state_Id);
+				session.setAttribute("selectedBookId", bookId);
+				if(request.getParameter("subchaptersection_no") != null) 
+				{
+					int subchaptersection_no = Integer.parseInt(request.getParameter("subchaptersection_no"));
+					if(subchaptersection_no != 0) {
+						int newStateId = 3;
+						int newBookId = 75;
+						int newChapterId = 2147;
+						int newSubChapterId = 12636;
+						
+						if(newBookId == bookId && newStateId == state_Id) {
+							if (session.getAttribute("chapterListAsJson") != null) {
+								chapterListAsJson = (JSONArray) session.getAttribute("chapterListAsJson");
+								chapterList = processChaptersList(chapterListAsJson, newChapterId, newSubChapterId);
+							}
+							session.setAttribute("chapterList", chapterList);
+							System.out.println("chapterList-->" + chapterList);
+							logger.debug("resultSetAsJson and chapterListAsJson from show section details for node");
+							outputJsonObj.put("chapterList", chapterList);
+							outputJsonObj.put("chapterList", chapterList);
+							outputJsonObj.put("outputPage", "ChapterView");
+							return outputJsonObj.toString();
+						}else {
+							resultSetAsJson = getChapterDetails(request, response, newBookId, newStateId);
+							chapterListAsJson = getChaptersList(request, response, bookId, state_Id);
+							chapterList = processChaptersList(chapterListAsJson, 0, 0);
+							session.setAttribute("resultSetAsJson", resultSetAsJson);
+							session.setAttribute("chapterListAsJson", chapterListAsJson);
+							session.setAttribute("chapterList", chapterList);
+						}
+						
+					}
+				}else if(session.getAttribute("chapterList") != null && session.getAttribute("resultSetAsJson") != null){
+					//return "ChapterView";
+					outputJsonObj.put("outputPage", "ChapterView");
+					return outputJsonObj.toString();
 				}
-			
+				else {
+					resultSetAsJson = getChapterDetails(request, response, bookId, state_Id);
+					chapterListAsJson = getChaptersList(request, response, bookId, state_Id);
+					chapterList = processChaptersList(chapterListAsJson, 0, 0);
+					session.setAttribute("resultSetAsJson", resultSetAsJson);
+					session.setAttribute("chapterListAsJson", chapterListAsJson);
+					session.setAttribute("chapterList", chapterList);
+				}
+				System.out.println("chapterList-->" + chapterList);
+				logger.debug("resultSetAsJson and chapterListAsJson from getBookDetails");
+				}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		//outputJsonObj.put("chapterList", chapterList);
 		outputJsonObj.put("outputPage", "ChapterView");
-		//return outputJsonObj.toString();
-		return "ChapterView";
+		return outputJsonObj.toString();
+		//return "ChapterView";
 	}
 
-	private StringBuffer processChaptersList(JSONArray chapterListAsJson, int chaptId) {
+	private StringBuffer processChaptersList(JSONArray chapterListAsJson, int chaptId, int subchapterId) {
 		StringBuffer html = new StringBuffer();
 		int sameChapter = 0;
 		int chapterId = 0;
@@ -94,8 +127,11 @@ public class BookController {
 			} else {
 				sameChapter = 0;
 			}
-
-			if (sameChapter == 0) {
+			
+			if(subchapterId != 0 && subchapterId == Integer.parseInt(chapterListAsJson.getJSONObject(i).get("subchapterid").toString())) {
+				html.append("<li><a href='#"+subchapterId+"'>"
+						+ chapterListAsJson.getJSONObject(i).get("subchapter_title") + "</a></li>");
+			} else if (sameChapter == 0) {
 				html.append("<h3><a href='#'>" + chapterListAsJson.getJSONObject(i).get("chapter_title")
 						+ "</a></h3><ul><li><a href='#" + chapterListAsJson.getJSONObject(i).get("subchapterid") + "'>"
 						+ chapterListAsJson.getJSONObject(i).get("subchapter_title") + "</a></li>");
@@ -289,13 +325,14 @@ public class BookController {
 	}
 
 //	This will return Chapter details of selected chapter
-	@RequestMapping(value = "/showSectionDetailsForNode", method = RequestMethod.POST)
+	@RequestMapping(value = "/showSectionDetailsForNode", method = RequestMethod.GET)
 	public @ResponseBody String showSectionDetailsForNode(HttpServletRequest request, HttpServletResponse response) {
 		JSONObject outputJsonObj = new JSONObject();
 		HttpSession session = request.getSession();
 		int newStateId = Integer.parseInt(request.getParameter("newStateId"));
 		int newBookId = Integer.parseInt(request.getParameter("newBookId"));
 		int newChapterId = 0;
+		int subchapterId = Integer.parseInt(request.getParameter("subchapterId"));
 		
 		if (request.getParameter("stateId") != null && request.getParameter("bookId") != null) {
 			int state_Id = Integer.parseInt(request.getParameter("stateId"));
@@ -306,9 +343,9 @@ public class BookController {
 			StringBuffer chapterList = null;
 			JSONArray chapterListAsJson = new JSONArray();
 			if(newBookId == bookId &&  newStateId == state_Id) {
-				if (chapterList == null && session.getAttribute("chapterListAsJson") != null) {
+				if (session.getAttribute("chapterListAsJson") != null) {
 					chapterListAsJson = (JSONArray) session.getAttribute("chapterListAsJson");
-					chapterList = processChaptersList(chapterListAsJson, newChapterId);
+					chapterList = processChaptersList(chapterListAsJson, newChapterId, subchapterId);
 				}
 				session.setAttribute("chapterList", chapterList);
 				System.out.println("chapterList-->" + chapterList);

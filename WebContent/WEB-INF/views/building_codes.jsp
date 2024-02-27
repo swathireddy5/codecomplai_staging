@@ -210,7 +210,7 @@ function getBookDetails(bookId, stateId){
 	console.log("getBookDetails bookId -->"+bookId);
     URL = "/"+$('#siteurl').val()+"/getBookDetails?bookId="+bookId+"&stateId="+stateId;
 	$.ajax({
-		type: "POST",
+		type: "GET",
 		async: false,  
 		url : URL,
 		success : function(response){
