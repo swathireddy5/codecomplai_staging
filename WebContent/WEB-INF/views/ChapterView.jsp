@@ -324,7 +324,8 @@ body {
                                         </div>									
 					<div id="accordian">
 						<div class="chat-leftsidebar-nav">
-							<h5 class="card-title mb-4 font-size-14">${selectedBookTitle}</h5>
+							<h5 class="card-title mb-4 font-size-14">${selectedBookTitle}
+							${resultSetAsJson.getJSONObject(0).get('book_title')}</h5>
 						</div>
 						<div id ="chapterList">
 						
@@ -374,6 +375,10 @@ body {
 									<div class="div0" id ="myDiv0" style="flex: 50%;">
 									<p><button onclick="toggleDiv('div0')" id="div0" >Full Screen</button></p>
 									
+									<div class="col-md-12 col-12 mb-4">
+										<h5 class="font-size-18 mb-1">${selectedBookTitle}
+										${resultSetAsJson.getJSONObject(0).get('book_title')}</h5>
+									</div>
 									
 									<div tabindex="-1" id ="bookmarkDiv" class="col-md-12 col-12 mb-4">
                                         <h5 class="font-size-18 mb-1"><c:out value="${bookmarkstatus}"/></h5>

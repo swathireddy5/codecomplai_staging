@@ -56,10 +56,30 @@ public class BookController {
 				{
 					int subchaptersection_no = Integer.parseInt(request.getParameter("subchaptersection_no"));
 					if(subchaptersection_no != 0) {
-						int newStateId = 3;
-						int newBookId = 75;
-						int newChapterId = 2147;
-						int newSubChapterId = 12636;
+						int newStateId = 0; //3
+						int newBookId = 0; //75
+						int newChapterId = 0; //2147
+						int newSubChapterId = 0; //12636
+						
+						Statement st = null;
+						Connection conn = null;
+						ResultSet rs = null;
+						conn = DBConnect.connect();
+						if (conn != null) {
+							st = conn.createStatement();
+							
+							String sql = "SELECT tbks.state_id, tsubchpsec.book_id, tsbchps.chapter_id, tsubchpsec.subchapter_id FROM tblsubchaptersections tsubchpsec \r\n" + 
+									"left join tblsubchapters tsbchps on tsbchps.id = tsubchpsec.subchapter_id left join tblbooks tbks \r\n" + 
+									"on tbks.id = tsbchps.book_id where tsubchpsec.id = "+subchaptersection_no;
+
+							rs = st.executeQuery(sql);
+							if (rs.next()) {
+								newStateId = rs.getInt("state_id");
+								newBookId = rs.getInt("book_id");
+								newChapterId = rs.getInt("chapter_id");
+								newSubChapterId = rs.getInt("subchapter_id");
+							}
+						}
 						
 						if(newBookId == bookId && newStateId == state_Id) {
 							if (session.getAttribute("chapterListAsJson") != null) {
@@ -75,8 +95,8 @@ public class BookController {
 							return outputJsonObj.toString();
 						}else {
 							resultSetAsJson = getChapterDetails(request, response, newBookId, newStateId);
-							chapterListAsJson = getChaptersList(request, response, bookId, state_Id);
-							chapterList = processChaptersList(chapterListAsJson, 0, 0);
+							chapterListAsJson = getChaptersList(request, response, newBookId, newStateId);
+							chapterList = processChaptersList(chapterListAsJson, newChapterId, newSubChapterId);
 							session.setAttribute("resultSetAsJson", resultSetAsJson);
 							session.setAttribute("chapterListAsJson", chapterListAsJson);
 							session.setAttribute("chapterList", chapterList);
@@ -204,7 +224,6 @@ public class BookController {
 		// JSONObject outputJsonObj = new JSONObject();
 		List<Chapter> chapterList = new ArrayList<Chapter>();
 		JSONArray resultSetAsJson = new JSONArray();
-
 		Connection conn = null;
 		Statement st = null;
 		ResultSet rs = null;
@@ -212,7 +231,7 @@ public class BookController {
 			conn = DBConnect.connect();
 			if (conn != null) {
 				st = (Statement) conn.createStatement();
-				String sql = "select distinct chps.id as chapterId, sts.id as stateId, sts.state_name as State, bks.id as bookId, chps.sequence, chps.chapter_title, chps.chapter_name, "
+				String sql = "select distinct chps.id as chapterId, sts.id as stateId, sts.state_name as State, bks.id as bookId, bks.book_title, chps.sequence, chps.chapter_title, chps.chapter_name, "
 						+ "subchps.id as subchapterId, subchps.subchapter_title, subchps.subchapter_content, sbchsec.id as subchaptersecid, sbchsec.subchapter_id, sbchsec.subchaptersection_no, \r\n"
 						+ "sbchsec.subchaptersection_title, sbchsec.subchaptersection_content, tblsbchsbsec.id as sbchpsecsubsecid, tblsbchsbsec.subchaptersubsection_content,"
 						+ " tblsbchsbsec.subchaptersubsection_title, tblsbchsbsbsec.id as sbchpsbsbsecId, tblsbchsbsbsec.subchaptersubsubsection_title, tblsbchsbsbsec.subchaptersubsubsection_content "
@@ -364,5 +383,7 @@ public class BookController {
 		outputJsonObj.put("outputPage", "ChapterView");
 		return outputJsonObj.toString();
 	}
+	
+	
 
 }
