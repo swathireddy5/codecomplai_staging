@@ -65,11 +65,7 @@ public class BookController {
 					if(subchaptersection_no != 0) {
 						outputJsonObj = getNewChapterDetails(request, response, state_Id, bookId, subchaptersection_no);
 					}
-				}/*else if(session.getAttribute("chapterList") != null && session.getAttribute("resultSetAsJson") != null){
-					//return "ChapterView";
-					outputJsonObj.put("outputPage", "ChapterView");
-					return outputJsonObj.toString();
-				}*/
+				}
 				else {
 					resultSetAsJson = getChapterDetails(request, response, bookId, state_Id, chapterId);
 					chapterListAsJson = getChaptersList(request, response, bookId, state_Id);
@@ -78,7 +74,7 @@ public class BookController {
 					session.setAttribute("chapterListAsJson", chapterListAsJson);
 					session.setAttribute("chapterList", chapterList);
 				}
-				System.out.println("chapterList-->" + chapterList);
+				System.out.println("resultSetAsJson-->" + resultSetAsJson);
 				logger.debug("resultSetAsJson and chapterListAsJson from getBookDetails");
 				}
 		} catch (Exception e) {
@@ -194,18 +190,24 @@ public class BookController {
 			if (conn != null) {
 				st = (Statement) conn.createStatement();
 				
-				/*String sql = "select distinct chps.id as chapterId, sts.id as stateId, sts.state_name as State, bks.id as bookId, bks.book_title, chps.sequence, chps.chapter_title, chps.chapter_name, "
-						+ "subchps.id as subchapterId, subchps.subchapter_title, subchps.subchapter_content, sbchsec.id as subchaptersecid, sbchsec.subchapter_id, sbchsec.subchaptersection_no, \r\n"
-						+ "sbchsec.subchaptersection_title, sbchsec.subchaptersection_content, tblsbchsbsec.id as sbchpsecsubsecid, tblsbchsbsec.subchaptersubsection_content,"
-						+ " tblsbchsbsec.subchaptersubsection_title, tblsbchsbsbsec.id as sbchpsbsbsecId, tblsbchsbsbsec.subchaptersubsubsection_title, tblsbchsbsbsec.subchaptersubsubsection_content "
-						+ "from tblsubchapterssubsubsections tblsbchsbsbsec left join tblsubchapterssubsections tblsbchsbsec on tblsbchsbsbsec.subchaptersubsection_id = tblsbchsbsec.id \r\n"
-						+ " left join tblsubchaptersections sbchsec on tblsbchsbsec.subchaptersection_id = sbchsec.id left join tblsubchapters subchps on "
-						+ "sbchsec.subchapter_id = subchps.id left join tblchapters chps on subchps.chapter_id = chps.id left join tblbooks bks on \r\n"
-						+ "chps.book_id = bks.id left join tblstates sts on bks.state_id = sts.id where "
-						+ "sts.id = "+ stateId + " and bks.id = " + bookId + " and "
-						+ "chps.id = subchps.chapter_id and bks.id is not null and sts.id is not null and chps.id is not null "
-						+ "order by chps.sequence, tblsbchsbsec.id, tblsbchsbsbsec.id;"; */
-						
+				/*String sql = "select distinct chps.id as chapterId, sts.id as stateId, sts.state_name as State, bks.id as bookId, bks.book_title, chps.sequence, "
+						+ "chps.chapter_title, chps.chapter_name, subchps.id as subchapterId, subchps.subchapter_title, subchps.subchapter_content, sbchsec.id as "
+						+ "subchaptersecid, sbchsec.subchapter_id, REGEXP_REPLACE(sbchsec.subchaptersection_no, \r\n" + 
+						"'([0-9])(?=\\.[a-zA-Z])', '\\1 ', 1, 0) as subchaptersection_no, sbchsec.subchaptersection_title, REGEXP_REPLACE(sbchsec.subchaptersection_content, \r\n" + 
+						"'([0-9])(?=\\.[a-zA-Z])', '\\1 ', 1, 0) as subchaptersection_content, "
+						+ "tblsbchsbsec.id as sbchpsecsubsecid, REGEXP_REPLACE(tblsbchsbsec.subchaptersubsection_content, \r\n" + 
+						"'([0-9])(?=\\.[a-zA-Z])', '\\1 ', 1, 0) as subchaptersubsection_content, tblsbchsbsec.subchaptersubsection_title, tblsbchsbsbsec.id "
+						+ "as sbchpsbsbsecId, REGEXP_REPLACE(tblsbchsbsbsec.subchaptersubsubsection_title, \r\n" + 
+						"'([0-9])(?=\\.[a-zA-Z])', '\\1 ', 1, 0) as subchaptersubsubsection_title, REGEXP_REPLACE(tblsbchsbsbsec.subchaptersubsubsection_content, \r\n" + 
+						"'([0-9])(?=\\.[a-zA-Z])', '\\1 ', 1, 0) as subchaptersubsubsection_content from tblchapters chps "
+						+ "inner join tblsubchapters subchps on subchps.chapter_id = chps.id " 
+						+ "inner join tblsubchaptersections sbchsec on subchps.id = sbchsec.subchapter_id left join \r\n" + 
+						"tblsubchapterssubsections tblsbchsbsec on sbchsec.id = tblsbchsbsec.subchaptersection_id \r\n" + 
+						"left join tblsubchapterssubsubsections tblsbchsbsbsec on tblsbchsbsec.id = tblsbchsbsbsec.subchaptersubsection_id \r\n" + 
+						"inner join tblbooks bks on chps.book_id = bks.id inner join tblstates sts on bks.state_id = sts.id \r\n" + 
+						"where sts.id = "+stateId+" and bks.id = "+bookId+" and chps.id = "+chapterId+" and chps.id = subchps.chapter_id and bks.id is not null and \r\n" + 
+						" sts.id is not null and chps.id is not null order by chps.sequence, subchps.id, sbchsec.id, tblsbchsbsec.id, \r\n" + 
+						" tblsbchsbsbsec.id;"; */
 				
 				String sql = "select distinct chps.id as chapterId, sts.id as stateId, sts.state_name as State, bks.id as bookId, bks.book_title, chps.sequence, "
 						+ "chps.chapter_title, chps.chapter_name, subchps.id as subchapterId, subchps.subchapter_title, subchps.subchapter_content, sbchsec.id as "
@@ -219,7 +221,7 @@ public class BookController {
 						"inner join tblbooks bks on chps.book_id = bks.id inner join tblstates sts on bks.state_id = sts.id \r\n" + 
 						"where sts.id = "+stateId+" and bks.id = "+bookId+" and chps.id = "+chapterId+" and chps.id = subchps.chapter_id and bks.id is not null and \r\n" + 
 						" sts.id is not null and chps.id is not null order by chps.sequence, subchps.id, sbchsec.id, tblsbchsbsec.id, \r\n" + 
-						" tblsbchsbsbsec.id;"; 
+						" tblsbchsbsbsec.id;";
 
 				rs = st.executeQuery(sql);
 				if (rs.next()) {

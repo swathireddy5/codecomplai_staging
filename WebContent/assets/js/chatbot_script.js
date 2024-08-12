@@ -3,11 +3,13 @@ const closeBtn = document.querySelector(".close-btn");
 const chatbox = document.querySelector(".chatbox");
 const chatInput = document.querySelector(".chat-input textarea");
 const sendChatBtn = document.querySelector(".chat-input span");
+const siteurl = $('#siteurl').val();
 
 let userMessage = null; // Variable to store user's message
 let questionCount = 0; 
 //const API_KEY = "hGGKh8omXf1n1jOurGgCT3BlbkFJMcjEFjfjMUIMtO3X80dl"; // Paste your API key here
 const inputInitHeight = chatInput.scrollHeight;
+
 let randomImage = new Image();
 randomImage.src = "assets/images/hglass1.png";
 randomImage.alt = "Fetching information...";
@@ -62,10 +64,10 @@ const generateResponse = (chatbox,chatElement,userMessage,state_chatbot) => {
     const messageElement = chatElement.querySelector("p");
     //alert(messageElement);
     
-    URL = "/codecompilance/getChatbotCall";
+    URL = "/"+$('#siteurl').val()+"/getChatbotCall";
     //var datajson = "What is SFRM? ";
     var datajson = state_chatbot+"_"+userMessage;
-
+    //alert("datajson-->"+datajson);
   	$.ajax({
 			type: "POST",
 			async: false,
@@ -86,8 +88,16 @@ const generateResponse = (chatbox,chatElement,userMessage,state_chatbot) => {
 	 				  }
 	 			  }, i * 20);
 	 			}
-				chatbox.scrollTo(0, chatbox.scrollHeight);
-				$('#chatbox').insertAfter(chatbox.eq(chatbox.length - 1));
+	 			chatbox.scrollTo(0, chatbox.scrollHeight);
+	 			chatInput.value = "";
+	 		    chatInput.style.height = `${inputInitHeight}px`;
+	 		    // Append the user's message to the chatbox
+	 		    //chatbox.appendChild(createChatLi("", "outgoing"));
+	 		    //chatbox.scrollTo(0, chatbox.scrollHeight);
+	 			//$('li').last().addClass('active-li').focus();
+	 		    
+	 		    
+	 	        
 			},
 	 		error: function (xhr, ajaxOptions, thrownError) {
 	 	       console.log("error response -->"+thrownError);
@@ -171,7 +181,6 @@ const handleChat = () => {
     // Clear the input textarea and set its height to default
     chatInput.value = "";
     chatInput.style.height = `${inputInitHeight}px`;
-    //alert("userMessage"+userMessage);
     // Append the user's message to the chatbox
     chatbox.appendChild(createChatLi(userMessage, "outgoing"));
     chatbox.scrollTo(0, chatbox.scrollHeight);
@@ -200,32 +209,23 @@ const handleChat = () => {
 			//alert("select the year from the given list ");
  			chatbox.scrollTo(0, chatbox.scrollHeight);
 		}
-		/*if(questionCount == 1){
-			chatbox.removeChild(randomImage);
-			year_chatbot = userMessage;
-			getBooksForStateYear(chatbox,incomingChatLi,userMessage,state_chatbot);
-			//incomingChatLi.querySelector("p").textContent = "Please ask your Question/Query";
-			incomingChatLi.querySelector("p").textContent = "Here is the list of collections for the selected state and year-\n Please ask your Query/Question \n";
-			//alert("select the year from the given list ");
- 			chatbox.scrollTo(0, chatbox.scrollHeight);
-		} */
 		
 		if(questionCount >= 1){	
 			chatbox.appendChild(randomImage);
-        	generateResponse(chatbox,incomingChatLi,userMessage,state_chatbot);
+			chatbox.scrollTo(0, chatbox.scrollHeight);
+			setTimeout(() => {
+				generateResponse(chatbox,incomingChatLi,userMessage,state_chatbot);
+				
+			}, 20);	
+			
+				//chatbox.appendChild(createChatLi("", "incoming"));
+	 	        chatbox.scrollTo(0, chatbox.scrollHeight);	 	        
+	 	       $(".chatincominglast").scrollTop($(".chatbox").height());
+	 	      chatbox.scrollTop = chatbox.scrollHeight;
+			
 		}
-
-        	chatbox.scrollTo(0, chatbox.scrollHeight);
-        	questionCount++;
-        	chatbox.scrollTo(0, chatbox.scrollHeight);
-        /*}
-        else{
-        	incomingChatLi.querySelector("p").textContent = "Sorry, you have reached the maximum question limit. Please Signup for further assistance.";
-        	chatbox.removeChild(randomImage);
-        	chatInput.disabled = true;
-        }*/
-    //}, 10);
-    
+		questionCount++;
+    	chatbox.scrollTo(0, chatbox.scrollHeight);
 }
 
 function chatbot(userMessage) {

@@ -3346,7 +3346,11 @@ public @ResponseBody void getBuildFieldsData(HttpServletRequest request, int use
 		System.out.println("data ->"+data);
 		
 		try {
-			 collectionJson = getCollectionDetails(state);
+			 //collectionJson = getCollectionDetails(state);
+		
+			collectionJson.put("collection_name", "AlabamaIBC2021");
+	    	collectionJson.put("location", "/vectordb/Alabama2021/");
+			
 			 //String datajsonreq =  "{\"query\": \""+datajson.trim()+"\"}";
 			 //Create an instance of QueryData and serialize it to JSON
 			 QueryData queryData = new QueryData(data.trim(), state.trim(), collectionJson.get("collection_name").toString(), collectionJson.get("location").toString());
@@ -3354,8 +3358,8 @@ public @ResponseBody void getBuildFieldsData(HttpServletRequest request, int use
 			 String datajsonreq = objectMapper.writeValueAsString(queryData);
 			 System.out.println("datajsonreq ->"+datajsonreq);
 			
-			URL url = new URL("http://104.131.0.156:5600/chatbot_call"); // for server
-			//URL url = new URL("http://localhost:5000/chatbot_call");
+			//URL url = new URL("http://104.131.0.156:5600/chatbot_call"); // for server
+			URL url = new URL("http://localhost:5600/chatbot_call");
 			//sudo systemctl restart chatbot.service
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setDoOutput(true);

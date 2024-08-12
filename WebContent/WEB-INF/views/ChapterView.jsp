@@ -375,6 +375,14 @@ body {
 			</div>
                                     
 							<div class="div0" id ="myDiv0" style="flex: 50%;">
+								<c:if test="${resultSetAsJson.length() < 1}">
+									<div id ="booktitleDiv" class="col-md-12 col-12 mb-4">
+										<h5 class="font-size-18 mb-1">
+											<c:out value="No results found"/>
+										</h5>
+									</div>
+								</c:if>
+								<c:if test="${resultSetAsJson.length() > 0}">
 									<p><button onclick="toggleDiv('div0')" id="div0" >Full Screen</button></p>
 									
 									<div id ="booktitleDiv" class="col-md-12 col-12 mb-4">
@@ -398,7 +406,7 @@ body {
 										<c:choose>
 										<c:when  test="${tmpChapterID != resultSetAsJson.getJSONObject(i).get('chapterid')}">
 									    	<div class="card-body" id = "${resultSetAsJson.getJSONObject(i).get('subchapter_id')}">
-											   <h4 class="card-title"><c:out value="${resultSetAsJson.getJSONObject(i).get('subchapter_title')}"/></h4>
+											   <%-- <h4 class="card-title"><c:out value="${resultSetAsJson.getJSONObject(i).get('subchapter_title')}"/></h4> --%>
 													<span style="word-break: break-all;white-space: normal;">
 														<%-- <c:out value="${resultSetAsJson.getJSONObject(i).get('subchaptersection_title')}" escapeXml="false"/>--%>
 														<c:if test="${resultSetAsJson.getJSONObject(i).has('subchaptersection_content')}">
@@ -422,7 +430,7 @@ body {
 													</span>
 												<c:if test="${resultSetAsJson.getJSONObject(i).has('subchaptersubsection_title')}">
 													<span style="word-break: break-all;white-space: normal;">
-														<c:out value="${resultSetAsJson.getJSONObject(i).get('subchaptersubsection_title')}" escapeXml="false"/>
+														<%-- <c:out value="${resultSetAsJson.getJSONObject(i).get('subchaptersubsection_title')}" escapeXml="false"/>  --%>
 															<p class="card-text">
 												 				<!-- Loading the content here. two -->
 												 				<span style="word-break: break-all;white-space: normal;">
@@ -470,37 +478,21 @@ body {
 			                                            </p>
 	                                            	</div>
 	                                            </c:if>
-	                                            <%-- 
-	                                            <ul class="list-inline product-review-link"><li class="list-inline-item"></li>
-                                                
-                                                <li class="list-inline-item">
-                                                    <a href="#" title="Graph" onclick="getGraphDataForMultiBook(${resultSetAsJson.getJSONObject(i).get('stateid')}, '${resultSetAsJson.getJSONObject(i).get('bookid')}', ${resultSetAsJson.getJSONObject(i).get('chapterid')}, '${resultSetAsJson.getJSONObject(i).get('subchapter_id')}')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-family-tree me-1"></i> Graph</a>
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <a href="#" title="Print" onclick="printDiv('print_${resultSetAsJson.getJSONObject(i).get('sbchpsecsubsecid')}')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-printer me-1"></i> Print</a>
-                                                </li>
-                                                <c:if test="${username != null}">
-                                                	<li class="list-inline-item">
-                                                    <a href="#" title="Comment" data-bs-toggle="modal" data-bs-target="#Add_Comment" title="Add Comment" onclick="addComment(${resultSetAsJson.getJSONObject(i).get('stateid')}, ${resultSetAsJson.getJSONObject(i).get('bookid')}, ${resultSetAsJson.getJSONObject(i).get('chapterid')}, ${resultSetAsJson.getJSONObject(i).get('subchapter_id')}, ${resultSetAsJson.getJSONObject(i).get('subchaptersecid')}, ${resultSetAsJson.getJSONObject(i).get('sbchpsecsubsecid')})" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-comment me-1"></i> Comment</a>
-	                                                </li>
-	                                                <li class="list-inline-item">
-	                                                    <a href="#" title="Bookmark" onclick="addBookmark(${resultSetAsJson.getJSONObject(i).get('stateid')}, ${resultSetAsJson.getJSONObject(i).get('bookid')}, ${resultSetAsJson.getJSONObject(i).get('chapterid')}, ${resultSetAsJson.getJSONObject(i).get('subchapter_id')}, ${resultSetAsJson.getJSONObject(i).get('subchaptersecid')}, ${resultSetAsJson.getJSONObject(i).get('sbchpsecsubsecid')}, 'bookmark','')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-bookmark me-1"></i>Bookmark</a>
-	                                                </li>
-                                                </c:if>
-                                            	</ul>
-                                            --%>
-                                            <br/>
 	                                            
-									   		${tmpChapterID = resultSetAsJson.getJSONObject(i).get('chapterid')}
-									   		${subChapterSecID = resultSetAsJson.getJSONObject(i).get('subchaptersecid')}
+                                            <br/>
+	                                       
+									   		<%--${tmpChapterID = resultSetAsJson.getJSONObject(i).get('chapterid')}
+									   		${subChapterSecID = resultSetAsJson.getJSONObject(i).get('subchaptersecid')}  --%>
+									   		
+									   		<c:set var="tmpChapterID" value="${resultSetAsJson.getJSONObject(i).get('chapterid')}"/>
+									   		<c:set var="subChapterSecID" value="${resultSetAsJson.getJSONObject(i).get('subchaptersecid')}"/>
 									  </div>
 									  		
 									  </c:when>
                                       <c:otherwise>
 										 <div class="card-body" id="${resultSetAsJson.getJSONObject(i).get('subchapter_id')}">
 										 	<c:if test="${subChapterSecID != resultSetAsJson.getJSONObject(i).get('subchaptersecid')}">
-												${subChapterSecID = resultSetAsJson.getJSONObject(i).get('subchaptersecid')}
-												<h4 class="card-title"><c:out value="${resultSetAsJson.getJSONObject(i).get('subchaptersection_title')}" escapeXml="false"/></h4>
+												<c:set var="subChapterSecID" value="${resultSetAsJson.getJSONObject(i).get('subchaptersecid')}"/>
 													<span style="word-break: break-all;white-space: normal;">
 														<c:if test="${resultSetAsJson.getJSONObject(i).has('subchaptersection_content')}">
 															<p class="card-text">
@@ -526,7 +518,6 @@ body {
 											<c:if test="${resultSetAsJson.getJSONObject(i).has('subchaptersubsection_title')}">
 												
 													<span style="word-break: break-all;white-space: normal;">
-														<c:out value="${resultSetAsJson.getJSONObject(i).get('subchaptersubsection_title')}" escapeXml="false"/>
 														<c:if test="${resultSetAsJson.getJSONObject(i).has('subchaptersubsection_content')}">
 															<p class="card-text">
 												 				<!-- Loading the content here. otherwise two -->
@@ -586,6 +577,7 @@ body {
 									</c:if>
                                 </div>
 							</c:forEach>
+							</c:if>
 						</div>
 									
 						<div class="resizer-x"></div>
