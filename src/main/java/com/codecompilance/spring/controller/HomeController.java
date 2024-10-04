@@ -31,6 +31,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.UUID;
@@ -3412,65 +3413,53 @@ public @ResponseBody void getBuildFieldsData(HttpServletRequest request, int use
 	
 	
 	@RequestMapping(value = "/getNodesAndEdgesForMultiBook", method = RequestMethod.GET, consumes = "application/json", produces = "application/json")
-	public @ResponseBody String getNodesAndEdgesForMultiBook(@RequestParam int bookid, @RequestParam int schapterid,  HttpServletRequest request, HttpServletResponse response) {
+	public @ResponseBody String getNodesAndEdgesForMultiBook(@RequestParam int bookid, @RequestParam int chapterId, @RequestParam int schapterid, @RequestParam int schapterSecId,  HttpServletRequest request, HttpServletResponse response) {
 
-		HashMap<Integer, String> book1LinkedIds = new HashMap<Integer, String>();
-		ArrayList<String> book2LinkedIds = new ArrayList<String>();
-		HashMap<Integer, String> book2edgesList = new HashMap<Integer, String>();
-		ArrayList<Integer> book1_subchapsec_ids = new ArrayList<Integer>();
-		ArrayList<Integer> book2_subchapsec_ids = new ArrayList<Integer>();
-		bookid = 60;
-		schapterid = 14342;
-		int book2_bookid = 0;
+		HashMap<Integer, String> book2ChapterIds = new HashMap<Integer, String>();
+		
+		ArrayList<String> book2ChpIdList = new ArrayList<String>();
+		
+		HashMap<Integer, HashMap<String,String>> book2BookIdAndChpSbchpList = new HashMap<Integer, HashMap<String,String>>();
+		
+		ArrayList<String> book2SubChpIdList = new ArrayList<String>();
+		
+		ArrayList<String> book2_subchapsecIdsList = new ArrayList<String>();
+		ArrayList<Integer> book2_bookIdsList = new ArrayList<Integer>();
+		HashMap<Integer, String> book2SubChapterSecIds = new HashMap<Integer, String>();
 		
 		Connection conn = null;
 		Statement st = null;
 		ResultSet rs = null;
-		Statement stmt = null;
-		ResultSet rs2 = null;
+		//Statement stmt = null;
+		//ResultSet rs2 = null;
 			try {
 				conn = DBConnect.connect();
 				if (conn != null) {
 		            st=(Statement) conn.createStatement();
-
-		            //String sql = "SELECT * FROM nodesedgessubchaptersections where bookid = "+bookid+" and subchapterid = "+schapterid;
-		            String sql = "SELECT distinct nodes.subchaptersection_id, nodes.linkedIds, multinodes.book2_bookid, multinodes.book2_LinkedIds FROM nodesedgessubchaptersections nodes \r\n" + 
-		            		"left join graph_multibook_subchaptersections multinodes on multinodes.book1_bookid = nodes.bookid \r\n" + 
-		            		"and multinodes.book1_subchapterid = nodes.subchapterid and nodes.subchaptersection_id = multinodes.book1_subchaptersection_id "
-		            		+ "where nodes.bookid = "+bookid+" and nodes.subchapterid = "+schapterid+";";
+		            
+		            String sql = "SELECT distinct sbchpsec.book2_bookid, sbchps.book2_chapterid, sbchpsec.book2_subchapterid\r\n" + 
+		            		"FROM graph_multibook_subchaptersections sbchpsec left join graph_multibook_subchapters sbchps on \r\n" + 
+		            		"sbchps.book1_bookid = sbchpsec.book1_bookid and sbchps.book1_subchapter_id = sbchpsec.book1_subchapterid\r\n" + 
+		            		"where sbchpsec.book1_bookid=20 and sbchps.book1_chapterid=477 and sbchpsec.book1_subchapterid = 3870 and "
+		            		+ "sbchpsec.book1_subchaptersection_id=13474;";
+		            		// + "where book1_bookid = "+bookid+ " and book1_subchapterid= "+schapterid+ " and book1_subchaptersection_id = "+schapterSecId;
+		            
 		            rs=st.executeQuery(sql);
 		            while (rs.next()) {
-		            	book1_subchapsec_ids.add(rs.getInt("subchaptersection_id"));
-		            	book1LinkedIds.put(rs.getInt("subchaptersection_id"), rs.getString("linkedIds"));
-		            	book2LinkedIds.add(rs.getString("book2_LinkedIds"));
-		            	book2_bookid = rs.getInt("book2_bookid");
-		            }
-		            
-		            for (String linkedIds : book2LinkedIds) {
-		            	
-		            	linkedIds = linkedIds.replace("[", "").replace("]", "").replace(" ", "");
-		    			String[] nodeAr = linkedIds.split(",");
-		    			String result = "";
-		    			for (String s : nodeAr) {
-		    			    result += s+",";
-		    			}
-		    			result = result.substring(0,result.length()-1);
-			            // get book2 nodes and edges 
-			            stmt = (Statement) conn.createStatement();
-			            //String sql2 = "select * from nodesedgessubchaptersections where bookid = "+book2_bookid+" and subchaptersection_id in (66070,66460,65914,67069,65912,66301,65917,67324,66181,66644);";
-			            String sql2 = "select * from nodesedgessubchaptersections where bookid = "+book2_bookid+" and subchaptersection_id in ("+result+");";
-			            rs2 = stmt.executeQuery(sql2);
-			            while (rs2.next()) {
-			            	book2edgesList.put(rs2.getInt("subchaptersection_id"), rs2.getString("linkedIds"));
-			            	book2_subchapsec_ids.add(rs2.getInt("subchaptersection_id"));
-			            	
-			            }
+		            	HashMap<String,String> chpAndSubChpMap = new HashMap<String,String>();
+		            	//book1_subchapsec_ids.add(rs.getInt("book1_subchaptersection_id"));
+		            	book2ChapterIds.put(rs.getInt("book2_bookid"), rs.getString("book2_chapterid"));
+		            	book2_subchapsecIdsList.add(rs.getString("book2_subchapterid"));
+		            	book2_bookIdsList.add(rs.getInt("book2_bookid"));
+		            	book2ChpIdList.add(rs.getString("book2_chapterid"));
+		            	book2SubChpIdList.add(rs.getString("book2_subchapterid"));
+		            	book2SubChapterSecIds.put(rs.getInt("book2_bookid"), rs.getString("book2_subchapterid"));
+		            	chpAndSubChpMap.put(rs.getString("book2_chapterid"), rs.getString("book2_subchapterid"));
+		            	book2BookIdAndChpSbchpList.put(rs.getInt("book2_bookid"), chpAndSubChpMap);
 		            }
 				}
 			}catch (Exception e) {
-
 				e.printStackTrace();
-
 			}finally {
 				try {
 					rs.close();
@@ -3482,9 +3471,13 @@ public @ResponseBody void getBuildFieldsData(HttpServletRequest request, int use
 				}
 			}
 			
-			JSONObject nodesAndEdgesJsonForBook1 = buildNodesAndEdgesJson(bookid, book2_bookid, book1_subchapsec_ids, book1LinkedIds, book2_subchapsec_ids, book2edgesList);
+			System.out.println("book2ChapterIds --> " + book2ChapterIds);
 			
-			String jsonString = nodesAndEdgesJsonForBook1.toString();
+			//JSONObject nodesAndEdgesJsonForBook1 = buildNodesAndEdgesJson(bookid, book2_bookid, book1_subchapsec_ids, book1LinkedIds, book2_subchapsec_ids, book2edgesList);
+			
+			JSONObject nodesAndEdgesJsonForBooks = buildNodesAndEdgesJsonNew(book2_bookIdsList, book2BookIdAndChpSbchpList);
+			
+			String jsonString = nodesAndEdgesJsonForBooks.toString();
 			System.out.println("jsonString --> " + jsonString);
 			
 			/*JSONObject nodesAndEdgesJsonForBook2 = buildNodesAndEdgesJson(book2_bookid, book1_subchapsec_ids, book2LinkedIds);
@@ -3496,6 +3489,107 @@ public @ResponseBody void getBuildFieldsData(HttpServletRequest request, int use
 				    
 			return jsonString;
 			
+	}
+	
+	public JSONObject buildNodesAndEdgesJsonNew(ArrayList<Integer> book2_bookIdsList, HashMap<Integer, HashMap<String,String>> book2BookIdAndChpSbchpList) {
+		
+		
+		HashMap<Integer, String> chpAndSubchapterMap = new HashMap<Integer, String>();
+		JSONObject jsonObject = new JSONObject();
+		
+		JSONArray booId2nodesjsonArray = new JSONArray();
+		JSONArray chapterIdedgesjsonArray = new JSONArray();
+		
+		for(int bookId : book2_bookIdsList) {
+			if(!hasValue(booId2nodesjsonArray, "id", Integer.toString(bookId))) { 
+				JSONObject nodesjsonObject = new JSONObject();
+				nodesjsonObject.put("id", bookId);
+				nodesjsonObject.put("label", getBookTitle(bookId));
+				nodesjsonObject.put("group", "switch");
+				booId2nodesjsonArray.put(nodesjsonObject);
+			}
+			
+		}
+		
+		
+		for (Map.Entry<Integer, HashMap<String, String>> outerEntry : book2BookIdAndChpSbchpList.entrySet())
+		   {
+		       
+		        Integer bookId = outerEntry.getKey();
+	            HashMap<String, String> chpAndSbChpMap = outerEntry.getValue();
+	            
+	            System.out.println("Outer Key: " + bookId);
+	            System.out.println("Outer Value HashMap: " + chpAndSbChpMap);
+	            
+	            for (Map.Entry<String, String> innerEntry : chpAndSbChpMap.entrySet()) {
+	                String chapterIds = innerEntry.getKey();
+	                String subChapterIds = innerEntry.getValue();
+	                System.out.println("Inner Key: " + chapterIds + ", Inner Value: " + subChapterIds);
+	                
+	                HashMap<Integer,String> chpTitlesMap = new HashMap<Integer,String>();
+	                HashMap<Integer,String> sbChpTitlesMap = new HashMap<Integer,String>();
+	                
+	                chapterIds = chapterIds.replace("[", "").replace("]", "").replace(" ", "");
+					String[] chapterIdsnodeAr = chapterIds.split(",");
+					chpTitlesMap = getchapterTitles(chapterIdsnodeAr);
+					
+					subChapterIds = subChapterIds.replace("[", "").replace("]", "").replace(" ", "");
+					String[] subChapterIdsnodeAr = subChapterIds.split(",");
+					sbChpTitlesMap = getSubChapterTitles(subChapterIdsnodeAr);
+					
+					// Using Iterators
+			        Iterator<Entry<Integer, String>> it1 = chpTitlesMap.entrySet().iterator();
+			        Iterator<Entry<Integer, String>> it2 = sbChpTitlesMap.entrySet().iterator();
+
+			        while (it1.hasNext() && it2.hasNext()) {
+			            Map.Entry<Integer, String> entry1 = it1.next();
+			            Map.Entry<Integer, String> entry2 = it2.next();
+
+			            System.out.println("Key1: " + entry1.getKey() + ", Value1: " + entry1.getValue() + 
+			                               ", Key2: " + entry2.getKey() + ", Value2: " + entry2.getValue());
+			            
+			            JSONObject edgesJSONObject = new JSONObject();
+						edgesJSONObject.put("from", bookId);
+						edgesJSONObject.put("to", entry1.getKey());
+						edgesJSONObject.put("arrows", "to");
+						edgesJSONObject.put("group", "server");
+						//edgesJSONObject.put("dashes", true);
+						chapterIdedgesjsonArray.put(edgesJSONObject);		
+												
+						if(!hasValue(booId2nodesjsonArray, "id", entry1.getKey().toString())) {
+							JSONObject chapterIdNodesjsonObject = new JSONObject();
+							chapterIdNodesjsonObject.put("id", entry1.getKey());
+							chapterIdNodesjsonObject.put("label", entry1.getValue());
+							chapterIdNodesjsonObject.put("group", "server");
+							booId2nodesjsonArray.put(chapterIdNodesjsonObject);
+						}
+						
+						if(!hasValue(booId2nodesjsonArray, "id", entry2.getKey().toString())) {
+							JSONObject sbchapterIdNodesjsonObject = new JSONObject();
+							sbchapterIdNodesjsonObject.put("id", entry2.getKey());
+							sbchapterIdNodesjsonObject.put("label", entry2.getValue());
+							//chapterIdNodesjsonObject.put("group", "server");
+							booId2nodesjsonArray.put(sbchapterIdNodesjsonObject);
+						}
+						
+						JSONObject edgessbchapterJSONObject = new JSONObject();
+						edgessbchapterJSONObject.put("from", entry1.getKey());
+						edgessbchapterJSONObject.put("to", entry2.getKey());
+						edgessbchapterJSONObject.put("arrows", "to");
+						//edgessbchapterJSONObject.put("group", "server");
+						//edgesJSONObject.put("dashes", true);
+						chapterIdedgesjsonArray.put(edgessbchapterJSONObject);
+			        }
+	            }
+		   }
+	
+		jsonObject.put("edges", chapterIdedgesjsonArray);
+		jsonObject.put("nodes", booId2nodesjsonArray);
+
+		System.out.println("edges-->"+chapterIdedgesjsonArray);
+		System.out.println("nodes-->"+booId2nodesjsonArray);
+	
+		return jsonObject;
 	}
 	
 	public JSONObject buildNodesAndEdgesJson(int bookid, int book2_bookid, ArrayList<Integer> book1_subchapsec_ids, HashMap<Integer, String> bookLinkedIds, ArrayList<Integer> book2_subchapsec_ids, HashMap<Integer, String> book2edgesList) {
@@ -3570,7 +3664,7 @@ public @ResponseBody void getBuildFieldsData(HttpServletRequest request, int use
 			if(!hasValue(book1nodesjsonArray, "id", entry.getKey().toString())) {
 				JSONObject nodesjsonObject = new JSONObject();
 				nodesjsonObject.put("id", key);
-				nodesjsonObject.put("label", getSubChapterSecTitle(key));
+				nodesjsonObject.put("label", getChapterTitle(key));
 				nodesjsonObject.put("group", "server");
 				book1nodesjsonArray.put(nodesjsonObject);
 			}
@@ -3624,10 +3718,10 @@ public @ResponseBody void getBuildFieldsData(HttpServletRequest request, int use
 
 	
 	
-	public boolean hasValue(JSONArray nodesjsonArray, String key, String value) {
-	    for(int i = 0; i < nodesjsonArray.length(); i++) {  // iterate through the JsonArray
+	public boolean hasValue(JSONArray jsonArray, String key, String value) {
+	    for(int i = 0; i < jsonArray.length(); i++) {  // iterate through the JsonArray
 	        // first get the 'i' JsonElement as a JsonObject, then get the key as a string and compare it with the value
-	        if(((JSONObject) nodesjsonArray.get(i)).get(key).toString().equals(value)) return true;
+	        if(((JSONObject) jsonArray.get(i)).get(key).toString().equals(value)) return true;
 	    }
 	    return false;
 	}
@@ -3669,6 +3763,84 @@ public @ResponseBody void getBuildFieldsData(HttpServletRequest request, int use
 		}
 		
 	    return subChapterSecTitle;
+	}
+	
+	
+	public String getChapterTitle(int chapterId) {
+		
+		Connection conn = null;
+		String chapterTitle = null;
+		Statement st=null;
+		ResultSet rs=null;
+		
+		try {
+			conn = DBConnect.connect();
+			if (conn != null) {
+	            st=(Statement) conn.createStatement();
+
+	            String sql = "select chapter_title from tblchapters where id = "+chapterId;
+	            rs=st.executeQuery(sql);
+	            while (rs.next()) {
+	            	chapterTitle = rs.getString("chapter_title");
+	            	if(chapterTitle.length() > 55) {
+	            		chapterTitle = chapterTitle.substring(0,55);
+	            	}
+	            	
+	            }
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				rs.close();
+				st.close();
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+	    return chapterTitle;
+	}
+
+
+	public String getBookTitle(int bookId) {
+	
+		Connection conn = null;
+		String bookTitle = null;
+		Statement st=null;
+		ResultSet rs=null;
+		
+		try {
+			conn = DBConnect.connect();
+			if (conn != null) {
+	            st=(Statement) conn.createStatement();
+	
+	            String sql = "select book_title from tblbooks where id = "+bookId;
+	            rs=st.executeQuery(sql);
+	            while (rs.next()) {
+	            	bookTitle = rs.getString("book_title");
+	            	if(bookTitle.length() > 55) {
+	            		bookTitle = bookTitle.substring(0,55);
+	            	}
+	            	
+	            }
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				rs.close();
+				st.close();
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+	    return bookTitle;
 	}
 	
 	public HashMap<Integer,String> getSubChapterSecDetails(String[] subChapterSecIds) {
@@ -3718,107 +3890,98 @@ public @ResponseBody void getBuildFieldsData(HttpServletRequest request, int use
 	    return subChapterSecTitles;
 	}
 	
-	@RequestMapping(value = "/getRnodes", method = RequestMethod.GET, consumes = "application/json", produces = "application/json")
-	public @ResponseBody HashMap<String, Map<String, String>> getRnodes(@RequestParam String node, HttpServletRequest request, HttpServletResponse response) {
-				
-			HashMap<String, Map<String, String>> result = new HashMap<String, Map<String, String>>();
-			String nodeJson = null;
-			String edgeJson = null;
-			try {
-				
-				String nodeFile = "R_Nodes.txt";
-				String edgeFile = "R_Edges.txt";
-	 
-				BufferedReader reader = new BufferedReader(new InputStreamReader(logger.getClass().getClassLoader().getResourceAsStream(nodeFile)));
-			    StringBuilder sb = new StringBuilder();
-			    String line = reader.readLine();
-
-			    while (line != null) {
-			    	sb.append(line);
-			        sb.append("\n");
-			        line = reader.readLine();
-			        
-			    }
-			    nodeJson = sb.toString();
-			    
-			    BufferedReader breader = new BufferedReader(new InputStreamReader(logger.getClass().getClassLoader().getResourceAsStream(edgeFile)));
-			    StringBuilder sbedge = new StringBuilder();
-			    String edgeline = breader.readLine();
-
-			    while (edgeline != null) {
-			    	sbedge.append(edgeline);
-			    	sbedge.append("\n");
-			    	edgeline = breader.readLine();
-			    }
-			    edgeJson = sbedge.toString();
-			    
-			    JSONArray nodeJsonArray = new JSONArray(nodeJson);
-			    JSONArray edgeJsonArray = new JSONArray(edgeJson);
-			    			    
-			    ArrayList<String> nodeArray = new ArrayList<String>();
-			    HashMap<String, String> strnd = new HashMap<String, String>();
-			    HashMap<String, String> stred = new HashMap<String, String>();
-			   
-				for (int i = 0; i < nodeJsonArray.length(); i++) {
-					
-					JSONObject object = nodeJsonArray.getJSONObject(i);  
-					String id = (String)object.getString("id");
-					if(node != null && node.equalsIgnoreCase(id) && !nodeArray.contains(id)) {
-						
-						nodeArray.add(id);
-						for (int j = 0; j < edgeJsonArray.length(); j++) {
-							JSONObject edgeObj = edgeJsonArray.getJSONObject(i);  
-							String from = (String)edgeObj.getString("from");
-							String to = (String)edgeObj.getString("to");
-							if(node.equalsIgnoreCase(from) || node.equalsIgnoreCase(to)) {
-								if(!node.equalsIgnoreCase(from) && !nodeArray.contains(from))
-									nodeArray.add(from);
-								if(!node.equalsIgnoreCase(to) && !nodeArray.contains(to))
-									nodeArray.add(to);
-							}
-						}
-					}
-				}
-				System.out.println("===========node array============  "+nodeArray);  
-				
-				 for (String k : nodeArray) {
-					 for (int i = 0; i < nodeJsonArray.length(); i++) {
-							JSONObject object = nodeJsonArray.getJSONObject(i);  
-							String id = (String)object.getString("id");
-							if(k.equalsIgnoreCase(id) && !strnd.containsValue(id)) {
-								strnd.put("id", id);
-								strnd.put("label", id);
-								strnd.put("shape", "dot");
-								strnd.put("title", "Transfer Systems");
-								strnd.put("allowedToMoveX", "true");
-								strnd.put("allowedToMoveY", "true");
-								for (int j = 0; j < edgeJsonArray.length(); j++) {
-									JSONObject edgeObj = edgeJsonArray.getJSONObject(j);  
-									String from = (String)edgeObj.getString("from");
 	
-									String to = (String)edgeObj.getString("to");
-									if(k.equalsIgnoreCase(from) || k.equalsIgnoreCase(to)) {
-										if(!stred.containsValue(from)) {
-											stred.put("from", from);
-										}
-										if(!stred.containsValue(to)) {
-											stred.put("to", to);
-										}
-									}
-								}
-								}
-							}
-				 }
+	public HashMap<Integer,String> getchapterTitles(String[] chapterIds) {
+		HashMap<Integer,String> chapterTitles = new HashMap<Integer,String>();
+		
+		Connection conn = null;
+		String chapterTitle = null;
+		Statement st=null;
+		ResultSet rs=null;
+		String result = "";
+		for (String s : chapterIds) {
+		    result += s+",";
+		}
+		result = result.substring(0,result.length()-1);
+		try {
+			conn = DBConnect.connect();
+			if (conn != null) {
+	            st=(Statement) conn.createStatement();
 
-				 result.put("nodes", strnd);
-				 result.put("edges", stred);
-			} catch (IOException e) {
+	            //String sql = "select subchaptersection_no, subchaptersection_title from tblsubchaptersections where id = "+subChapSecId;
+	            String sql = "SELECT id,chapter_title as title FROM tblchapters where id in ("+result+")";
+	            		//+ "UNION\r\n" + 
+	            		//"SELECT id,subchaptersubsection_title as title FROM tblsubchapterssubsections where subchaptersection_id in ("+result+");";
+	            rs=st.executeQuery(sql);
+	            while (rs.next()) {
+	            	chapterTitle = rs.getString("title");
+	            	if(chapterTitle.length() > 55) {
+	            		chapterTitle = chapterTitle.substring(0,55);
+	            	}
+	            	chapterTitles.put(rs.getInt("id"), chapterTitle);
+	            	//subChapterSecTitle = rs.getString("subchaptersection_no");
+	            }
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				rs.close();
+				st.close();
+				conn.close();
+			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			} finally {
-			    
 			}
-			System.out.println("===========result============  "+result);
-			return result;
+		}
+		
+	    return chapterTitles;
 	}
+	
+	
+	public HashMap<Integer,String> getSubChapterTitles(String[] subChapterIds) {
+		HashMap<Integer,String> subChapterTitles = new HashMap<Integer,String>();
+		
+		Connection conn = null;
+		String subChapterTitle = null;
+		Statement st=null;
+		ResultSet rs=null;
+		String result = "";
+		for (String s : subChapterIds) {
+		    result += s+",";
+		}
+		result = result.substring(0,result.length()-1);
+		try {
+			conn = DBConnect.connect();
+			if (conn != null) {
+	            st=(Statement) conn.createStatement();
+
+	            String sql = "SELECT id,subchapter_title as title FROM tblsubchapters where id in ("+result+")";
+	            		
+	            rs=st.executeQuery(sql);
+	            while (rs.next()) {
+	            	subChapterTitle = rs.getString("title");
+	            	if(subChapterTitle.length() > 55) {
+	            		subChapterTitle = subChapterTitle.substring(0,55);
+	            	}
+	            	subChapterTitles.put(rs.getInt("id"), subChapterTitle);
+	            }
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				rs.close();
+				st.close();
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+	    return subChapterTitles;
+	}
+	
+
 }
