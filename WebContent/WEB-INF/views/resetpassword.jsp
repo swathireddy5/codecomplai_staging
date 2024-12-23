@@ -46,7 +46,12 @@
                                             <div class="p-2 mt-4">
                                             	<c:if test="${not empty userStatus}" >
 						                        	<div class="page-title-box d-sm-flex align-items-center justify-content-between">
-						                                    <h4 class="mb-sm-0">${userStatus}</h4>
+						                                   <p style="color:green"><h4 class="mb-sm-0">${userStatus}</h4></p>
+													</div>
+						              			</c:if>
+						              			<c:if test="${not empty userStatusError}" >
+						                        	<div class="page-title-box d-sm-flex align-items-center justify-content-between">
+						                                   <p style="color:red"><h4 class="mb-sm-0">${userStatusError}</h4></p>
 													</div>
 						              			</c:if>
                                             	
@@ -56,7 +61,7 @@
 													<div class="auth-form-group-custom mb-4">
                                                         <i class="ri-user-2-line auti-custom-input-icon"></i>
                                                         <label for="newpassword">New Password *</label>
-                                                        <input id="newpassword" class="form-control" type="password" name="newpassword" placeholder="Enter New Password" minlength = "4" maxlength="20" size="50" required>
+                                                        <input id="newpassword" class="form-control" type="password" name="newpassword" placeholder="Enter New Password" minlength = "8" maxlength="20" size="50" oninput="checkPasswordStrength()" required>
                                                     </div>
 													
 													<div class="auth-form-group-custom mb-4">
@@ -65,9 +70,11 @@
                                                         <input id="confirmpassword" class="form-control" type="password" name="confirmpassword" placeholder="Confirm Password" maxlength="20" size="50" required>
                                                         
                                                     </div>
+                                                    
+                                                    <div id="password-strength"></div>   <br/>
 
                                                     <div class="text-center">
-                                                        <button class="btn btn-primary w-md waves-effect waves-light" type="submit">Reset</button>
+                                                        <button class="btn btn-primary w-md waves-effect waves-light" type="submit" onclick="return Validate()">Reset</button>
                                                     </div>
 
                                                     
@@ -101,20 +108,9 @@ Crafted with <i class="mdi mdi-heart text-danger"></i> by <a href="https://www.s
         <script src="assets/libs/metismenu/metisMenu.min.js"></script>
         <script src="assets/libs/simplebar/simplebar.min.js"></script>
         <script src="assets/libs/node-waves/waves.min.js"></script>
-
+		<script src="assets/js/changepassword.js"></script>
         <script src="assets/js/app.js"></script>
-        <script type="text/javascript">
-		    function Validate() {
-		    	var password = document.getElementById("newpassword").value;
-		        var confirmPassword = document.getElementById("confirmpassword").value;
-		        if (password != confirmPassword) {
-		            alert("Passwords do not match.");
-		            return false;
-		        }
-		        return true;
-		    }
-		</script>
-
+        
 <!-- chatbot  -->
             <%@include file="chatbot.jsp" %>
 

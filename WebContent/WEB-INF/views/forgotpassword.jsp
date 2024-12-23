@@ -47,6 +47,9 @@
                                             	<c:if test = "${not empty fpStatus}">
 										          <p style="color:green"><br/><br/><c:out value="${fpStatus}"/></p>
 										         </c:if>
+										         <c:if test = "${not empty fperStatus}">
+										          <p style="color:red"><br/><br/><c:out value="${fperStatus}"/></p>
+										         </c:if>
                                                 <form class="" method="get" action="/${siteurl}/sendEmail">
 													
 													<div class="auth-form-group-custom mb-4">

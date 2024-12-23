@@ -83,14 +83,15 @@
                     
                                                     <div class="auth-form-group-custom mb-4">
                                                         <i class="ri-lock-password-line auti-custom-input-icon"></i>
-                                                        <label for="txtPassword">Password*</label>
-                                                        <input type="password" class="form-control" id="txtPassword" name="password" placeholder="Enter password" minlength = "4" maxlength = "10" required autocomplete="false">
+                                                        <label for="newpassword">Password*</label>
+                                                        <input type="password" class="form-control" id="newpassword" name="newpassword" placeholder="Enter password" minlength = "8" maxlength = "20" oninput="checkPasswordStrength()" required autocomplete="false">
                                                     </div>
+                                                    <div id="password-strength"></div><br/>
                             
                                                     <div class="auth-form-group-custom mb-4">
                                                         <i class="ri-lock-password-line auti-custom-input-icon"></i>
-                                                        <label for="txtConfirmPassword">Confirm Password*</label>
-                                                        <input type="password" class="form-control" id="txtConfirmPassword" name="password" minlength = "4" maxlength = "10" placeholder="Renter password" required>
+                                                        <label for="confirmpassword">Confirm Password*</label>
+                                                        <input type="password" class="form-control" id="confirmpassword" name="password" minlength = "8" maxlength = "20" placeholder="Renter password" required>
                                                     </div>
                             
 
@@ -133,19 +134,9 @@ Crafted with <i class="mdi mdi-heart text-danger"></i> by <a href="https://www.s
         <script src="assets/libs/metismenu/metisMenu.min.js"></script>
         <script src="assets/libs/simplebar/simplebar.min.js"></script>
         <script src="assets/libs/node-waves/waves.min.js"></script>
-
+		<script src="assets/js/changepassword.js"></script>
         <script src="assets/js/app.js"></script>
-        <script type="text/javascript">
-	    	function Validate() {
-	        var password = document.getElementById("txtPassword").value;
-	        var confirmPassword = document.getElementById("txtConfirmPassword").value;
-	        if (password != confirmPassword) {
-	            alert("Passwords do not match.");
-	            return false;
-	        }
-	        return true;
-	    	}
-		</script>
+        
 		
 		  <script>
         var allFields = document.querySelectorAll(".register_form");
@@ -165,8 +156,6 @@ Crafted with <i class="mdi mdi-heart text-danger"></i> by <a href="https://www.s
 
         }
     </script>
-		
-		
 
 <!-- chatbot  -->
             <%@include file="chatbot.jsp" %>

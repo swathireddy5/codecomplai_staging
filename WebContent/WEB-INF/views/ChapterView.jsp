@@ -383,7 +383,7 @@ body {
 									</div>
 								</c:if>
 								<c:if test="${resultSetAsJson.length() > 0}">
-									<p><button onclick="toggleDiv('div0')" id="div0" >Full Screen</button></p>
+									<p><button onclick="toggleDiv('div0')" id="div0" value="Full Screen"><span>Full Screen</span></button></p>
 									
 									<div id ="booktitleDiv" class="col-md-12 col-12 mb-4">
 										<h5 class="font-size-18 mb-1">
@@ -410,73 +410,91 @@ body {
 													<span style="word-break: break-all;white-space: normal;">
 														<%-- <c:out value="${resultSetAsJson.getJSONObject(i).get('subchaptersection_title')}" escapeXml="false"/>--%>
 														<c:if test="${resultSetAsJson.getJSONObject(i).has('subchaptersection_content')}">
-															<p class="card-text">
+															<div class="card-text" id="${resultSetAsJson.getJSONObject(i).get('subchaptersecid')}">
 												 				<!-- Loading the content here. one -->
 												 				<span style="word-break: break-all;white-space: normal;">
 												 					<c:out value="${resultSetAsJson.getJSONObject(i).get('subchaptersection_content')}" escapeXml="false"/>
+												 					 </span>
+				                                            </div>
 												 					<ul class="list-inline product-review-link">
 												 					<li class="list-inline-item"></li>
 					                                                <li class="list-inline-item">
 					                                                    <a href="#" title="Graph" onclick="getGraphDataForMultiBook(${resultSetAsJson.getJSONObject(i).get('stateid')}, '${resultSetAsJson.getJSONObject(i).get('bookid')}' ,${resultSetAsJson.getJSONObject(i).get('chapterid')}, '${resultSetAsJson.getJSONObject(i).get('subchapter_id')}', '${resultSetAsJson.getJSONObject(i).get('subchaptersecid')}')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-family-tree me-1"></i> Graph</a>
 					                                                </li>
 					                                                <li class="list-inline-item">
-					                                                    <a href="#" title="Print" onclick="printDiv('print_${resultSetAsJson.getJSONObject(i).get('subchaptersecid')}')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-printer me-1"></i> Print</a>
+					                                                    <a href="#" title="Print" onclick="printDiv('${resultSetAsJson.getJSONObject(i).get('subchaptersecid')}')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-printer me-1"></i> Print</a>
 					                                                </li>
 					                                                
+					                                                <c:if test="${username != null}">
+					                                                	<li class="list-inline-item">
+					                                                    <a href="#" title="Comment" data-bs-toggle="modal" data-bs-target="#Add_Comment" title="Add Comment" onclick="addComment(${resultSetAsJson.getJSONObject(i).get('stateid')}, ${resultSetAsJson.getJSONObject(i).get('bookid')}, ${resultSetAsJson.getJSONObject(i).get('chapterid')}, ${resultSetAsJson.getJSONObject(i).get('subchapter_id')}, ${resultSetAsJson.getJSONObject(i).get('subchaptersecid')}, 0)" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-comment me-1"></i> Comment</a>
+						                                                </li>
+						                                                <li class="list-inline-item">
+						                                                    <a href="#" title="Bookmark" onclick="addBookmark(${resultSetAsJson.getJSONObject(i).get('stateid')}, ${resultSetAsJson.getJSONObject(i).get('bookid')}, ${resultSetAsJson.getJSONObject(i).get('chapterid')}, ${resultSetAsJson.getJSONObject(i).get('subchapter_id')}, ${resultSetAsJson.getJSONObject(i).get('subchaptersecid')}, 0, 'bookmark','')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-bookmark me-1"></i>Bookmark</a>
+						                                                </li>
+					                                                </c:if>
+					                                                
 					                                            </ul><br/>
-												 				</span>
-				                                            </p>
+												 				
 			                                            </c:if>
 													</span>
 												<c:if test="${resultSetAsJson.getJSONObject(i).has('subchaptersubsection_title')}">
 													<span style="word-break: break-all;white-space: normal;">
 														<%-- <c:out value="${resultSetAsJson.getJSONObject(i).get('subchaptersubsection_title')}" escapeXml="false"/>  --%>
-															<p class="card-text">
-												 				<!-- Loading the content here. two -->
-												 				<span style="word-break: break-all;white-space: normal;">
+															
 												 				<c:if test="${resultSetAsJson.getJSONObject(i).has('subchaptersubsection_content')}">
-												 					<c:out value="${resultSetAsJson.getJSONObject(i).get('subchaptersubsection_content')}" escapeXml="false"/>
+												 				<div class="card-text" id="${resultSetAsJson.getJSONObject(i).get('sbchpsecsubsecid')}">
+													 				<!-- Loading the content here. two -->
+													 				<span style="word-break: break-all;white-space: normal;">
+													 					<c:out value="${resultSetAsJson.getJSONObject(i).get('subchaptersubsection_content')}" escapeXml="false"/>											 					
+													 				</span>
+												 				</div>
 												 					<ul class="list-inline product-review-link"><li class="list-inline-item"></li>
 		                                               					<li class="list-inline-item">
 						                                                    <a href="#" title="Graph" onclick="getGraphDataForMultiBook(${resultSetAsJson.getJSONObject(i).get('stateid')}, '${resultSetAsJson.getJSONObject(i).get('bookid')}', ${resultSetAsJson.getJSONObject(i).get('chapterid')}, '${resultSetAsJson.getJSONObject(i).get('subchapter_id')}', '${resultSetAsJson.getJSONObject(i).get('sbchpsecsubsecid')}')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-family-tree me-1"></i> Graph</a>
 						                                                </li>
 						                                                <li class="list-inline-item">
-						                                                    <a href="#" title="Print" onclick="printDiv('print_${resultSetAsJson.getJSONObject(i).get('sbchpsecsubsecid')}')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-printer me-1"></i> Print</a>
+						                                                    <a href="#" title="Print" onclick="printDiv('${resultSetAsJson.getJSONObject(i).get('sbchpsecsubsecid')}')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-printer me-1"></i> Print</a>
 						                                                </li>
+						                                                
+						                                                <c:if test="${username != null}">
+						                                                	<li class="list-inline-item">
+						                                                    <a href="#" title="Comment" data-bs-toggle="modal" data-bs-target="#Add_Comment" title="Add Comment" onclick="addComment(${resultSetAsJson.getJSONObject(i).get('stateid')}, ${resultSetAsJson.getJSONObject(i).get('bookid')}, ${resultSetAsJson.getJSONObject(i).get('chapterid')}, ${resultSetAsJson.getJSONObject(i).get('subchapter_id')}, ${resultSetAsJson.getJSONObject(i).get('subchaptersecid')}, ${resultSetAsJson.getJSONObject(i).get('sbchpsecsubsecid')})" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-comment me-1"></i> Comment</a>
+							                                                </li>
+							                                                <li class="list-inline-item">
+							                                                    <a href="#" title="Bookmark" onclick="addBookmark(${resultSetAsJson.getJSONObject(i).get('stateid')}, ${resultSetAsJson.getJSONObject(i).get('bookid')}, ${resultSetAsJson.getJSONObject(i).get('chapterid')}, ${resultSetAsJson.getJSONObject(i).get('subchapter_id')}, ${resultSetAsJson.getJSONObject(i).get('subchaptersecid')}, ${resultSetAsJson.getJSONObject(i).get('sbchpsecsubsecid')}, 'bookmark','')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-bookmark me-1"></i>Bookmark</a>
+							                                                </li>
+						                                                </c:if>
 						                                                
 				                                            	</ul>
 				                                            	</c:if>
 												 				</span>
-				                                            </p>
-													</span>
+				                                           
 												</c:if>
-												<c:if test="${resultSetAsJson.getJSONObject(i).has('sbchpsecsubsecid')}">
-													<div id="print_${resultSetAsJson.getJSONObject(i).get('sbchpsecsubsecid')}">
-														 <p class="card-text">
-											 				<!-- Loading the content here. three -->
+												<c:if test="${resultSetAsJson.getJSONObject(i).has('sbchpsbsbsecid') and resultSetAsJson.getJSONObject(i).has('subchaptersubsubsection_content')}">
+													<!-- Loading the content here. three -->
+									 				<div class="card-text" id="${resultSetAsJson.getJSONObject(i).get('sbchpsbsbsecid')}">
+											 				
 											 				<span style="word-break: break-all;white-space: normal;">
-											 				<c:if test="${resultSetAsJson.getJSONObject(i).has('subchaptersubsubsection_content')}">
-											 					<c:out value="${resultSetAsJson.getJSONObject(i).get('subchaptersubsubsection_content')}" escapeXml="false"/>
-											 					<ul class="list-inline product-review-link"><li class="list-inline-item"></li>
-	                                               					<li class="list-inline-item">
-					                                                    <a href="#" title="Graph" onclick="getGraphDataForMultiBook(${resultSetAsJson.getJSONObject(i).get('stateid')}, '${resultSetAsJson.getJSONObject(i).get('bookid')}', ${resultSetAsJson.getJSONObject(i).get('chapterid')}, '${resultSetAsJson.getJSONObject(i).get('subchapter_id')}', '${resultSetAsJson.getJSONObject(i).get('sbchpsecsubsecid')}')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-family-tree me-1"></i> Graph</a>
-					                                                </li>
-					                                                <li class="list-inline-item">
-					                                                    <a href="#" title="Print" onclick="printDiv('print_${resultSetAsJson.getJSONObject(i).get('sbchpsecsubsecid')}')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-printer me-1"></i> Print</a>
-					                                                </li>
-					                                                <c:if test="${username != null}">
-					                                                	<li class="list-inline-item">
-					                                                    <a href="#" title="Comment" data-bs-toggle="modal" data-bs-target="#Add_Comment" title="Add Comment" onclick="addComment(${resultSetAsJson.getJSONObject(i).get('stateid')}, ${resultSetAsJson.getJSONObject(i).get('bookid')}, ${resultSetAsJson.getJSONObject(i).get('chapterid')}, ${resultSetAsJson.getJSONObject(i).get('subchapter_id')}, ${resultSetAsJson.getJSONObject(i).get('subchaptersecid')}, ${resultSetAsJson.getJSONObject(i).get('sbchpsecsubsecid')})" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-comment me-1"></i> Comment</a>
-						                                                </li>
-						                                                <li class="list-inline-item">
-						                                                    <a href="#" title="Bookmark" onclick="addBookmark(${resultSetAsJson.getJSONObject(i).get('stateid')}, ${resultSetAsJson.getJSONObject(i).get('bookid')}, ${resultSetAsJson.getJSONObject(i).get('chapterid')}, ${resultSetAsJson.getJSONObject(i).get('subchapter_id')}, ${resultSetAsJson.getJSONObject(i).get('subchaptersecid')}, ${resultSetAsJson.getJSONObject(i).get('sbchpsecsubsecid')}, 'bookmark','')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-bookmark me-1"></i>Bookmark</a>
-						                                                </li>
-					                                                </c:if>
-				                                            	</ul>
-											 				</c:if>
-											 				</span>
-			                                            </p>
-	                                            	</div>
+									 					<c:out value="${resultSetAsJson.getJSONObject(i).get('subchaptersubsubsection_content')}" escapeXml="false"/>
+									 					</span>
+									 				</div>
+								 					<ul class="list-inline product-review-link"><li class="list-inline-item"></li>
+                                             					<li class="list-inline-item">
+		                                                    <a href="#" title="Graph" onclick="getGraphDataForMultiBook(${resultSetAsJson.getJSONObject(i).get('stateid')}, '${resultSetAsJson.getJSONObject(i).get('bookid')}', ${resultSetAsJson.getJSONObject(i).get('chapterid')}, '${resultSetAsJson.getJSONObject(i).get('subchapter_id')}', '${resultSetAsJson.getJSONObject(i).get('sbchpsbsbsecid')}')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-family-tree me-1"></i> Graph</a>
+		                                                </li>
+		                                                <li class="list-inline-item">
+		                                                    <a href="#" title="Print" onclick="printDiv('${resultSetAsJson.getJSONObject(i).get('sbchpsbsbsecid')}')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-printer me-1"></i> Print</a>
+		                                                </li>
+		                                                <c:if test="${username != null}">
+		                                                	<li class="list-inline-item">
+		                                                    <a href="#" title="Comment" data-bs-toggle="modal" data-bs-target="#Add_Comment" title="Add Comment" onclick="addComment(${resultSetAsJson.getJSONObject(i).get('stateid')}, ${resultSetAsJson.getJSONObject(i).get('bookid')}, ${resultSetAsJson.getJSONObject(i).get('chapterid')}, ${resultSetAsJson.getJSONObject(i).get('subchapter_id')}, ${resultSetAsJson.getJSONObject(i).get('subchaptersecid')}, ${resultSetAsJson.getJSONObject(i).get('sbchpsbsbsecid')})" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-comment me-1"></i> Comment</a>
+			                                                </li>
+			                                                <li class="list-inline-item">
+			                                                    <a href="#" title="Bookmark" onclick="addBookmark(${resultSetAsJson.getJSONObject(i).get('stateid')}, ${resultSetAsJson.getJSONObject(i).get('bookid')}, ${resultSetAsJson.getJSONObject(i).get('chapterid')}, ${resultSetAsJson.getJSONObject(i).get('subchapter_id')}, ${resultSetAsJson.getJSONObject(i).get('subchaptersecid')}, ${resultSetAsJson.getJSONObject(i).get('sbchpsbsbsecid')}, 'bookmark','')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-bookmark me-1"></i>Bookmark</a>
+			                                                </li>
+		                                                </c:if>
+	                                            	</ul>
 	                                            </c:if>
 	                                            
                                             <br/>
@@ -495,66 +513,55 @@ body {
 												<c:set var="subChapterSecID" value="${resultSetAsJson.getJSONObject(i).get('subchaptersecid')}"/>
 													<span style="word-break: break-all;white-space: normal;">
 														<c:if test="${resultSetAsJson.getJSONObject(i).has('subchaptersection_content')}">
-															<p class="card-text">
+															<div class="card-text" id="${resultSetAsJson.getJSONObject(i).get('subchaptersecid')}">
 												 				<!-- Loading the content here. otherwise one-->
 												 				<span style="word-break: break-all;white-space: normal;">
 												 					<c:out value="${resultSetAsJson.getJSONObject(i).get('subchaptersection_content')}" escapeXml="false"/>
+												 					
+												 					</span>
+				                                             </div>
 												 					<ul class="list-inline product-review-link">
 												 					<li class="list-inline-item"></li>
 					                                                <li class="list-inline-item">
 					                                                    <a href="#" title="Graph" onclick="getGraphDataForMultiBook(${resultSetAsJson.getJSONObject(i).get('stateid')}, '${resultSetAsJson.getJSONObject(i).get('bookid')}' ,${resultSetAsJson.getJSONObject(i).get('chapterid')}, '${resultSetAsJson.getJSONObject(i).get('subchapter_id')}', '${resultSetAsJson.getJSONObject(i).get('subchaptersecid')}')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-family-tree me-1"></i> Graph</a>
 					                                                </li>
 					                                                <li class="list-inline-item">
-					                                                    <a href="#" title="Print" onclick="printDiv('print_${resultSetAsJson.getJSONObject(i).get('subchaptersecid')}')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-printer me-1"></i> Print</a>
+					                                                    <a href="#" title="Print" onclick="printDiv('${resultSetAsJson.getJSONObject(i).get('subchaptersecid')}')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-printer me-1"></i> Print</a>
 					                                                </li>
 					                                                
+					                                                <c:if test="${username != null}">
+					                                                	<li class="list-inline-item">
+					                                                    <a href="#" title="Comment" data-bs-toggle="modal" data-bs-target="#Add_Comment" title="Add Comment" onclick="addComment(${resultSetAsJson.getJSONObject(i).get('stateid')}, ${resultSetAsJson.getJSONObject(i).get('bookid')}, ${resultSetAsJson.getJSONObject(i).get('chapterid')}, ${resultSetAsJson.getJSONObject(i).get('subchapter_id')}, ${resultSetAsJson.getJSONObject(i).get('subchaptersecid')}, 0)" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-comment me-1"></i> Comment</a>
+						                                                </li>
+						                                                <li class="list-inline-item">
+						                                                    <a href="#" title="Bookmark" onclick="addBookmark(${resultSetAsJson.getJSONObject(i).get('stateid')}, ${resultSetAsJson.getJSONObject(i).get('bookid')}, ${resultSetAsJson.getJSONObject(i).get('chapterid')}, ${resultSetAsJson.getJSONObject(i).get('subchapter_id')}, ${resultSetAsJson.getJSONObject(i).get('subchaptersecid')}, 0, 'bookmark','')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-bookmark me-1"></i>Bookmark</a>
+						                                                </li>
+					                                                </c:if>
 					                                            </ul><br/>
-												 				</span>
-				                                            </p>
 			                                            </c:if>
 													</span>
 												
 											</c:if>
-											<c:if test="${resultSetAsJson.getJSONObject(i).has('subchaptersubsection_title')}">
+											<c:if test="${resultSetAsJson.getJSONObject(i).has('sbchpsecsubsecid')}">
 												
 													<span style="word-break: break-all;white-space: normal;">
 														<c:if test="${resultSetAsJson.getJSONObject(i).has('subchaptersubsection_content')}">
-															<p class="card-text">
-												 				<!-- Loading the content here. otherwise two -->
-												 				<span style="word-break: break-all;white-space: normal;">
+																<!-- Loading the content here. otherwise two -->
+												 				<div class="card-text" id="${resultSetAsJson.getJSONObject(i).get('sbchpsecsubsecid')}">
+													 				<!-- Loading the content here. two -->
+													 				<span style="word-break: break-all;white-space: normal;">
 												 					<c:out value="${resultSetAsJson.getJSONObject(i).get('subchaptersubsection_content')}" escapeXml="false"/>
+												 					</span>
+												 				</div>
+												 					
 												 					<ul class="list-inline product-review-link">
-												 					<li class="list-inline-item"></li>
-					                                                <li class="list-inline-item">
-					                                                    <a href="#" title="Graph" onclick="getGraphDataForMultiBook(${resultSetAsJson.getJSONObject(i).get('stateid')}, '${resultSetAsJson.getJSONObject(i).get('bookid')}' ,${resultSetAsJson.getJSONObject(i).get('chapterid')}, '${resultSetAsJson.getJSONObject(i).get('subchapter_id')}', '${resultSetAsJson.getJSONObject(i).get('sbchpsecsubsecid')}')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-family-tree me-1"></i> Graph</a>
-					                                                </li>
-					                                                <li class="list-inline-item">
-					                                                    <a href="#" title="Print" onclick="printDiv('print_${resultSetAsJson.getJSONObject(i).get('subchaptersecid')}')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-printer me-1"></i> Print</a>
-					                                                </li>
-					                                                
-					                                            </ul><br/>
-												 				</span>
-				                                            </p>
-			                                            </c:if>
-													</span>
-												
-												</c:if>
-												<c:if test="${resultSetAsJson.getJSONObject(i).has('sbchpsecsubsecid')}">
-													<div id="print_${resultSetAsJson.getJSONObject(i).get('sbchpsecsubsecid')}">
-														 <p class="card-text">	                                          		
-															<!-- Loading the content here. otherwise three-->
-											 				<span style="word-break: break-all;white-space: normal;">
-												 				<c:if test="${resultSetAsJson.getJSONObject(i).has('subchaptersubsubsection_content')}">
-												 					<c:out value="${resultSetAsJson.getJSONObject(i).get('subchaptersubsubsection_content')}" escapeXml="false"/>
-												 					<ul class="list-inline product-review-link"><li class="list-inline-item"></li>
+													 					<li class="list-inline-item"></li>
 						                                                <li class="list-inline-item">
 						                                                    <a href="#" title="Graph" onclick="getGraphDataForMultiBook(${resultSetAsJson.getJSONObject(i).get('stateid')}, '${resultSetAsJson.getJSONObject(i).get('bookid')}' ,${resultSetAsJson.getJSONObject(i).get('chapterid')}, '${resultSetAsJson.getJSONObject(i).get('subchapter_id')}', '${resultSetAsJson.getJSONObject(i).get('sbchpsecsubsecid')}')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-family-tree me-1"></i> Graph</a>
 						                                                </li>
-						                                                <c:if test="${resultSetAsJson.getJSONObject(i).has('sbchpsecsubsecid')}">
 						                                                <li class="list-inline-item">
-						                                                    <a href="#" title="Print" onclick="printDiv('print_${resultSetAsJson.getJSONObject(i).get('sbchpsecsubsecid')}')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-printer me-1"></i> Print</a>
+						                                                    <a href="#" title="Print" onclick="printDiv('${resultSetAsJson.getJSONObject(i).get('sbchpsecsubsecid')}')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-printer me-1"></i> Print</a>
 						                                                </li>
-						                                                </c:if>
 						                                                <c:if test="${username != null}">
 						                                                	<li class="list-inline-item">
 						                                                    <a href="#" title="Comment" data-bs-toggle="modal" data-bs-target="#Add_Comment" title="Add Comment" onclick="addComment(${resultSetAsJson.getJSONObject(i).get('stateid')}, ${resultSetAsJson.getJSONObject(i).get('bookid')}, ${resultSetAsJson.getJSONObject(i).get('chapterid')}, ${resultSetAsJson.getJSONObject(i).get('subchapter_id')}, ${resultSetAsJson.getJSONObject(i).get('subchaptersecid')}, ${resultSetAsJson.getJSONObject(i).get('sbchpsecsubsecid')})" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-comment me-1"></i> Comment</a>
@@ -563,11 +570,43 @@ body {
 							                                                    <a href="#" title="Bookmark" onclick="addBookmark(${resultSetAsJson.getJSONObject(i).get('stateid')}, ${resultSetAsJson.getJSONObject(i).get('bookid')}, ${resultSetAsJson.getJSONObject(i).get('chapterid')}, ${resultSetAsJson.getJSONObject(i).get('subchapter_id')}, ${resultSetAsJson.getJSONObject(i).get('subchaptersecid')}, ${resultSetAsJson.getJSONObject(i).get('sbchpsecsubsecid')}, 'bookmark','')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-bookmark me-1"></i>Bookmark</a>
 							                                                </li>
 						                                                </c:if>
-						                                            </ul><br/>
-												 				</c:if>
-											 				</span>
-			                                            </p>
-		                                            </div>
+					                                                
+					                                            </ul><br/>
+												 				
+			                                            </c:if>
+													</span>
+												
+												</c:if>
+												<c:if test="${resultSetAsJson.getJSONObject(i).has('sbchpsbsbsecid') and resultSetAsJson.getJSONObject(i).has('subchaptersubsubsection_content')}">
+														                                         		
+												<!-- Loading the content here. otherwise three-->
+											 					
+								 				<div class="card-text" id="${resultSetAsJson.getJSONObject(i).get('sbchpsbsbsecid')}">
+									 				
+									 				<span style="word-break: break-all;white-space: normal;">
+								 					<c:out value="${resultSetAsJson.getJSONObject(i).get('subchaptersubsubsection_content')}" escapeXml="false"/>
+								 					
+								 					</span>
+								 				</div>
+								 					<ul class="list-inline product-review-link"><li class="list-inline-item"></li>
+		                                                <li class="list-inline-item">
+		                                                    <a href="#" title="Graph" onclick="getGraphDataForMultiBook(${resultSetAsJson.getJSONObject(i).get('stateid')}, '${resultSetAsJson.getJSONObject(i).get('bookid')}' ,${resultSetAsJson.getJSONObject(i).get('chapterid')}, '${resultSetAsJson.getJSONObject(i).get('subchapter_id')}', '${resultSetAsJson.getJSONObject(i).get('sbchpsbsbsecid')}')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-family-tree me-1"></i> Graph</a>
+		                                                </li>
+		                                                <c:if test="${resultSetAsJson.getJSONObject(i).has('sbchpsbsbsecid')}">
+		                                                <li class="list-inline-item">
+		                                                    <a href="#" title="Print" onclick="printDiv('${resultSetAsJson.getJSONObject(i).get('sbchpsbsbsecid')}')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-printer me-1"></i> Print</a>
+		                                                </li>
+		                                                </c:if>
+		                                                <c:if test="${username != null}">
+		                                                	<li class="list-inline-item">
+		                                                    <a href="#" title="Comment" data-bs-toggle="modal" data-bs-target="#Add_Comment" title="Add Comment" onclick="addComment(${resultSetAsJson.getJSONObject(i).get('stateid')}, ${resultSetAsJson.getJSONObject(i).get('bookid')}, ${resultSetAsJson.getJSONObject(i).get('chapterid')}, ${resultSetAsJson.getJSONObject(i).get('subchapter_id')}, ${resultSetAsJson.getJSONObject(i).get('subchaptersecid')}, ${resultSetAsJson.getJSONObject(i).get('sbchpsbsbsecid')})" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-comment me-1"></i> Comment</a>
+			                                                </li>
+			                                                <li class="list-inline-item">
+			                                                    <a href="#" title="Bookmark" onclick="addBookmark(${resultSetAsJson.getJSONObject(i).get('stateid')}, ${resultSetAsJson.getJSONObject(i).get('bookid')}, ${resultSetAsJson.getJSONObject(i).get('chapterid')}, ${resultSetAsJson.getJSONObject(i).get('subchapter_id')}, ${resultSetAsJson.getJSONObject(i).get('subchaptersecid')}, ${resultSetAsJson.getJSONObject(i).get('sbchpsbsbsecid')}, 'bookmark','')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-bookmark me-1"></i>Bookmark</a>
+			                                                </li>
+		                                                </c:if>
+		                                            </ul><br/>
+											 				
 		                                        </c:if>
 										 	</div>
 										</c:otherwise>
@@ -583,7 +622,7 @@ body {
 						<div class="resizer-x"></div>
 						<div id ="myDiv1" class="resizable-y" style="flex: 50%;">
 						  <div class="div1" id ="myDiv" >
-							<p><button onclick="toggleDiv('div1')" id="div1" >Full Screen</button></p>
+							<p><button onclick="toggleDiv('div1')" id="div1" value="Full Screen"><span>Full Screen</span></button></p>
 							<!-- commenting new graph to use old graph code -->
 							<div id="mynetwork">
 							<div class="page-title-box d-sm-flex align-items-center justify-content-between">
@@ -593,7 +632,7 @@ body {
 						  </div>
 						  <div class="resizer-y"></div>
 						  <div class="div2"id = "myDiv2" style="flex: 50%;">
-							<p><button  onclick="toggleDiv('div2')" id="div2" >Full Screen</button></p>
+							<p><button  onclick="toggleDiv('div2')" id="div2" value="true"><span>Full Screen</span></button></p>
 						  </div>
 						</div>
 					  </div>
@@ -868,23 +907,27 @@ $(document).ready(function() {
 		if(divtype == 'div0')
 		{
 			$('#myDiv0').toggleClass('fullscreen');
+			$('#div0').find('span').text($('#div0').find('span').text() == 'Full Screen' ? 'Exit Full Screen' : 'Full Screen');
 		}
 		else if(divtype == 'div1')
 		{
 			$('#myDiv').toggleClass('fullscreen'); 
+			$('#div1').find('span').text($('#div1').find('span').text() == 'Full Screen' ? 'Exit Full Screen' : 'Full Screen');
+			
 		}
 		else if(divtype == 'div2')
 		{
 			$('#myDiv2').toggleClass('fullscreen');
+			$('#div2').find('span').text($('#div2').find('span').text() == 'Full Screen' ? 'Exit Full Screen' : 'Full Screen');
 		}
 	}
 
 	$('myDiv1').click(function(e){
-		$('#myDiv').toggleClass('fullscreen'); 
+		$('#myDiv').toggleClass('fullscreen');
 	});
 
 	$('myDiv2').click(function(e){
-		$('#myDiv2').toggleClass('fullscreen'); 
+		$('#myDiv2').toggleClass('fullscreen');
 	});
 	
 	 
@@ -1140,7 +1183,9 @@ function printDiv(divName) {
 
     
       function getGraphDataForMultiBook(stateId, bookId, chapterId, schapterid, subchapterSectionId) {
-      	
+    	//alert("chapterId->"+chapterId);
+      	//alert("schapterid->"+schapterid);
+      	//alert("subchapterSectionId->"+subchapterSectionId);
       	URL = "/"+$('#siteurl').val()+"/getNodesAndEdgesForMultiBook?bookid="+bookId+"&chapterId="+chapterId+"&schapterid="+schapterid+"&schapterSecId="+subchapterSectionId;
       	$.ajax({
   			type: "GET",

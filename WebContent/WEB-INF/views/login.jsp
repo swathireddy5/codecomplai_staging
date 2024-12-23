@@ -48,6 +48,9 @@
 										          <c:if test="${not empty userStatus}" >
 										          	<p style="color:green"><c:out value="${userStatus}"/></p>
 						              			  </c:if>
+						              			  <c:if test="${not empty userStatusError}" >
+										          	<p style="color:red"><c:out value="${userStatusError}"/></p>
+						              			  </c:if>
 										          <c:if test = "${not empty signupStatus}">
 										          	<p style="color:green"><c:out value="${signupStatus}"/></p>
 										          </c:if>

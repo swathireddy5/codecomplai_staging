@@ -27,6 +27,7 @@ import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -48,6 +49,7 @@ import org.apache.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -65,6 +67,7 @@ import com.codecompilance.spring.model.QueryData;
 import com.codecompilance.spring.model.RegionCodeYear;
 import com.codecompilance.spring.model.UserView;
 import com.codecompilance.spring.model.WallSegmentDetails;
+
 
 @Controller
 @RequestMapping({"/home" , "/"})
@@ -2830,7 +2833,8 @@ public @ResponseBody void getBuildFieldsData(HttpServletRequest request, int use
 		//HttpSession session = request.getSession();
 		String emailId = request.getParameter("emailId");
 		System.out.println("Email id in reset password"+emailId);
-		if (emailId != null) {
+		String isActiveReset = request.getParameter("isActiveReset");
+		if (emailId != null && "true".equalsIgnoreCase(isActiveReset)) {
 					
 			String newpassword = request.getParameter("newpassword");
 			
@@ -2852,17 +2856,17 @@ public @ResponseBody void getBuildFieldsData(HttpServletRequest request, int use
 		            
 		            if(rowCount == 1) {
 		            	System.out.println("Password updated successfully");
+		            	request.getSession().setAttribute("resetpassword", 0);
+		            	request.getSession().setAttribute("isActiveReset", false);
 		            	request.setAttribute("userStatus", "Your password has been updated successfully. Please Login");
 		            }
 				}
 			} catch (Exception e) {
-	
 				e.printStackTrace();
-	
 			}
 		}else {
 			System.out.println("Email id can not be retrieved");
-        	request.setAttribute("userStatus", "Password reset has been failed");
+        	request.setAttribute("userStatusError", "The password reset link is invalid or has expired.");
 		}
 		return "login";
 
@@ -2873,7 +2877,6 @@ public @ResponseBody void getBuildFieldsData(HttpServletRequest request, int use
 	@RequestMapping(value = "/forgotpassword", method = RequestMethod.GET)
 	public String forgotpassword(HttpServletRequest request, HttpServletResponse response) {
 		//String plan = request.getParameter("plan");
-		//request.setAttribute("plan", plan);
 		return "forgotpassword";
 
 	}
@@ -2906,34 +2909,53 @@ public @ResponseBody void getBuildFieldsData(HttpServletRequest request, int use
 	public String sendEmail(HttpServletRequest request, HttpServletResponse response) throws MessagingException{
 		String emailId = request.getParameter("email");
 		String siteurl = request.getSession().getAttribute("siteurl").toString();
+		String isActiveReset = "true";
+		int resetpassword = 0;
+		if(request.getSession().getAttribute("resetpassword") != null) {
+			resetpassword = Integer.parseInt(request.getSession().getAttribute("resetpassword").toString());
+		}
+		if(request.getSession().getAttribute("isActiveReset") != null) {
+			isActiveReset = request.getSession().getAttribute("isActiveReset").toString();
+		}
 		request.setAttribute("email", emailId);
 		String userName = getUserNameByEmail(emailId);
 		Session session;
-		try {
-			session = createSession();
-		
-			String title = "Reset your password for codecomplAI";
-			StringBuffer htmlRes = new StringBuffer();
-			htmlRes.append("<!doctype html><html lang=\"en-US\"><body><div>Hello "+userName+",</div><div>A request has been made to reset your password.</div>");			
-			//htmlRes.append("<a href='home' class='logo logo-light'><span class=\"logo-lg\"><img src=\"assets/images/logo-light.png\" alt=\"logo-light\" height=\"42\"></span></a>");
-			htmlRes.append("<div><p style='font: italic small-caps bold 12px/30px Georgia, serif; ;'>Click the button below and you'll be on your way! If you did not make this request, please disregard this email.</p></div>");
-			htmlRes.append("<div><a href='http://104.131.0.156:8080/"+siteurl+"/resetpassword?emailId="+emailId+"'style=\"background:#20e277;text-decoration:none !important; font-weight:500; margin-top:35px; color:#fff;text-transform:uppercase; font-size:14px;padding:10px 24px;display:inline-block;border-radius:50px;\">Reset Password</a></div>");
-			htmlRes.append("</body></html>");
-		      //create message using session
-		      MimeMessage message = new MimeMessage(session);
-		      prepareEmailMessage(message, emailId, title, htmlRes.toString());
-	
-		      //sending message
-		      Transport.send(message);
-		      
-		      System.out.println("Done");
-		      request.setAttribute("fpStatus", "An email has been sent to the entered emailid. Please follow the instructions in the mail to reset the password.");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if(resetpassword == 0) {
+			if(userName != null && !"".equalsIgnoreCase(userName)) {
+				try {
+					session = createSession();
+				
+					String title = "Reset your password for codecomplAI";
+					StringBuffer htmlRes = new StringBuffer();
+					htmlRes.append("<!doctype html><html lang=\"en-US\"><body><div>Hello "+userName+",</div><div>A request has been made to reset your password.</div>");			
+					//htmlRes.append("<a href='home' class='logo logo-light'><span class=\"logo-lg\"><img src=\"assets/images/logo-light.png\" alt=\"logo-light\" height=\"42\"></span></a>");
+					htmlRes.append("<div><p style='font: italic small-caps bold 12px/30px Georgia, serif; ;'>Click the button below and you'll be on your way! If you did not make this request, please disregard this email.</p></div>");
+					htmlRes.append("<div><a href='http://104.131.0.156:8080/"+siteurl+"/resetpassword?isActive="+isActiveReset+"&emailId="+emailId+"'style=\"background:#20e277;text-decoration:none !important; font-weight:500; margin-top:35px; color:#fff;text-transform:uppercase; font-size:14px;padding:10px 24px;display:inline-block;border-radius:50px;\">Reset Password</a></div>");
+					htmlRes.append("</body></html>");
+				      //create message using session
+				      MimeMessage message = new MimeMessage(session);
+				      prepareEmailMessage(message, emailId, title, htmlRes.toString());
+			
+				      //sending message
+				      Transport.send(message);
+				      
+				      System.out.println("Done");
+				      request.getSession().setAttribute("resetpassword", 1);
+				      request.setAttribute("fpStatus", "An email has been sent to the entered emailid. Please follow the instructions in the mail to reset the password.");
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}else {
+				System.out.println("Email id can not be retrieved");
+		    	request.setAttribute("fperStatus", "Email Id does not exist. Please signup");
+				
+			}
+		}else {
+			System.out.println("Email already sent. Please reset the password");
+	    	request.setAttribute("fperStatus", "An email has already been sent to the entered emailid. Please follow the instructions in the mail to reset the password.");
 		}
 		return "forgotpassword";
-
 	}
 	
 	 private static void prepareEmailMessage(MimeMessage message, String to, String title, String html)
@@ -3347,10 +3369,10 @@ public @ResponseBody void getBuildFieldsData(HttpServletRequest request, int use
 		System.out.println("data ->"+data);
 		
 		try {
-			 //collectionJson = getCollectionDetails(state);
+			 collectionJson = getCollectionDetails(state);
 		
-			collectionJson.put("collection_name", "AlabamaIBC2021");
-	    	collectionJson.put("location", "/vectordb/Alabama2021/");
+			 //collectionJson.put("collection_name", "AlabamaIBC2021");
+	    	 //collectionJson.put("location", "/vectordb/Alabama2021/");
 			
 			 //String datajsonreq =  "{\"query\": \""+datajson.trim()+"\"}";
 			 //Create an instance of QueryData and serialize it to JSON
@@ -3359,8 +3381,8 @@ public @ResponseBody void getBuildFieldsData(HttpServletRequest request, int use
 			 String datajsonreq = objectMapper.writeValueAsString(queryData);
 			 System.out.println("datajsonreq ->"+datajsonreq);
 			
-			//URL url = new URL("http://104.131.0.156:5600/chatbot_call"); // for server
-			URL url = new URL("http://localhost:5600/chatbot_call");
+			URL url = new URL("http://104.131.0.156:5600/chatbot_call"); // for server
+			//URL url = new URL("http://localhost:5600/chatbot_call");
 			//sudo systemctl restart chatbot.service
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setDoOutput(true);
@@ -3412,49 +3434,39 @@ public @ResponseBody void getBuildFieldsData(HttpServletRequest request, int use
 	
 	
 	
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/getNodesAndEdgesForMultiBook", method = RequestMethod.GET, consumes = "application/json", produces = "application/json")
 	public @ResponseBody String getNodesAndEdgesForMultiBook(@RequestParam int bookid, @RequestParam int chapterId, @RequestParam int schapterid, @RequestParam int schapterSecId,  HttpServletRequest request, HttpServletResponse response) {
 
 		HashMap<Integer, String> book2ChapterIds = new HashMap<Integer, String>();
-		
-		ArrayList<String> book2ChpIdList = new ArrayList<String>();
-		
 		HashMap<Integer, HashMap<String,String>> book2BookIdAndChpSbchpList = new HashMap<Integer, HashMap<String,String>>();
-		
-		ArrayList<String> book2SubChpIdList = new ArrayList<String>();
-		
-		ArrayList<String> book2_subchapsecIdsList = new ArrayList<String>();
 		ArrayList<Integer> book2_bookIdsList = new ArrayList<Integer>();
-		HashMap<Integer, String> book2SubChapterSecIds = new HashMap<Integer, String>();
 		
 		Connection conn = null;
 		Statement st = null;
 		ResultSet rs = null;
-		//Statement stmt = null;
-		//ResultSet rs2 = null;
 			try {
 				conn = DBConnect.connect();
 				if (conn != null) {
 		            st=(Statement) conn.createStatement();
 		            
-		            String sql = "SELECT distinct sbchpsec.book2_bookid, sbchps.book2_chapterid, sbchpsec.book2_subchapterid\r\n" + 
+		           /* String sql = "SELECT distinct sbchpsec.book2_bookid, sbchps.book2_chapterid, sbchpsec.book2_subchapterid\r\n" + 
 		            		"FROM graph_multibook_subchaptersections sbchpsec left join graph_multibook_subchapters sbchps on \r\n" + 
 		            		"sbchps.book1_bookid = sbchpsec.book1_bookid and sbchps.book1_subchapter_id = sbchpsec.book1_subchapterid\r\n" + 
-		            		"where sbchpsec.book1_bookid=20 and sbchps.book1_chapterid=477 and sbchpsec.book1_subchapterid = 3870 and "
-		            		+ "sbchpsec.book1_subchaptersection_id=13474;";
+		            		"where sbchpsec.book1_bookid ="+bookid+" and sbchps.book1_chapterid ="+chapterId+" and sbchpsec.book1_subchapterid = "+schapterid+" and "
+		            		+ "sbchpsec.book1_subchaptersection_id="+schapterSecId+";";
 		            		// + "where book1_bookid = "+bookid+ " and book1_subchapterid= "+schapterid+ " and book1_subchaptersection_id = "+schapterSecId;
-		            
+		            		 * 
+		            		 * 
+		            		 */
+		            String sql = "select book2_bookid, book2_chapterid, book2_subchapter_id from graph_multibook_subchapters "
+		            		+ "where book1_bookid ="+bookid+" and book1_chapterid ="+chapterId+" and book1_subchapter_id = "+schapterid+";";
+		            		//+ " and book1_subchaptersection_id="+schapterSecId+";";
 		            rs=st.executeQuery(sql);
 		            while (rs.next()) {
 		            	HashMap<String,String> chpAndSubChpMap = new HashMap<String,String>();
-		            	//book1_subchapsec_ids.add(rs.getInt("book1_subchaptersection_id"));
-		            	book2ChapterIds.put(rs.getInt("book2_bookid"), rs.getString("book2_chapterid"));
-		            	book2_subchapsecIdsList.add(rs.getString("book2_subchapterid"));
 		            	book2_bookIdsList.add(rs.getInt("book2_bookid"));
-		            	book2ChpIdList.add(rs.getString("book2_chapterid"));
-		            	book2SubChpIdList.add(rs.getString("book2_subchapterid"));
-		            	book2SubChapterSecIds.put(rs.getInt("book2_bookid"), rs.getString("book2_subchapterid"));
-		            	chpAndSubChpMap.put(rs.getString("book2_chapterid"), rs.getString("book2_subchapterid"));
+		            	chpAndSubChpMap.put(rs.getString("book2_chapterid"), rs.getString("book2_subchapter_id"));
 		            	book2BookIdAndChpSbchpList.put(rs.getInt("book2_bookid"), chpAndSubChpMap);
 		            }
 				}
@@ -3494,7 +3506,6 @@ public @ResponseBody void getBuildFieldsData(HttpServletRequest request, int use
 	public JSONObject buildNodesAndEdgesJsonNew(ArrayList<Integer> book2_bookIdsList, HashMap<Integer, HashMap<String,String>> book2BookIdAndChpSbchpList) {
 		
 		
-		HashMap<Integer, String> chpAndSubchapterMap = new HashMap<Integer, String>();
 		JSONObject jsonObject = new JSONObject();
 		
 		JSONArray booId2nodesjsonArray = new JSONArray();
@@ -3526,59 +3537,102 @@ public @ResponseBody void getBuildFieldsData(HttpServletRequest request, int use
 	                String subChapterIds = innerEntry.getValue();
 	                System.out.println("Inner Key: " + chapterIds + ", Inner Value: " + subChapterIds);
 	                
-	                HashMap<Integer,String> chpTitlesMap = new HashMap<Integer,String>();
-	                HashMap<Integer,String> sbChpTitlesMap = new HashMap<Integer,String>();
+	                Hashtable<Integer,String> chpTitlesMap = new Hashtable<Integer,String>();
+	                Hashtable<Integer,String> sbChpTitlesMap = new Hashtable<Integer,String>();
+	                ArrayList<String> chpIdsList = new ArrayList<String>();
+	                
+	                ArrayList<String> sbChpIdsList1 = new ArrayList<String>();
 	                
 	                chapterIds = chapterIds.replace("[", "").replace("]", "").replace(" ", "");
 					String[] chapterIdsnodeAr = chapterIds.split(",");
+					System.out.println("chapterIdsnodeAr:"+chapterIdsnodeAr);
+					for (String s : chapterIdsnodeAr) {
+						chpIdsList.add(s);
+					}
 					chpTitlesMap = getchapterTitles(chapterIdsnodeAr);
 					
+					System.out.println("chpTitlesMap:"+chpTitlesMap);
+					
+					
+					String[] subChapterIdssplit = subChapterIds.split("\\],");
+					System.out.println("subChapterIdssplit[]:"+subChapterIdssplit);
+					for (String s : subChapterIdssplit) {
+						sbChpIdsList1.add(s);
+					}
+					System.out.println("sbChpIdsList1:"+sbChpIdsList1);
+					
+					/*
 					subChapterIds = subChapterIds.replace("[", "").replace("]", "").replace(" ", "");
 					String[] subChapterIdsnodeAr = subChapterIds.split(",");
-					sbChpTitlesMap = getSubChapterTitles(subChapterIdsnodeAr);
+					for (String s : subChapterIdsnodeAr) {
+						sbChpIdsList.add(s);
+					}
+					sbChpTitlesMap = getSubChapterTitles(subChapterIdsnodeAr); 
 					
-					// Using Iterators
-			        Iterator<Entry<Integer, String>> it1 = chpTitlesMap.entrySet().iterator();
-			        Iterator<Entry<Integer, String>> it2 = sbChpTitlesMap.entrySet().iterator();
-
-			        while (it1.hasNext() && it2.hasNext()) {
-			            Map.Entry<Integer, String> entry1 = it1.next();
-			            Map.Entry<Integer, String> entry2 = it2.next();
-
-			            System.out.println("Key1: " + entry1.getKey() + ", Value1: " + entry1.getValue() + 
-			                               ", Key2: " + entry2.getKey() + ", Value2: " + entry2.getValue());
+					System.out.println("sbChpTitlesMap:"+sbChpTitlesMap);*/
+					
+			        for (int i = 0; i < chpIdsList.size(); i++) {
+			            System.out.println(chpIdsList.get(i) + " - " + sbChpIdsList1.get(i));
 			            
-			            JSONObject edgesJSONObject = new JSONObject();
-						edgesJSONObject.put("from", bookId);
-						edgesJSONObject.put("to", entry1.getKey());
-						edgesJSONObject.put("arrows", "to");
-						edgesJSONObject.put("group", "server");
-						//edgesJSONObject.put("dashes", true);
-						chapterIdedgesjsonArray.put(edgesJSONObject);		
+			         	String chpId = chpIdsList.get(i);
+			        	String chapterTitle = getChapterTitle(Integer.parseInt(chpId));
+			        	
+			            
+			            //if(!hasValue(booId2nodesjsonArray, "id", chapterIdsentry.getKey().toString())) {
+			            	JSONObject edgesJSONObject = new JSONObject();
+							edgesJSONObject.put("from", bookId);
+							edgesJSONObject.put("to", chpId);
+							edgesJSONObject.put("arrows", "to");
+							edgesJSONObject.put("group", "server");
+							//edgesJSONObject.put("dashes", true);
+							chapterIdedgesjsonArray.put(edgesJSONObject);
+			            //}
 												
-						if(!hasValue(booId2nodesjsonArray, "id", entry1.getKey().toString())) {
+						if(!hasValue(booId2nodesjsonArray, "id", chpId)) {
 							JSONObject chapterIdNodesjsonObject = new JSONObject();
-							chapterIdNodesjsonObject.put("id", entry1.getKey());
-							chapterIdNodesjsonObject.put("label", entry1.getValue());
+							chapterIdNodesjsonObject.put("id", chpId);
+							chapterIdNodesjsonObject.put("label", chapterTitle);
 							chapterIdNodesjsonObject.put("group", "server");
 							booId2nodesjsonArray.put(chapterIdNodesjsonObject);
 						}
 						
-						if(!hasValue(booId2nodesjsonArray, "id", entry2.getKey().toString())) {
+						String sbchpIds = sbChpIdsList1.get(i);
+						ArrayList<String> sbChpIdsList = new ArrayList<String>();
+						
+						sbchpIds = sbchpIds.replace("[", "").replace("]", "").replace(" ", "");
+						String[] subChapIdsAr = sbchpIds.split(",");
+						for (String s : subChapIdsAr) {
+							sbChpIdsList.add(s);
+						}
+						System.out.println("sbChpIdsList:"+sbChpIdsList);
+			        	
+			        	
+			            System.out.println(" chapter Value: " + chpId + ", sub chapter Value: " + sbChpIdsList);
+						
+						for (int k = 0; k < sbChpIdsList.size(); k++) {
+				            System.out.println(chpId + " - " + sbChpIdsList.get(k));
+				        	String sbchpId = sbChpIdsList.get(k);
+				        	String subChapterTitle = getSubChapterTitle(Integer.parseInt(sbchpId));
+						
+						if(!hasValue(booId2nodesjsonArray, "id", sbchpId)) {
 							JSONObject sbchapterIdNodesjsonObject = new JSONObject();
-							sbchapterIdNodesjsonObject.put("id", entry2.getKey());
-							sbchapterIdNodesjsonObject.put("label", entry2.getValue());
+							sbchapterIdNodesjsonObject.put("id", sbchpId);
+							sbchapterIdNodesjsonObject.put("label", subChapterTitle);
 							//chapterIdNodesjsonObject.put("group", "server");
 							booId2nodesjsonArray.put(sbchapterIdNodesjsonObject);
 						}
 						
-						JSONObject edgessbchapterJSONObject = new JSONObject();
-						edgessbchapterJSONObject.put("from", entry1.getKey());
-						edgessbchapterJSONObject.put("to", entry2.getKey());
-						edgessbchapterJSONObject.put("arrows", "to");
-						//edgessbchapterJSONObject.put("group", "server");
-						//edgesJSONObject.put("dashes", true);
-						chapterIdedgesjsonArray.put(edgessbchapterJSONObject);
+						//if(hasValue(booId2nodesjsonArray, "id", chapterIdsentry.getKey().toString())) {
+							
+							JSONObject edgessbchapterJSONObject = new JSONObject();
+							edgessbchapterJSONObject.put("from", chpId);
+							edgessbchapterJSONObject.put("to", sbchpId);
+							edgessbchapterJSONObject.put("arrows", "to");
+							//edgessbchapterJSONObject.put("group", "server");
+							//edgesJSONObject.put("dashes", true);
+							chapterIdedgesjsonArray.put(edgessbchapterJSONObject);
+						//}
+						}
 			        }
 	            }
 		   }
@@ -3803,6 +3857,45 @@ public @ResponseBody void getBuildFieldsData(HttpServletRequest request, int use
 		
 	    return chapterTitle;
 	}
+	
+	
+public String getSubChapterTitle(int subChapterId) {
+		
+		Connection conn = null;
+		String subChapterTitle = null;
+		Statement st=null;
+		ResultSet rs=null;
+		
+		try {
+			conn = DBConnect.connect();
+			if (conn != null) {
+	            st=(Statement) conn.createStatement();
+
+	            String sql = "select subchapter_title from tblsubchapters where id = "+subChapterId;
+	            rs=st.executeQuery(sql);
+	            while (rs.next()) {
+	            	subChapterTitle = rs.getString("subchapter_title");
+	            	if(subChapterTitle.length() > 55) {
+	            		subChapterTitle = subChapterTitle.substring(0,55);
+	            	}
+	            }
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				rs.close();
+				st.close();
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+	    return subChapterTitle;
+	}
+
 
 
 	public String getBookTitle(int bookId) {
@@ -3891,8 +3984,8 @@ public @ResponseBody void getBuildFieldsData(HttpServletRequest request, int use
 	}
 	
 	
-	public HashMap<Integer,String> getchapterTitles(String[] chapterIds) {
-		HashMap<Integer,String> chapterTitles = new HashMap<Integer,String>();
+	public Hashtable<Integer,String> getchapterTitles(String[] chapterIds) {
+		Hashtable<Integer,String> chapterTitles = new Hashtable<Integer,String>();
 		
 		Connection conn = null;
 		String chapterTitle = null;
@@ -3939,8 +4032,8 @@ public @ResponseBody void getBuildFieldsData(HttpServletRequest request, int use
 	}
 	
 	
-	public HashMap<Integer,String> getSubChapterTitles(String[] subChapterIds) {
-		HashMap<Integer,String> subChapterTitles = new HashMap<Integer,String>();
+	public Hashtable<Integer,String> getSubChapterTitles(String[] subChapterIds) {
+		Hashtable<Integer,String> subChapterTitles = new Hashtable<Integer,String>();
 		
 		Connection conn = null;
 		String subChapterTitle = null;

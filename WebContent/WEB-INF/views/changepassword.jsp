@@ -67,19 +67,19 @@
                                         <form class="custom-validation" action="/${siteurl}/changepassword" method="post">       
                                             <div class="mb-3">
                                                 <label>New Password *</label>
-                                                <input id="newpassword" class="form-control" type="password" name="newpassword" placeholder="Enter New Password" minlength = "4" maxlength="20" size="50" required>
+                                                <input id="newpassword" class="form-control" type="password" name="newpassword" placeholder="Enter New Password" minlength = "8" maxlength="20" size="50" oninput="checkPasswordStrength()" required>
                                             </div>
         
                                             <div class="mb-3">
                                                 <label>Confirm Password *</label>
                                                 <div>
                                                 	<input id="confirmpassword" class="form-control" type="password" name="confirmpassword" placeholder="Confirm Password" maxlength="20" size="50" required>
-                                                </div>
-                                                
-                                            </div>      
+                                                </div>                                                
+                                            </div>
+                                            <div id="password-strength"></div>   <br/>
                                            <div class="mb-0">
                                                 <div>
-                                                    <button type="submit" class="btn btn-primary waves-effect waves-light me-1" onclick="return Validate()">
+                                                    <button type="submit" class="btn btn-primary waves-effect waves-light me-1" onclick="return Validate();">
                                                         Update
                                                     </button>
                                                     <button type="reset" class="btn btn-secondary waves-effect">
@@ -123,24 +123,14 @@
 	
                                      
         <!-- JAVASCRIPT -->
-        <script type="text/javascript">
-		    function Validate() {
-		    	var password = document.getElementById("newpassword").value;
-		        var confirmPassword = document.getElementById("confirmpassword").value;
-		        if (password != confirmPassword) {
-		            alert("Passwords do not match.");
-		            return false;
-		        }
-		        return true;
-		    }
-		</script>
+        
         <script src="assets/libs/jquery/jquery.min.js"></script>
         <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="assets/libs/metismenu/metisMenu.min.js"></script>
         <script src="assets/libs/simplebar/simplebar.min.js"></script>
         <script src="assets/libs/node-waves/waves.min.js"></script>
-
-        <script src="assets/js/app.js"></script>
+		<script src="assets/js/app.js"></script>
+        <script src="assets/js/changepassword.js"></script>
 
 <!-- chatbot  -->
             <%@include file="chatbot.jsp" %>
