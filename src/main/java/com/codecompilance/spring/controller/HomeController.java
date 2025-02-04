@@ -194,34 +194,37 @@ public class HomeController {
 	            }
 	        }*/
 			
-			URL url = new URL("https://ipinfo.io/"+ipAddress);
-			HttpURLConnection http = (HttpURLConnection)url.openConnection();
-			http.setRequestProperty("User-Agent", "curl/7.68.0");
-			http.setRequestProperty("Authorization", "cd0c6ac2c24543");
-
-			//System.out.println("========content========="+http.getContent());
-
-			//String content = IOUtils.toString((InputStream) http.getContent(), StandardCharsets.UTF_8);
-			
-			BufferedReader bR = new BufferedReader(new InputStreamReader((InputStream) http.getContent()));
-			String line = "";
-
-			StringBuilder responseStrBuilder = new StringBuilder();
-			while((line =  bR.readLine()) != null){
-
-			    responseStrBuilder.append(line);
+			if(ipAddress != null) {
+				
+				URL url = new URL("https://ipinfo.io/"+ipAddress);
+				HttpURLConnection http = (HttpURLConnection)url.openConnection();
+				http.setRequestProperty("User-Agent", "curl/7.68.0");
+				http.setRequestProperty("Authorization", "cd0c6ac2c24543");
+	
+				//System.out.println("========content========="+http.getContent());
+	
+				//String content = IOUtils.toString((InputStream) http.getContent(), StandardCharsets.UTF_8);
+				
+				BufferedReader bR = new BufferedReader(new InputStreamReader((InputStream) http.getContent()));
+				String line = "";
+	
+				StringBuilder responseStrBuilder = new StringBuilder();
+				while((line =  bR.readLine()) != null){
+	
+				    responseStrBuilder.append(line);
+				}
+				bR.close();
+				
+				JSONObject result= new JSONObject(responseStrBuilder.toString()); 
+				
+				System.out.println("========content========="+result);
+				
+				stateName = result.getString("region");
+				
+				System.out.println("========region========="+stateName);
+	
+				http.disconnect();
 			}
-			bR.close();
-			
-			JSONObject result= new JSONObject(responseStrBuilder.toString()); 
-			
-			System.out.println("========content========="+result);
-			
-			stateName = result.getString("region");
-			
-			System.out.println("========region========="+stateName);
-
-			http.disconnect();
 			
 			
 		} catch (Exception e) {
@@ -240,7 +243,7 @@ public class HomeController {
 	            
 	            Statement st=(Statement) conn.createStatement();
 
-	            String sql="select * from tblstates" ;
+	            String sql="select * from tblstates order by state_name" ;
 	            ResultSet rs=st.executeQuery(sql);
 	            Set<String> outputRes = new TreeSet<String>();
 	            ArrayList bookList = new ArrayList();
@@ -945,7 +948,7 @@ public class HomeController {
 			StringBuffer htmlRes = new StringBuffer();
 			htmlRes.append("<!doctype html><html lang=\"en-US\"><body><div>Hello "+userName+",</div><div><br/>Welcome to The ComplAI community.</div>");			
 			//htmlRes.append("<a href='home' class='logo logo-light'><span class=\"logo-lg\"><img src=\"assets/images/logo-light.png\" alt=\"logo-light\" height=\"42\"></span></a>");
-			htmlRes.append("<div><p style='font:bold 12px/30px Georgia, serif; ;'>We know how important it is for you to understand building codes and ensure that your projects are fully complaint.<br/>We build tools that make code complaince fast and accurate so that you'll never get surprised with complaince related delays or expensive rework.</p></div>");
+			htmlRes.append("<div><p style='font:bold 12px/30px Georgia, serif; ;'>We know how important it is for you to understand building codes and ensure that your projects are fully compliant.<br/>We build tools that make code compliance fast and accurate so that you'll never get surprised with compliance related delays or expensive rework.</p></div>");
 			htmlRes.append("<div><p style='font:10px/30px Georgia, serif; align:center;'>If you have questions, please reach out to us at support@complai.com.</p></div>");
 			htmlRes.append("<div><a href='http://104.131.0.156:8080/"+siteurl+"/login'style=\"background:#20e277;text-decoration:none !important; font-weight:500; margin-top:35px; color:#fff;text-transform:uppercase; font-size:14px;padding:10px 24px;display:inline-block;border-radius:50px;\">Login</a></div>");
 			htmlRes.append("</body></html>");
@@ -955,7 +958,7 @@ public class HomeController {
 		      //sending message
 		      Transport.send(message);
 		      System.out.println("Done");
-		      request.setAttribute("signupStatus", "Registration Successful. An email has been sent to the entered emailid. Please verify your email id and login to Code ComplAI.");
+		      request.setAttribute("signupStatus", "Registration Successful. An email has been sent to the entered email id. Please verify your email id and login to Code ComplAI.");
 				
 		      //request.setAttribute("fpStatus", "Registration Successful. An email has been sent to the entered emailid. Please verify your email id and login to Code ComplAI.");
 		} catch (Exception e) {
@@ -2941,7 +2944,7 @@ public @ResponseBody void getBuildFieldsData(HttpServletRequest request, int use
 				      
 				      System.out.println("Done");
 				      request.getSession().setAttribute("resetpassword", 1);
-				      request.setAttribute("fpStatus", "An email has been sent to the entered emailid. Please follow the instructions in the mail to reset the password.");
+				      request.setAttribute("fpStatus", "An email has been sent to the entered email id. Please follow the instructions in the mail to reset the password.");
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -2953,7 +2956,7 @@ public @ResponseBody void getBuildFieldsData(HttpServletRequest request, int use
 			}
 		}else {
 			System.out.println("Email already sent. Please reset the password");
-	    	request.setAttribute("fperStatus", "An email has already been sent to the entered emailid. Please follow the instructions in the mail to reset the password.");
+	    	request.setAttribute("fperStatus", "An email has already been sent to the entered email id. Please follow the instructions in the mail to reset the password.");
 		}
 		return "forgotpassword";
 	}
@@ -3220,7 +3223,7 @@ public @ResponseBody void getBuildFieldsData(HttpServletRequest request, int use
 	//This method will return the years for the given state 
 	public JSONObject getCollectionDetails(String state) {
 		JSONObject collectionJson = new JSONObject();
-		System.out.println("state ::::::::::::"+state);
+		System.out.println("state from chatbot ::::::::::::"+state);
 		try {
 			Connection conn = DBConnect.connect();
 			if (conn != null) {
@@ -3232,7 +3235,7 @@ public @ResponseBody void getBuildFieldsData(HttpServletRequest request, int use
 	            	collectionJson.put("collection_name", rs.getString("collection_name"));
 	            	collectionJson.put("location", rs.getString("location"));
 	            }
-	            System.out.println("bookList ::::::::::::"+collectionJson);
+	            System.out.println("collectionJson ::::::::::::"+collectionJson);
 	         }
 		}catch (Exception e) {
 			e.printStackTrace();

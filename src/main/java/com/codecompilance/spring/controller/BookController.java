@@ -28,9 +28,7 @@ import com.codecompilance.spring.model.Chapter;
 @Controller
 public class BookController {
 	private static final Logger logger = Logger.getLogger(HomeController.class);
-	Properties prop = new Properties();
-	InputStream inputStream;
-	String propFileName = "dbconnection.properties";
+	
 	//int pStateId = 0;
 	//int pBookId = 0;
 
@@ -136,6 +134,7 @@ public class BookController {
 		JSONArray chapterListAsJson = new JSONArray();
 
 		try {
+			//conn = DBConnect.connect();
 			conn = DBConnect.connect();
 			if (conn != null) {
 				st = conn.createStatement();
@@ -186,6 +185,7 @@ public class BookController {
 		Statement st = null;
 		ResultSet rs = null;
 		try {
+			//conn = DBConnect.connect();
 			conn = DBConnect.connect();
 			if (conn != null) {
 				st = (Statement) conn.createStatement();
@@ -266,6 +266,7 @@ public class BookController {
 			Statement st = null;
 			ResultSet rs = null;
 			try {
+				//conn = DBConnect.connect();
 				conn = DBConnect.connect();
 				if (conn != null) {
 					st = (Statement) conn.createStatement();
@@ -368,6 +369,7 @@ public class BookController {
 		Statement st = null;
 		Connection conn = null;
 		ResultSet rs = null;
+		//conn = DBConnect.connect();
 		conn = DBConnect.connect();
 		int chapterId = 0;
 		if (conn != null) {
@@ -415,6 +417,7 @@ public class BookController {
 		ResultSet rs = null;
 		
 		try {
+		//conn = SingletonDBConnection.getConnection();
 		conn = DBConnect.connect();
 		
 		if (conn != null) {

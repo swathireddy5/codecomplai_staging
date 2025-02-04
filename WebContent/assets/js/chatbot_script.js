@@ -253,11 +253,37 @@ chatInput.addEventListener("keydown", (e) => {
     }
 });
 
+/*sendChatBtn.addEventListener("click", handleChat);
+closeBtn.addEventListener("click", () => {
+	chatbox.innerHTML = "";
+	questionCount = 0;
+	//messageElement.textContent = "";
+	//chatbox.removeChild(chatInput);
+	//location.reload(true);
+	//document.body.classList.remove("show-chatbot");
+	chatbox.appendChild(createChatLi("Hi there ! Please enter the state name to start.", "incoming"));
+	chatbox.removeChild(chatInput);
+	}); */
+
+
 sendChatBtn.addEventListener("click", handleChat);
 closeBtn.addEventListener("click", () => {
+    chatbox.innerHTML= "";
+	questionCount = 0;
+	state_chatbot = null;
 	//chatbox.innerHTML = "";
-	location.reload(true);
+	//location.reload(true);
 	document.body.classList.remove("show-chatbot");
 	});
-chatbotToggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
+//chatbotToggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
+chatbotToggler.addEventListener("click", () => {
+    document.body.classList.toggle("show-chatbot");
+    
+    if (document.body.classList.contains("show-chatbot")) {
+        chatbox.innerHTML = "";
+        chatbox.appendChild(createChatLi("Hi there ! Please enter the state name to start.", "incoming"));
+    }
+});
+
+//chatbotToggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
 
