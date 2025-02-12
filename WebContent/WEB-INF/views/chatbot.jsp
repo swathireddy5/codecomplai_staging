@@ -52,7 +52,7 @@
 //jQuery('ul').animate({scrollTop: jQuery('.scrolltome').offset().top}, "slow");
   
 const element = document.getElementById("chat incoming");
-element.scrollIntoView();
+
 </script>
 
     </body>
