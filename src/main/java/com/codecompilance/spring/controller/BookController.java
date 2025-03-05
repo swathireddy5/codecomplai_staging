@@ -4,6 +4,7 @@ import java.util.Properties;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -57,6 +58,11 @@ public class BookController {
 				
 				session.setAttribute("selectedStateId", state_Id);
 				session.setAttribute("selectedBookId", bookId);
+				
+				// stored the boolean value in the session 
+				boolean isLatestYear = isLatestYear(bookId);
+	            session.setAttribute("isLatestYear", isLatestYear);
+				
 				if(request.getParameter("subchaptersection_no") != null)
 				{
 					int subchaptersection_no = Integer.parseInt(request.getParameter("subchaptersection_no"));
@@ -471,5 +477,63 @@ public class BookController {
 		outputJsonObj.put("outputPage", "ChapterView");
 		return outputJsonObj;
 	}
+	
+	// To check the Book is in latest Year
+	private boolean isLatestYear(int bookId) {
+		Connection conn = null;
+	    PreparedStatement pstmt = null;
+	    ResultSet rs = null;
+	    int latestYear = 0;
+	    int year=0;
+	    try {
+	        conn = DBConnect.connect();
+	        
+	        String bookQuery = "SELECT book_title, book_region,book_year FROM tblbooks WHERE id = ?";
+	        pstmt = conn.prepareStatement(bookQuery);
+	        pstmt.setInt(1, bookId);
+	        rs = pstmt.executeQuery();
+
+	        String bookTitle = null;
+	        String region = null;
+	        
+
+	        if (rs.next()) {
+	            bookTitle = rs.getString("book_title");
+	            region = rs.getString("book_region");
+	            year=rs.getInt("book_year");
+	        }
+	        rs.close();
+	        pstmt.close();
+
+	        String bookType = bookTitle.replaceAll("^\\d{4} ", "").trim();
+	        String latestYearQuery = "SELECT MAX(book_year) AS latest_year FROM tblbooks WHERE book_region = ? AND book_title LIKE ?";
+
+	        pstmt = conn.prepareStatement(latestYearQuery);
+	        pstmt.setString(1, region);
+	        pstmt.setString(2, "%" + bookType + "%");
+	        rs = pstmt.executeQuery();
+	        
+	        if (rs.next()) {
+	            latestYear = rs.getInt("latest_year");
+	        }
+
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    } finally {
+	        try {
+	            if (rs != null) rs.close();
+	            if (pstmt != null) pstmt.close();
+	            if (conn != null) conn.close();
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	    }
+	    
+	    if(year==latestYear) {
+	    	return true;
+	    }
+		return false;
+	}
+
 
 }

@@ -419,8 +419,13 @@ body {
 												 					<ul class="list-inline product-review-link">
 												 					<li class="list-inline-item"></li>
 					                                                <li class="list-inline-item">
-					                                                    <a href="#" title="Graph" onclick="getGraphDataForMultiBook(${resultSetAsJson.getJSONObject(i).get('stateid')}, '${resultSetAsJson.getJSONObject(i).get('bookid')}' ,${resultSetAsJson.getJSONObject(i).get('chapterid')}, '${resultSetAsJson.getJSONObject(i).get('subchapter_id')}', '${resultSetAsJson.getJSONObject(i).get('subchaptersecid')}')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-family-tree me-1"></i> Graph</a>
-					                                                </li>
+        																<c:if test="${isLatestYear}"> 
+            																<!-- Enable the Graph button if isLatestYear is true -->
+            																<a href="#" title="Graph" onclick="getGraphDataForMultiBook(${resultSetAsJson.getJSONObject(i).get('stateid')}, '${resultSetAsJson.getJSONObject(i).get('bookid')}', ${resultSetAsJson.getJSONObject(i).get('chapterid')}, '${resultSetAsJson.getJSONObject(i).get('subchapter_id')}', '${resultSetAsJson.getJSONObject(i).get('subchaptersecid')}')" class="btn btn-light btn-sm waves-effect waves-light">
+                																<i class="mdi mdi-family-tree me-1"></i> Graph
+            																</a>
+        																</c:if> 
+    																</li>
 					                                                <li class="list-inline-item">
 					                                                    <a href="#" title="Print" onclick="printDiv('${resultSetAsJson.getJSONObject(i).get('subchaptersecid')}')" class="btn btn-light btn-sm waves-effect waves-light"><i class="mdi mdi-printer me-1"></i> Print</a>
 					                                                </li>
