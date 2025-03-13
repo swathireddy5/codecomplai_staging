@@ -114,7 +114,6 @@
 											<form class="app-search d-none d-lg-block px-3">
 												<div class="position-relative">
 													<input id="bookTitle" name="bookTitle" type="text" class="form-control bg-gradient" placeholder="search the book titles ">
-													<span class="ri-search-line" oninput="getBooksList(this);"></span>
 												</div>
 											</form>
                                             <div class="offcanvas-body">
@@ -167,7 +166,8 @@ $("#bookTitle").keyup(function() {
 				console.log(response);
 				$('#regionBasedBooksList').empty().append();
 				for(i = 0; i< response.length; i++){
-					$("#regionBasedBooksList").append('<a onclick="return false;" href="getBookDetails?regionName='+response[i].regionName+'&bookId='+response[i].bookId+'&stateId='+response[i].stateId+'" class="text-dark"><div class="card bg-dark text-light mb-2 bg-h"><span class="card-body"><h4 class="card-title text-light">'+response[i].regionName+'</h4><p class="card-text">'+response[i].bookName+'<i class="ri-arrow-right-line align-middle ms-2"></i></p></span></div></a>');
+					$("#regionBasedBooksList").append('<a href="#" onclick="javascript:getBookDetails('+response[i].bookId+','+response[i].stateId+');" class="text-dark"><div class="card bg-dark text-light mb-2 bg-h"><span class="card-body"><h4 class="card-title text-light">'+response[i].regionName+'</h4><p class="card-text">'+response[i].bookName+'<i class="ri-arrow-right-line align-middle ms-2"></i></p></span></div></a>');
+					//$("#regionBasedBooksList").append('<a onclick="return false;" href="getBookDetails?regionName='+response[i].regionName+'&bookId='+response[i].bookId+'&stateId='+response[i].stateId+'" class="text-dark"><div class="card bg-dark text-light mb-2 bg-h"><span class="card-body"><h4 class="card-title text-light">'+response[i].regionName+'</h4><p class="card-text">'+response[i].bookName+'<i class="ri-arrow-right-line align-middle ms-2"></i></p></span></div></a>');
 				}
 			}
 			
@@ -208,6 +208,7 @@ function changeState(selectedState){
 function getBookDetails(bookId, stateId){
 	
 	console.log("getBookDetails bookId -->"+bookId);
+	//alert("bookId-->"+bookId);
     URL = "/"+$('#siteurl').val()+"/getBookDetails?bookId="+bookId+"&stateId="+stateId;
 	$.ajax({
 		type: "GET",
