@@ -228,7 +228,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm-6">
-                                <script>document.write(new Date().getFullYear())</script> © Codecompilance.
+                                <script>document.write(new Date().getFullYear())</script> © CodeComplaince.
                             </div>
                             <div class="col-sm-6">
                                 <div class="text-sm-end d-none d-sm-block">
@@ -305,9 +305,10 @@
 															<label>Code Year*</label>
 															<select name="codeYear" id="codeYearId" class="form-control" required autofocus="autofocus">
 																<option value="0" disabled> --Select One-- </option>
-																<!--<option value="1"> 2019 </option>
-																	<option value="2">2016</option>
-																 -->
+																<!--
+ 																	<option value="1"> 2019 </option>
+																	<option value="2">2016</option>-->
+										
 															</select>
 														</div>
 														<br/>
@@ -354,24 +355,28 @@
   function getval(sel)
   {
 	  console.log("selected Regionname="+sel.value);
-      URL = "/codecompilance/getCodeYearsList";
+	  //var siteurl = $('#siteurl').val();
+	  
+      URL = "/"+siteurl+"/getCodeYearsList";
   	$.ajax({
   		type: "POST",
-  		 async: false,  
+  		async: false,  
   		url : URL,
   	data: { "regionId" : sel.value},
   		success : function(response){
   			if(response != null && response !=""){
   				$('#codeYearId').children('option[value!="0"]').remove(); 
+				console.log(response);
   				data = response.years;
   				console.log("==========data======"+data);
-  				$("#selectedJurisdictionLabelId").val(sel.text);
+  				//$("#selectedJurisdictionLabelId").val(sel.text);
+  				$("#selectedJurisdictionLabelId").val(sel.options[sel.selectedIndex].text);
   				// Adding text as Current for the latest year and keeping the value as it is 
   				$("#codeYearId").append($('<option>', { 
 				        value: data[0][0],
 				        text : "Current"
 				    }));
-  				for( i=1;i<data[0].length;i++){
+  				for( i=0;i<data[0].length;i++){
   					console.log("==========data======"+data[0][i]);
   					$("#codeYearId").append($('<option>', { 
   				        value: data[0][i],
@@ -418,6 +423,11 @@
 	  $("#show-sidebar").click(function() {
 	  $(".page-wrapper").addClass("toggled");
 	  });
+	  
+	  $('#New_Project').on('hidden.bs.modal', function () {
+		    $(this).find('form')[0].reset(); 
+		    $('#codeYearId').children('option[value!="0"]').remove(); 
+		});
 
  });
   </script>
